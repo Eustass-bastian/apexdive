@@ -2748,6 +2748,12 @@ main {
   color: #004953;
 }
 
+.course-highlights {
+  color: #004953;
+  list-style: none;
+  line-height: 2rem;
+}
+
 .courses-footer {
   display: flex;
   justify-content: space-between;
