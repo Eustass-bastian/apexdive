@@ -232,6 +232,65 @@ document.addEventListener("DOMContentLoaded", function () {
       indicators[0].classList.add("active");
     }
   }
+
+  // Add hover effects to service boxes
+  const serviceBoxes = document.querySelectorAll(".service-box");
+  if (serviceBoxes.length) {
+    serviceBoxes.forEach((box) => {
+      box.addEventListener("mouseenter", () => {
+        box.style.transform = "translateY(-10px)";
+      });
+
+      box.addEventListener("mouseleave", () => {
+        box.style.transform = "";
+      });
+    });
+  }
+
+  // Simple partners section enhancements
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add a subtle entrance animation for the partners section
+    const partnersSection = document.querySelector(".partners-section");
+    const partnerItems = document.querySelectorAll(".partner-item");
+    const partnersBadge = document.querySelector(".partners-badge");
+
+    if (partnersSection && partnerItems.length) {
+      // Animate partner items with a slight delay between each
+      partnerItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(20px)";
+
+          // Force a reflow
+          void item.offsetWidth;
+
+          // Add transition
+          item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+
+          // Animate to final state
+          item.style.opacity = "1";
+          item.style.transform = "translateY(0)";
+        }, index * 150);
+      });
+
+      // Animate the badge with a delay
+      if (partnersBadge) {
+        partnersBadge.style.opacity = "0";
+        partnersBadge.style.transform = "scale(0.9)";
+
+        // Force a reflow
+        void partnersBadge.offsetWidth;
+
+        // Add transition
+        partnersBadge.style.transition =
+          "opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s";
+
+        // Animate to final state
+        partnersBadge.style.opacity = "1";
+        partnersBadge.style.transform = "scale(1)";
+      }
+    }
+  });
 });
 
 // Course filtering functionality
@@ -348,4 +407,582 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+});
+
+// Packages Section Functionality
+function initPackagesSection() {
+  // Add animation to section headers when they come into view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  // Observe section headers
+  document.querySelectorAll(".section-header").forEach((header) => {
+    observer.observe(header);
+  });
+
+  // Add hover effects to package cards
+  const packageCards = document.querySelectorAll(".package-card");
+  packageCards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      packageCards.forEach((c) => {
+        if (c !== card) c.style.transform = "scale(0.98)";
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      packageCards.forEach((c) => {
+        if (c !== card) c.style.transform = "";
+      });
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+
+  // Initialize underwater effects for packages hero section
+  initPackagesHeroEffects();
+}
+
+// Initialize underwater effects for the packages hero section
+function initPackagesHeroEffects() {
+  const heroSection = document.querySelector(".packages-hero");
+  if (!heroSection) return;
+
+  // Create dynamic bubbles
+  createDynamicBubbles(heroSection, 10);
+
+  // Add parallax effect to hero section
+  window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition < window.innerHeight) {
+      const overlay = heroSection.querySelector(".packages-hero-overlay");
+      if (overlay) {
+        overlay.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+      }
+
+      const content = heroSection.querySelector(".packages-hero-content");
+      if (content) {
+        content.style.transform = `translateY(${scrollPosition * 0.1}px)`;
+      }
+    }
+  });
+
+  // Add mouse movement effect
+  heroSection.addEventListener("mousemove", (e) => {
+    const { clientX, clientY } = e;
+    const xPos = clientX / window.innerWidth - 0.5;
+    const yPos = clientY / window.innerHeight - 0.5;
+
+    const bubbles = heroSection.querySelectorAll(".elegant-bubble");
+    bubbles.forEach((bubble) => {
+      const speed = parseFloat(bubble.getAttribute("data-speed") || 1);
+      bubble.style.transform = `translate(${xPos * 30 * speed}px, ${
+        yPos * 30 * speed
+      }px)`;
+    });
+
+    const rays = heroSection.querySelector(".light-rays");
+    if (rays) {
+      rays.style.backgroundPosition = `${50 + xPos * 10}% ${50 + yPos * 10}%`;
+    }
+  });
+}
+
+// Create dynamic bubbles for underwater effect
+function createDynamicBubbles(container, count) {
+  const bubblesContainer = document.createElement("div");
+  bubblesContainer.className = "dynamic-bubbles";
+
+  for (let i = 0; i < count; i++) {
+    const bubble = document.createElement("div");
+    bubble.className = "dynamic-bubble";
+
+    // Random properties
+    const size = Math.random() * 30 + 10;
+    const speed = Math.random() * 2 + 1;
+    const delay = Math.random() * 5;
+    const xPos = Math.random() * 100;
+
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${xPos}%`;
+    bubble.style.animationDuration = `${speed * 10}s`;
+    bubble.style.animationDelay = `${delay}s`;
+    bubble.setAttribute("data-speed", speed * 0.5);
+
+    bubblesContainer.appendChild(bubble);
+  }
+
+  container.appendChild(bubblesContainer);
+
+  // Add CSS for dynamic bubbles
+  if (!document.querySelector("#dynamic-bubbles-style")) {
+    const style = document.createElement("style");
+    style.id = "dynamic-bubbles-style";
+    style.textContent = `
+      .dynamic-bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+      
+      .dynamic-bubble {
+        position: absolute;
+        bottom: -50px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        animation: bubbleRise linear infinite;
+        opacity: 0;
+      }
+      
+      @keyframes bubbleRise {
+        0% {
+          transform: translateY(0) rotate(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(-100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+// Initialize packages functionality when DOM is loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if we're on the packages page
+  if (
+    document.querySelector(".packages-section") ||
+    document.querySelector(".packages-hero")
+  ) {
+    initPackagesSection();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Create animated bubbles in hero section
+  const heroOverlay = document.querySelector(".courses-hero-overlay");
+  if (heroOverlay) {
+    // Create and append animated bubble elements
+    for (let i = 0; i < 30; i++) {
+      const bubble = document.createElement("div");
+      bubble.className = "hero-bubble";
+
+      // Randomize bubble sizes - wider range for more variety
+      const size = Math.random() * 60 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+
+      // Distribute bubbles across the entire hero section width
+      bubble.style.left = `${Math.random() * 98 + 1}%`;
+
+      // Add some bubbles at different starting heights
+      bubble.style.bottom = `${Math.random() * 30 - 10}%`;
+
+      // Vary opacity based on size for depth effect
+      bubble.style.opacity =
+        size < 20
+          ? Math.random() * 0.3 + 0.1
+          : size < 40
+          ? Math.random() * 0.5 + 0.2
+          : Math.random() * 0.7 + 0.1;
+
+      // Vary animation duration and delay
+      bubble.style.animationDuration = `${Math.random() * 15 + 8}s`;
+      bubble.style.animationDelay = `${Math.random() * 8}s`;
+
+      heroOverlay.appendChild(bubble);
+    }
+
+    // Create fish for the ocean visual
+    const fishGroup = document.querySelector(".fish-group");
+    if (fishGroup) {
+      // Create multiple fish with different sizes and positions
+      for (let i = 0; i < 12; i++) {
+        const fish = document.createElement("div");
+        fish.className = "fish";
+
+        // Randomize fish sizes for depth effect
+        const size = Math.random() * 1.5 + 0.5; // Scale factor between 0.5 and 2
+        fish.style.transform = `scale(${size})`;
+
+        // Randomize fish positions
+        fish.style.top = `${Math.random() * 80 + 10}%`;
+        fish.style.left = `${Math.random() * 40 + 30}%`; // Start from middle area
+
+        // Vary animation duration and delay
+        fish.style.animationDuration = `${Math.random() * 15 + 15}s`;
+        fish.style.animationDelay = `${Math.random() * 10}s`;
+
+        // Vary opacity based on size for depth effect
+        fish.style.opacity = size < 1 ? 0.5 : size < 1.5 ? 0.7 : 0.9;
+
+        fishGroup.appendChild(fish);
+      }
+    }
+
+    // Create bubbles for the bubble columns
+    const bubbleColumns = document.querySelectorAll(".bubbles-column");
+    if (bubbleColumns.length > 0) {
+      bubbleColumns.forEach((column) => {
+        // Create multiple bubbles for each column
+        for (let i = 0; i < 8; i++) {
+          const bubble = document.createElement("div");
+          bubble.className = "bubble-column-bubble";
+
+          // Randomize bubble sizes
+          const size = Math.random() * 15 + 5;
+          bubble.style.width = `${size}px`;
+          bubble.style.height = `${size}px`;
+
+          // Position bubbles within the column
+          bubble.style.left = `${Math.random() * 100}%`;
+          bubble.style.bottom = `${Math.random() * 20}%`;
+
+          // Vary animation duration and delay
+          bubble.style.animationDuration = `${Math.random() * 8 + 4}s`;
+          bubble.style.animationDelay = `${Math.random() * 5}s`;
+
+          column.appendChild(bubble);
+        }
+      });
+    }
+
+    // Add parallax effect to hero section
+    const hero = document.querySelector(".courses-hero");
+    const heroContent = document.querySelector(".courses-hero-content");
+    const heroVisual = document.querySelector(".courses-hero-visual");
+    // Replace hero circle and ring with new underwater elements
+    const underwaterScene = document.querySelector(".underwater-scene");
+    const seaweed = document.querySelector(".seaweed");
+    const jellyfishElements = document.querySelectorAll(".jellyfish");
+    const coralReef = document.querySelector(".coral-reef");
+    const fishElements = document.querySelectorAll(".fish");
+
+    hero.addEventListener("mousemove", (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+
+      // Subtle movement for the overlay
+      heroOverlay.style.transform = `translate(${x * -20}px, ${y * -20}px)`;
+
+      // Even more subtle movement for the content
+      heroContent.style.transform = `translate(${x * -10}px, ${y * -10}px)`;
+
+      // Move visual elements for parallax effect
+      if (underwaterScene) {
+        underwaterScene.style.transform = `translate(${x * 30}px, ${
+          y * 30 - 50
+        }%) scale(${1 + y * 0.05})`;
+      }
+
+      if (seaweed) {
+        seaweed.style.transform = `skewX(${x * 5 - 2.5}deg)`;
+      }
+
+      // Move jellyfish elements with different intensities
+      jellyfishElements.forEach((jellyfish, index) => {
+        const factor = 1 - index * 0.2;
+        jellyfish.style.transform = `translate(${x * -30 * factor}px, ${
+          y * -20 * factor
+        }px) scale(${0.8 + index * 0.2})`;
+      });
+
+      if (coralReef) {
+        coralReef.style.transform = `translate(${x * 15}px, ${
+          y * 10
+        }px) rotate(${x * 2}deg)`;
+      }
+
+      // Move fish slightly based on mouse position
+      fishElements.forEach((fish) => {
+        const scale = fish.style.transform
+          ? parseFloat(
+              fish.style.transform.replace("scale(", "").replace(")", "")
+            )
+          : 1;
+        const moveFactor = scale * 2; // Larger fish move less
+        fish.style.marginLeft = `${(x * -30) / moveFactor}px`;
+        fish.style.marginTop = `${(y * -20) / moveFactor}px`;
+      });
+
+      // Move bubbles slightly
+      const bubbles = document.querySelectorAll(".hero-bubble");
+      bubbles.forEach((bubble) => {
+        const factor = parseFloat(bubble.style.width) / 60; // Larger bubbles move more
+        bubble.style.transform = `translate(${x * -30 * factor}px, ${
+          y * -30 * factor
+        }px)`;
+      });
+    });
+
+    // Reset transforms when mouse leaves
+    hero.addEventListener("mouseleave", () => {
+      heroOverlay.style.transform = "translate(0, 0)";
+      heroContent.style.transform = "translate(0, 0)";
+
+      if (underwaterScene) {
+        underwaterScene.style.transform = "translateY(-50%)";
+      }
+
+      if (seaweed) {
+        seaweed.style.transform = "skewX(0deg)";
+      }
+
+      // Reset jellyfish positions
+      jellyfishElements.forEach((jellyfish, index) => {
+        jellyfish.style.transform = `scale(${0.8 + index * 0.2})`;
+      });
+
+      if (coralReef) {
+        coralReef.style.transform = "translate(0, 0) rotate(0deg)";
+      }
+
+      // Reset fish positions
+      fishElements.forEach((fish) => {
+        fish.style.marginLeft = "0";
+        fish.style.marginTop = "0";
+      });
+
+      const bubbles = document.querySelectorAll(".hero-bubble");
+      bubbles.forEach((bubble) => {
+        bubble.style.transform = "translate(0, 0)";
+      });
+    });
+
+    // Add scroll effect
+    window.addEventListener("scroll", () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition < window.innerHeight) {
+        const opacity = 1 - scrollPosition / (window.innerHeight / 1.5);
+        heroContent.style.opacity = opacity > 0 ? opacity : 0;
+        heroContent.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+
+        if (heroVisual) {
+          heroVisual.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+        }
+      }
+    });
+  }
+
+  // Course Category Filtering
+  const categoryTabs = document.querySelectorAll(".category-tab");
+  const courseItems = document.querySelectorAll(".course-item");
+  const categoryDescriptions = document.querySelectorAll(
+    ".category-description"
+  );
+
+  categoryTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      // Remove active class from all tabs
+      categoryTabs.forEach((t) => t.classList.remove("active"));
+
+      // Add active class to clicked tab
+      tab.classList.add("active");
+
+      // Get category value
+      const category = tab.getAttribute("data-category");
+
+      // Toggle category descriptions
+      categoryDescriptions.forEach((desc) => {
+        if (desc.getAttribute("data-category") === category) {
+          desc.classList.add("active");
+        } else {
+          desc.classList.remove("active");
+        }
+      });
+
+      // Filter courses
+      courseItems.forEach((item) => {
+        if (
+          category === "all" ||
+          item.getAttribute("data-category") === category
+        ) {
+          item.style.display = "block";
+          // Add animation
+          setTimeout(() => {
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+          }, 50);
+        } else {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            item.style.display = "none";
+          }, 300);
+        }
+      });
+    });
+  });
+
+  // Initialize courses with animation
+  courseItems.forEach((item, index) => {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(20px)";
+    item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+
+    setTimeout(() => {
+      item.style.opacity = "1";
+      item.style.transform = "translateY(0)";
+    }, 100 + index * 100); // Staggered animation
+  });
+
+  // FAQ Accordion
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+
+    question.addEventListener("click", () => {
+      // Check if current item is active
+      const isActive = item.classList.contains("active");
+
+      // Close all FAQ items
+      faqItems.forEach((faqItem) => {
+        faqItem.classList.remove("active");
+      });
+
+      // If clicked item wasn't active, make it active
+      if (!isActive) {
+        item.classList.add("active");
+      }
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100, // Offset for header
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+
+  // Add hover effects for course cards
+  const courseCards = document.querySelectorAll(".course-card");
+  courseCards.forEach((card) => {
+    // Add subtle animation on hover
+    card.addEventListener("mouseenter", function () {
+      const highlights = this.querySelectorAll(".course-highlights li");
+      highlights.forEach((item, index) => {
+        item.style.transform = "translateX(5px)";
+        item.style.transition = `transform 0.3s ease ${index * 0.05}s`;
+      });
+    });
+
+    card.addEventListener("mouseleave", function () {
+      const highlights = this.querySelectorAll(".course-highlights li");
+      highlights.forEach((item) => {
+        item.style.transform = "translateX(0)";
+      });
+    });
+  });
+
+  // Add animation to benefit cards
+  const benefitCards = document.querySelectorAll(".benefit-card");
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px",
+  };
+
+  const benefitObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }, index * 150);
+
+        // Unobserve after animation
+        benefitObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  benefitCards.forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+
+    benefitObserver.observe(card);
+  });
+
+  // Add animation to CTA section
+  const ctaSection = document.querySelector(".cta-section");
+
+  if (ctaSection) {
+    // Add decorative bubbles to CTA section
+    for (let i = 0; i < 4; i++) {
+      const bubble = document.createElement("div");
+      bubble.className = "cta-bubble";
+      bubble.style.width = `${Math.random() * 50 + 20}px`;
+      bubble.style.height = bubble.style.width;
+      bubble.style.left = `${Math.random() * 90 + 5}%`;
+      bubble.style.top = `${Math.random() * 80 + 10}%`;
+      bubble.style.opacity = `${Math.random() * 0.1 + 0.05}`;
+      bubble.style.animationDuration = `${Math.random() * 10 + 20}s`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      ctaSection.appendChild(bubble);
+    }
+
+    const ctaObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-cta");
+            ctaObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    ctaObserver.observe(ctaSection);
+  }
 });

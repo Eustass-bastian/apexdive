@@ -16,12 +16,14 @@
       <div class="content-wrapper">
         <header>
           <div class="logo">
-            <img src="images/logo.png" alt="Apex Dive Logo" />
+            <a href="index.html">
+              <img src="images/logo.png" alt="Apex Dive Logo" />
+            </a>
           </div>
           <nav class="desktop-nav">
             <ul>
-              <li><a href="#">COURSES</a></li>
-              <li><a href="#">PACKAGES</a></li>
+              <li><a href="courses.html">COURSES</a></li>
+              <li><a href="packages.html">PACKAGES</a></li>
               <li><a href="#">ABOUT US</a></li>
               <li><a href="#">CONTACT US</a></li>
             </ul>
@@ -68,68 +70,138 @@
 
     <section class="partners-section">
       <div class="content-wrapper">
-        <h2>Certified Partners</h2>
+        <h2>Certified <span class="highlight-text">Partners</span></h2>
         <div class="partners-logos">
-          <img src="images/dan.png" alt="DAN - Divers Alert Network" />
-          <img src="images/ssi.png" alt="SSI - Scuba Schools International" />
+          <div class="partner-item">
+            <img src="images/dan.png" alt="DAN - Divers Alert Network" />
+            <div class="partner-tooltip">
+              <h3>Divers Alert Network</h3>
+              <p>Emergency assistance & dive safety</p>
+            </div>
+          </div>
+          <div class="partner-item">
+            <img src="images/ssi.png" alt="SSI - Scuba Schools International" />
+            <div class="partner-tooltip">
+              <h3>Scuba Schools International</h3>
+              <p>Global leader in dive training</p>
+            </div>
+          </div>
+        </div>
+        <div class="partners-badge">
+          <span>Certified Excellence in Dive Safety & Training</span>
         </div>
       </div>
     </section>
 
     <section class="services-section">
+      <div class="ocean-waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#004953"
+            fill-opacity="0.2"
+            d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,224C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          ></path>
+        </svg>
+      </div>
+
       <div class="content-wrapper">
+        <div class="services-header">
+          <h2>Dive Into Our <span class="highlight-text">Services</span></h2>
+          <p class="services-subtitle">
+            Discover the perfect diving experience tailored to your needs
+          </p>
+        </div>
+
         <div class="services-grid">
-          <div class="service-card">
+          <!-- Service Card 1 -->
+          <div class="service-box">
             <div class="service-icon">
               <img src="images/certificate.png" alt="Certification Icon" />
             </div>
-            <h3>
-              Certification<br />
-              Courses
-            </h3>
+            <h3>Certification Courses</h3>
             <p>
               Start your diving journey with APEX Dive Rasdhoo! From
               beginner-friendly Discover Scuba Dive to advanced PADI
-              certifications, our courses are designed to make learning safe,
-              fun, and unforgettable. Dive into the Maldives' underwater wonders
-              with confidence!
+              certifications.
             </p>
-            <a href="#" class="btn secondary-btn">Read More</a>
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check-circle"></i> Professional instructors
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Internationally recognized
+                certifications
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Small groups for
+                personalized attention
+              </li>
+            </ul>
+            <a href="#" class="service-btn">Read More</a>
           </div>
 
-          <div class="service-card featured">
+          <!-- Service Card 2 -->
+          <div class="service-box featured">
             <div class="service-icon">
               <img src="images/diver.png" alt="Diver Icon" />
             </div>
-            <h3>
-              Experienced <br />
-              Divers
-            </h3>
+            <h3>Experienced Divers</h3>
             <p>
               For seasoned divers, Rasdhoo offers thrilling adventures. Explore
-              world-class dive sites like Madivaru Corner and Kuramathi Thila,
-              where sharks, rays, and vibrant coral reefs await. Let our expert
-              guides take you to the best spots!
+              world-class dive sites like Madivaru Corner and Kuramathi Thila.
             </p>
-            <a href="#" class="btn secondary-btn">Read More</a>
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check-circle"></i> Access to 16+ premium dive
+                sites
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Expert local dive guides
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Specialized equipment
+                available
+              </li>
+            </ul>
+            <a href="#" class="service-btn">Read More</a>
           </div>
 
-          <div class="service-card">
+          <!-- Service Card 3 -->
+          <div class="service-box">
             <div class="service-icon">
               <img src="images/offer.png" alt="Offers Icon" />
             </div>
-            <h3>
-              Unbelievable<br />
-              Offers
-            </h3>
+            <h3>Unbelievable Offers</h3>
             <p>
               Dive more, save more! Enjoy exclusive discounts on dive packages,
-              group bookings, and multi-day adventures. Whether you're a
-              beginner or a pro, our unbeatable offers make diving in Rasdhoo
-              even more rewarding
+              group bookings, and multi-day adventures with our unbeatable
+              offers.
             </p>
-            <a href="#" class="btn secondary-btn">Read More</a>
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check-circle"></i> Group discounts available
+              </li>
+              <li><i class="fas fa-check-circle"></i> Seasonal promotions</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Package deals with
+                accommodations
+              </li>
+            </ul>
+            <a href="#" class="service-btn">Read More</a>
           </div>
+        </div>
+
+        <div class="services-cta">
+          <div class="services-cta-content">
+            <h3>Ready to Experience the Underwater World?</h3>
+            <p>
+              Book your dive adventure today and discover the magic beneath the
+              waves
+            </p>
+          </div>
+          <a href="#" class="services-cta-btn"
+            >Book Your Dive <i class="fas fa-arrow-right"></i
+          ></a>
         </div>
       </div>
     </section>
@@ -471,7 +543,7 @@
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-water"></i>
-                  <span>Pool & Ocean</span>
+                  <span>Confined Water</span>
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-child"></i>
@@ -508,11 +580,11 @@
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-water"></i>
-                  <span>Pool & Ocean</span>
+                  <span>Confined water</span>
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-graduation-cap"></i>
-                  <span>Certification</span>
+                  <span>Certify</span>
                 </div>
               </div>
               <p class="course-description">
@@ -521,7 +593,7 @@
                 in the world.
               </p>
               <div class="course-action">
-                <a href="#" class="course-btn">Learn More</a>
+                <a href="courses.html" class="course-btn">Learn More</a>
               </div>
             </div>
           </div>
@@ -617,123 +689,95 @@
       </div>
     </section>
 
-    <!-- Dive Packages Section -->
-    <section class="packages-section">
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
       <div class="packages-container">
-        <div class="packages-header">
+        <div class="section-header">
           <h2>Dive Packages</h2>
-          <p class="packages-subtitle">
+          <p>
             Experience the best of Rasdhoo's underwater world with our carefully
             crafted dive packages
           </p>
         </div>
 
         <div class="packages-grid">
-          <!-- Package 1 -->
+          <!-- Ocean Quest Package -->
           <div class="package-card">
             <div class="package-image">
-              <img src="images/package - 1.jpg" alt="APEX Ocean Quest" />
-              <div class="package-overlay"></div>
+              <img src="images/package - 3.avif" alt="Ocean Quest Package" />
             </div>
             <div class="package-content">
-              <div class="package-title">
-                <h3>APEX Ocean Quest</h3>
-                <p class="package-description">
-                  A short but thrilling dive escape
-                </p>
-              </div>
+              <h3>APEX Ocean Quest</h3>
+              <p class="package-description">
+                A short but thrilling dive escape
+              </p>
+
               <div class="package-details">
-                <div class="package-detail">
-                  <i class="fas fa-water"></i>
-                  <span>4 Dives</span>
+                <div class="package-icons">
+                  <span><i class="fas fa-water"></i> 4 Dives</span>
+                  <span><i class="fas fa-calendar-alt"></i> 2 Days</span>
                 </div>
-                <div class="package-detail">
-                  <i class="fas fa-calendar-alt"></i>
-                  <span>2 Days</span>
-                </div>
-              </div>
-              <div class="package-action">
-                <a href="packages.html" class="package-btn">View Details</a>
-                <div class="package-price-bubble">
-                  <span>$640</span>
+
+                <div class="package-price-wrapper">
+                  <div class="package-price">$640</div>
                 </div>
               </div>
+
+              <a href="#" class="view-details">View Details</a>
             </div>
           </div>
 
-          <!-- Package 2 -->
-          <div class="package-card featured">
-            <div class="package-image">
-              <img src="images/package - 2.jpeg" alt="APEX Deep Odyssey" />
-              <div class="package-overlay"></div>
-              <div class="package-badge">
-                <span>Popular</span>
-              </div>
-            </div>
-            <div class="package-content">
-              <div class="package-title">
-                <h3>APEX Deep Odyssey</h3>
-                <p class="package-description">
-                  Explore Maldives depths in style
-                </p>
-              </div>
-              <div class="package-details">
-                <div class="package-detail">
-                  <i class="fas fa-water"></i>
-                  <span>8 Dives</span>
-                </div>
-                <div class="package-detail">
-                  <i class="fas fa-calendar-alt"></i>
-                  <span>4 Days</span>
-                </div>
-              </div>
-              <div class="package-action">
-                <a href="packages.html" class="package-btn">View Details</a>
-                <div class="package-price-bubble">
-                  <span>$935</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Package 3 -->
+          <!-- Deep Odyssey Package -->
           <div class="package-card">
             <div class="package-image">
-              <img src="images/package - 3.avif" alt="APEX Ultimate Drift" />
-              <div class="package-overlay"></div>
-              <div class="package-badge premium">
-                <span>Premium</span>
-              </div>
+              <img src="images/pic 2.avif" alt="Deep Odyssey Package" />
+              <div class="package-tag">Popular</div>
             </div>
             <div class="package-content">
-              <div class="package-title">
-                <h3>APEX Ultimate Drift</h3>
-                <p class="package-description">The ultimate dive adventure</p>
-              </div>
+              <h3>APEX Deep Odyssey</h3>
+              <p class="package-description">
+                Explore Maldives depths in style
+              </p>
+
               <div class="package-details">
-                <div class="package-detail">
-                  <i class="fas fa-water"></i>
-                  <span>12 Dives</span>
+                <div class="package-icons">
+                  <span><i class="fas fa-water"></i> 8 Dives</span>
+                  <span><i class="fas fa-calendar-alt"></i> 4 Days</span>
                 </div>
-                <div class="package-detail">
-                  <i class="fas fa-calendar-alt"></i>
-                  <span>6 Days</span>
-                </div>
-              </div>
-              <div class="package-action">
-                <a href="packages.html" class="package-btn">View Details</a>
-                <div class="package-price-bubble">
-                  <span>$1505</span>
+
+                <div class="package-price-wrapper">
+                  <div class="package-price">$935</div>
                 </div>
               </div>
+
+              <a href="#" class="view-details">View Details</a>
             </div>
           </div>
-        </div>
 
-        <div class="packages-footer">
-          <a href="packages.html" class="learn-more-btn"
-            >Explore All Packages</a
-          >
+          <!-- Ultimate Drift Package -->
+          <div class="package-card">
+            <div class="package-image">
+              <img src="images/pic 1.avif" alt="Ultimate Drift Package" />
+              <div class="package-tag">Premium</div>
+            </div>
+            <div class="package-content">
+              <h3>APEX Ultimate Drift</h3>
+              <p class="package-description">The ultimate dive adventure</p>
+
+              <div class="package-details">
+                <div class="package-icons">
+                  <span><i class="fas fa-water"></i> 12 Dives</span>
+                  <span><i class="fas fa-calendar-alt"></i> 6 Days</span>
+                </div>
+
+                <div class="package-price-wrapper">
+                  <div class="package-price">$1505</div>
+                </div>
+              </div>
+
+              <a href="#" class="view-details">View Details</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
