@@ -986,3 +986,302 @@ document.addEventListener("DOMContentLoaded", function () {
     ctaObserver.observe(ctaSection);
   }
 });
+
+// Customize Package Form Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const customForm = document.getElementById("customPackageForm");
+  if (!customForm) return;
+
+  // Slider elements
+  const numDivesSlider = document.getElementById("numDives");
+  const numDivesValue = document.getElementById("numDivesValue");
+  const numNightsSlider = document.getElementById("numNights");
+  const numNightsValue = document.getElementById("numNightsValue");
+  const numPeopleSlider = document.getElementById("numPeople");
+  const numPeopleValue = document.getElementById("numPeopleValue");
+  const divingYearsSlider = document.getElementById("divingYears");
+  const divingYearsValue = document.getElementById("divingYearsValue");
+
+  // Update slider values
+  function updateSliderValues() {
+    if (numDivesSlider && numDivesValue) {
+      numDivesValue.textContent = numDivesSlider.value;
+      numDivesSlider.addEventListener("input", () => {
+        numDivesValue.textContent = numDivesSlider.value;
+      });
+    }
+
+    if (numNightsSlider && numNightsValue) {
+      numNightsValue.textContent = numNightsSlider.value;
+      numNightsSlider.addEventListener("input", () => {
+        numNightsValue.textContent = numNightsSlider.value;
+      });
+    }
+
+    if (numPeopleSlider && numPeopleValue) {
+      numPeopleValue.textContent = numPeopleSlider.value;
+      numPeopleSlider.addEventListener("input", () => {
+        numPeopleValue.textContent = numPeopleSlider.value;
+      });
+    }
+
+    if (divingYearsSlider && divingYearsValue) {
+      divingYearsValue.textContent = divingYearsSlider.value;
+      divingYearsSlider.addEventListener("input", () => {
+        divingYearsValue.textContent = divingYearsSlider.value;
+      });
+    }
+  }
+
+  // Multi-step form navigation
+  const formSteps = document.querySelectorAll(".form-step");
+  const progressTrack = document.querySelector(".progress-track");
+  const nextButtons = document.querySelectorAll(".next-step-btn");
+  const prevButtons = document.querySelectorAll(".prev-step-btn");
+  const stepItems = document.querySelectorAll(".step-item");
+
+  // Go to next step
+  nextButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const currentStep = this.closest(".form-step");
+      const currentStepNum = parseInt(currentStep.dataset.step);
+      const nextStepNum = currentStepNum + 1;
+
+      // Validate current step (simplified for now)
+      const isValid = validateStep(currentStepNum);
+      if (!isValid) return;
+
+      // Update progress bar
+      updateProgressBar(nextStepNum);
+
+      // Hide current step and show next step
+      currentStep.classList.remove("active");
+      const nextStep = document.querySelector(
+        `.form-step[data-step="${nextStepNum}"]`
+      );
+      if (nextStep) {
+        nextStep.classList.add("active");
+      }
+    });
+  });
+
+  // Go to previous step
+  prevButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const currentStep = this.closest(".form-step");
+      const currentStepNum = parseInt(currentStep.dataset.step);
+      const prevStepNum = currentStepNum - 1;
+
+      // Update progress bar
+      updateProgressBar(prevStepNum);
+
+      // Hide current step and show previous step
+      currentStep.classList.remove("active");
+      const prevStep = document.querySelector(
+        `.form-step[data-step="${prevStepNum}"]`
+      );
+      if (prevStep) {
+        prevStep.classList.add("active");
+      }
+    });
+  });
+
+  // Update progress bar
+  function updateProgressBar(stepNum) {
+    // Update progress track width
+    if (progressTrack) {
+      progressTrack.style.width = `${(stepNum - 1) * 50}%`;
+    }
+
+    // Update step circles
+    stepItems.forEach((item) => {
+      const itemStepNum = parseInt(item.dataset.step);
+      item.classList.remove("active", "completed");
+
+      if (itemStepNum === stepNum) {
+        item.classList.add("active");
+      } else if (itemStepNum < stepNum) {
+        item.classList.add("completed");
+      }
+    });
+  }
+
+  // Simple validation for demonstration
+  function validateStep(stepNum) {
+    return true; // Skip validation for now
+  }
+
+  // Toggle certified diver options
+  const certifiedDiverToggle = document.getElementById("certifiedDiver");
+  const diverInfoContainers = document.querySelectorAll(".diverInfo-container");
+
+  if (certifiedDiverToggle && diverInfoContainers.length > 0) {
+    // Initially hide diver info if toggle is not checked
+    if (!certifiedDiverToggle.checked) {
+      diverInfoContainers.forEach((container) => {
+        container.style.display = "none";
+      });
+    }
+
+    certifiedDiverToggle.addEventListener("change", function () {
+      diverInfoContainers.forEach((container) => {
+        container.style.display = this.checked ? "block" : "none";
+      });
+    });
+  }
+
+  // Form submission
+  customForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Collect form data
+    const formData = new FormData(customForm);
+    const formDataObj = {};
+
+    formData.forEach((value, key) => {
+      formDataObj[key] = value;
+    });
+
+    // For demo purposes, just show success message
+    alert(
+      "Thank you! Your custom package request has been submitted. We will contact you soon with a quote."
+    );
+
+    // Optional: Reset form
+    customForm.reset();
+
+    // Return to first step
+    formSteps.forEach((step) => step.classList.remove("active"));
+    formSteps[0].classList.add("active");
+    updateProgressBar(1);
+  });
+
+  // Initialize
+  updateSliderValues();
+});
+
+/* Add styles for success message */
+const styleElement = document.createElement("style");
+styleElement.textContent = `
+  .success-message {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .success-icon {
+    font-size: 4rem;
+    color: #10b981;
+    margin-bottom: 1.5rem;
+    animation: scaleIn 0.5s ease-out;
+  }
+  
+  .success-message h3 {
+    font-size: 1.8rem;
+    color: #004953;
+    margin-bottom: 1rem;
+  }
+  
+  .success-message p {
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .success-details {
+    font-weight: 500;
+    color: #334155;
+  }
+  
+  .package-details {
+    background: #eef2ff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .package-details h4 {
+    font-size: 1.2rem;
+    color: #1e40af;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+  
+  .detail-item {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .detail-label {
+    color: #64748b;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  
+  .detail-value {
+    color: #004953;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .details-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+`;
+document.head.appendChild(styleElement);
+
+// Add smooth scrolling for anchor links
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    if (anchor.getAttribute("href") !== "#") {
+      // Skip empty hash links
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // 80px offset for header
+            behavior: "smooth",
+          });
+        }
+      });
+    }
+  });
+});

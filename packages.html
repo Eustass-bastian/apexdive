@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses - APEX DIVE</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="toggle-styles.css" />
+    <link rel="stylesheet" href="custom-package.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="script.js" defer></script>
+    <script src="custom-package.js" defer></script>
+  </head>
+  <body>
+    <div class="courses-container">
+      <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="Apex Dive Logo" />
+          </a>
+        </div>
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="courses.html">COURSES</a></li>
+            <li><a href="packages.html" class="active">PACKAGES</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">CONTACT US</a></li>
+          </ul>
+        </nav>
+        <div class="book-btn desktop-book">
+          <a href="#" class="btn">BOOK</a>
+        </div>
+        <div class="mobile-menu-toggle">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="courses.html">COURSES</a></li>
+            <li><a href="packages.html" class="active">PACKAGES</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">CONTACT US</a></li>
+            <li class="mobile-book"><a href="#" class="btn">BOOK</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main class="courses-page-main">
+        <div class="courses-hero">
+          <div class="content-wrapper">
+            <div class="courses-hero-content">
+              <h1>APEX Dive Escapes</h1>
+              <p>
+                From quick getaways to ultimate dive adventures, our packages
+                are designed for every diver. Stay, dive, and experience Rasdhoo
+                like never before!
+              </p>
+              <div class="courses-hero-buttons">
+                <a href="#package-cards-section" class="btn primary-btn"
+                  >Explore Packages</a
+                >
+                <a href="#" class="btn secondary-btn">Contact Us</a>
+              </div>
+            </div>
+            <div class="courses-hero-visual">
+              <div class="ocean-visual">
+                <div class="bubbles-column" style="left: 15%">
+                  <div class="bubble-column-bubble"></div>
+                  <div class="bubble-column-bubble"></div>
+                </div>
+                <div class="bubbles-column" style="left: 40%">
+                  <div class="bubble-column-bubble"></div>
+                  <div class="bubble-column-bubble"></div>
+                </div>
+                <div class="bubbles-column" style="left: 65%">
+                  <div class="bubble-column-bubble"></div>
+                  <div class="bubble-column-bubble"></div>
+                </div>
+                <div class="bubbles-column" style="left: 90%">
+                  <div class="bubble-column-bubble"></div>
+                  <div class="bubble-column-bubble"></div>
+                </div>
+              </div>
+              <div class="jellyfish"></div>
+              <div class="jellyfish"></div>
+              <div class="jellyfish"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <main class="packages-page-main">
+      <div class="packages-hero">
+        <div class="content-wrapper">
+          <h1 class="section-title">Dive Packages</h1>
+          <div class="section-subtitle">
+            <p>
+              Experience the best of Maldivian waters with our carefully curated
+              dive packages
+            </p>
+            <span class="divider"></span>
+          </div>
+
+          <!-- Package Cards -->
+          <div class="package-cards" id="package-cards-section">
+            <!-- APEX Ocean Quest Package -->
+            <div class="package-card">
+              <div class="package-image">
+                <img
+                  src="images/turtle.jpg"
+                  alt="Ocean Quest Package - Sea Turtle"
+                />
+                <div class="package-badge">Most Popular</div>
+              </div>
+              <div class="package-content">
+                <h3>APEX Ocean Quest</h3>
+                <div class="package-price">$649</div>
+                <p class="package-duration">4 Nights • 8 Dives • Transfers</p>
+                <p class="package-description">
+                  Perfect for short stays! Explore vibrant coral reefs,
+                  encounter majestic sea turtles, and discover the rich marine
+                  biodiversity of Rasdhoo Atoll.
+                </p>
+                <ul class="package-features">
+                  <li>
+                    <i class="fas fa-check"></i> 8 Regular Dives (2 dives per
+                    day)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> 4 Guided Dives with Marine
+                    Expert
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Boat Transfers included
+                    (Boarding - Beach to Island)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Tank, weights & professional
+                    dive guide
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Complimentary house reef diving
+                  </li>
+                </ul>
+                <a href="#" class="book-now-btn">BOOK NOW</a>
+              </div>
+            </div>
+
+            <!-- APEX Adventure Package -->
+            <div class="package-card">
+              <div class="package-image">
+                <img
+                  src="images/manta.jpg"
+                  alt="Adventure Package - Manta Ray"
+                />
+                <div class="package-badge">Best Value</div>
+              </div>
+              <div class="package-content">
+                <h3>APEX Adventure</h3>
+                <div class="package-price">$949</div>
+                <p class="package-duration">6 Nights • 12 Dives • Transfers</p>
+                <p class="package-description">
+                  Dive into adventure! Experience thrilling encounters with
+                  manta rays, reef sharks, and explore famous dive sites
+                  including Hammerhead Point.
+                </p>
+                <ul class="package-features">
+                  <li>
+                    <i class="fas fa-check"></i> 12 Regular Dives (2 dives per
+                    day)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> 6 Guided Dives with Marine
+                    Expert
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Boat Transfers included
+                    (Boarding - Beach to Island)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Tank, weights & professional
+                    dive guide
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> 1 Complimentary night dive
+                  </li>
+                </ul>
+                <a href="#" class="book-now-btn">BOOK NOW</a>
+              </div>
+            </div>
+
+            <!-- APEX Ultimate Package -->
+            <div class="package-card">
+              <div class="package-image">
+                <img
+                  src="images/shark.jpg"
+                  alt="Ultimate Package - Deep Diving"
+                />
+                <div class="package-badge">Premium</div>
+              </div>
+              <div class="package-content">
+                <h3>APEX Ultimate</h3>
+                <div class="package-price">$1,349</div>
+                <p class="package-duration">8 Nights • 15 Dives • Transfers</p>
+                <p class="package-description">
+                  The ultimate diving experience! Explore all premium dive
+                  sites, including early morning hammerhead shark dives and
+                  channel diving adventures.
+                </p>
+                <ul class="package-features">
+                  <li>
+                    <i class="fas fa-check"></i> 15 Regular Dives (2 dives per
+                    day)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> 8 Guided Dives with Senior
+                    Expert
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Boat Transfers included
+                    (Boarding - Beach to Island)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Tank, weights & professional
+                    dive guide
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> 2 Complimentary night dives
+                  </li>
+                </ul>
+                <a href="#" class="book-now-btn">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Package Benefits -->
+          <section class="package-benefits">
+            <div class="benefits-grid">
+              <div class="benefit-item">
+                <i class="fas fa-medal"></i>
+                <h4>Expert Guides</h4>
+                <p>SSI certified instructors with extensive local experience</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-life-ring"></i>
+                <h4>Safety First</h4>
+                <p>Top-quality equipment and strict safety protocols</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>Prime Locations</h4>
+                <p>Access to 16+ world-class dive sites</p>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-users"></i>
+                <h4>Small Groups</h4>
+                <p>Maximum 4 divers per guide for personalized attention</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Customize Your Own Package - 3 Step Form -->
+          <section class="custom-package-section">
+            <h2 class="section-title">Customize your own package</h2>
+            <div class="section-subtitle">
+              <p>Tailor your ideal diving experience to your preferences</p>
+              <span class="divider"></span>
+            </div>
+
+            <div class="custom-package-container">
+              <!-- Progress Steps -->
+              <div class="progress-container">
+                <!-- Progress bar removed -->
+                <div class="progress-steps">
+                  <div class="step-item active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Trip Details</div>
+                  </div>
+                  <div class="step-item" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Diver Info</div>
+                  </div>
+                  <div class="step-item" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Contact</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form -->
+              <form class="custom-package-form" id="customPackageForm">
+                <!-- Step 1: Trip Details -->
+                <div class="form-step active" data-step="1">
+                  <div class="form-group slider-group">
+                    <label for="numDives">Number of Dives</label>
+                    <div class="slider-container">
+                      <input
+                        type="range"
+                        id="numDives"
+                        min="2"
+                        max="20"
+                        value="8"
+                        class="custom-slider"
+                      />
+                      <div class="slider-value-display">
+                        <span id="numDivesValue">8</span> dives
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group slider-group">
+                    <label for="numNights">Number of Nights</label>
+                    <div class="slider-container">
+                      <input
+                        type="range"
+                        id="numNights"
+                        min="3"
+                        max="14"
+                        value="5"
+                        class="custom-slider"
+                      />
+                      <div class="slider-value-display">
+                        <span id="numNightsValue">5</span> nights
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group slider-group">
+                    <label for="numPeople">Number of people</label>
+                    <div class="slider-container">
+                      <input
+                        type="range"
+                        id="numPeople"
+                        min="1"
+                        max="10"
+                        value="2"
+                        class="custom-slider"
+                      />
+                      <div class="slider-value-display">
+                        <span id="numPeopleValue">2</span> people
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group travel-date-group">
+                    <label>Travelling Date</label>
+                    <div class="travel-date-container">
+                      <div class="travel-date-field">
+                        <label for="travelMonth" class="sub-label">Month</label>
+                        <select id="travelMonth" class="custom-select">
+                          <option value="">Select month</option>
+                          <option value="january">January</option>
+                          <option value="february">February</option>
+                          <option value="march">March</option>
+                          <option value="april">April</option>
+                          <option value="may">May</option>
+                          <option value="june">June</option>
+                          <option value="july">July</option>
+                          <option value="august">August</option>
+                          <option value="september">September</option>
+                          <option value="october">October</option>
+                          <option value="november">November</option>
+                          <option value="december">December</option>
+                        </select>
+                      </div>
+                      <div class="travel-date-field">
+                        <label for="travelYear" class="sub-label">Year</label>
+                        <select id="travelYear" class="custom-select">
+                          <option value="">Select year</option>
+                          <option value="2025">2025</option>
+                          <option value="2026">2026</option>
+                          <option value="2027">2027</option>
+                          <option value="2028">2028</option>
+                          <option value="2029">2029</option>
+                          <option value="2030">2030</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-navigation">
+                    <button type="button" class="next-step-btn">
+                      Continue to Diver Info
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Step 2: Diver Info -->
+                <div class="form-step" data-step="2">
+                  <div class="form-group">
+                    <label for="certifiedDiver"
+                      >Are you a certified diver?</label
+                    >
+                    <div class="toggle-container">
+                      <input
+                        type="checkbox"
+                        id="certifiedDiver"
+                        class="toggle-input"
+                      />
+                      <label for="certifiedDiver" class="toggle-label">
+                        <span class="toggle-yes">No</span>
+                        <span class="toggle-no">Yes</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Certification level - only visible when "Yes" is selected -->
+                  <div
+                    class="form-group diverInfo-container"
+                    id="certificationLevelContainer"
+                  >
+                    <label for="diverLevel">Certification Level</label>
+                    <select id="diverLevel" class="custom-select">
+                      <option value="">Select level</option>
+                      <option value="open-water">Open Water</option>
+                      <option value="advanced">Advanced Open Water</option>
+                      <option value="rescue">Rescue Diver</option>
+                      <option value="divemaster">Divemaster</option>
+                      <option value="instructor">Instructor</option>
+                    </select>
+                  </div>
+
+                  <!-- Diving experience - only visible when "Yes" is selected -->
+                  <div
+                    class="form-group slider-group diverInfo-container"
+                    id="divingExperienceContainer"
+                  >
+                    <label for="divingYears">Years of diving experience</label>
+                    <div class="slider-container">
+                      <input
+                        type="range"
+                        id="divingYears"
+                        min="0"
+                        max="30"
+                        value="2"
+                        class="custom-slider"
+                      />
+                      <div class="slider-value-display">
+                        <span id="divingYearsValue">2</span> years
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Additional requests - visible for all, but primary focus when "No" is selected -->
+                  <div class="form-group" id="additionalRequestsContainer">
+                    <label for="additionalRequests"
+                      >Additional requests or information</label
+                    >
+                    <textarea
+                      id="additionalRequests"
+                      class="custom-textarea"
+                      rows="4"
+                      placeholder="Tell us about any special requests or requirements..."
+                    ></textarea>
+                  </div>
+
+                  <div class="form-navigation">
+                    <button type="button" class="prev-step-btn">Back</button>
+                    <button type="button" class="next-step-btn">
+                      Continue to Contact
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Step 3: Contact Info -->
+                <div class="form-step" data-step="3">
+                  <!-- Package Summary -->
+
+                  <div class="form-group">
+                    <label for="fullName">Name</label>
+                    <input
+                      type="text"
+                      id="fullName"
+                      class="custom-input"
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input
+                      type="email"
+                      id="email"
+                      class="custom-input"
+                      placeholder="Your email address"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Phone Number (WhatsApp)</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      class="custom-input"
+                      placeholder="Include country code"
+                    />
+                  </div>
+
+                  <div class="form-group package-summary">
+                    <h3>Your Package Summary</h3>
+                    <div class="summary-content">
+                      <div class="summary-item">
+                        <span class="summary-label">Number of Dives:</span>
+                        <span class="summary-value" id="summaryDives">8</span>
+                      </div>
+                      <div class="summary-item">
+                        <span class="summary-label">Number of Nights:</span>
+                        <span class="summary-value" id="summaryNights">5</span>
+                      </div>
+                      <div class="summary-item">
+                        <span class="summary-label">Number of People:</span>
+                        <span class="summary-value" id="summaryPeople">2</span>
+                      </div>
+                      <div class="summary-item">
+                        <span class="summary-label">Travel Date:</span>
+                        <span class="summary-value" id="summaryDate"
+                          >Not selected</span
+                        >
+                      </div>
+                      <div class="summary-item" id="summaryDiverInfoContainer">
+                        <span class="summary-label">Diver Status:</span>
+                        <span class="summary-value" id="summaryDiverStatus"
+                          >Not certified</span
+                        >
+                      </div>
+                      <div
+                        class="summary-item"
+                        id="summaryCertificationContainer"
+                      >
+                        <span class="summary-label">Certification Level:</span>
+                        <span class="summary-value" id="summaryCertification"
+                          >-</span
+                        >
+                      </div>
+                      <div class="summary-item" id="summaryExperienceContainer">
+                        <span class="summary-label">Years of Experience:</span>
+                        <span class="summary-value" id="summaryExperience"
+                          >-</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="consent-checkbox">
+                      <input type="checkbox" id="dataConsent" required />
+                      <label for="dataConsent"
+                        >I agree to the processing of my data to receive a
+                        customized quote</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="form-navigation">
+                    <button type="button" class="prev-step-btn">Back</button>
+                    <button type="submit" class="submit-btn">
+                      Get Quotation
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="form-completion-message">
+                <p>
+                  *Submit your request via email or WhatsApp, and we'll get back
+                  to you with a personalized quote!
+                </p>
+                <div class="contact-info">
+                  <div><i class="fas fa-phone"></i> +960 7956848</div>
+                  <div>
+                    <i class="fas fa-envelope"></i> apexdiversdhoo@gmail.com
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Add-On Experiences -->
+          <section class="add-on-experiences">
+            <h2 class="section-title">Enhance Your Experience</h2>
+            <div class="section-subtitle">
+              <p>
+                Discover these exclusive activities to complement your diving
+                adventure
+              </p>
+              <span class="divider"></span>
+            </div>
+
+            <div class="experiences-showcase">
+              <div class="experience-card">
+                <div class="experience-image">
+                  <img src="images/sandbank.jpg" alt="Sandbank Trip" />
+                  <div class="experience-badge">$25</div>
+                </div>
+                <div class="experience-details">
+                  <h3>Sandbank Trip</h3>
+                  <p>
+                    Escape to pristine white sand surrounded by crystal clear
+                    turquoise waters. Perfect for stunning photos and peaceful
+                    relaxation between dives.
+                  </p>
+                  <div class="experience-meta">
+                    <span><i class="fas fa-clock"></i> 3 hours</span>
+                    <span><i class="fas fa-user-friends"></i> Per person</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="experience-card">
+                <div class="experience-image">
+                  <img src="images/sunset.jpg" alt="Sunset Cruise" />
+                  <div class="experience-badge">$30</div>
+                </div>
+                <div class="experience-details">
+                  <h3>Sunset Cruise</h3>
+                  <p>
+                    Experience the magical colors of a Maldivian sunset from our
+                    traditional dhoni boat while enjoying refreshments and
+                    snacks with fellow divers.
+                  </p>
+                  <div class="experience-meta">
+                    <span><i class="fas fa-clock"></i> 2 hours</span>
+                    <span><i class="fas fa-user-friends"></i> Per person</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="experience-card">
+                <div class="experience-image">
+                  <img src="images/nightdive.jpg" alt="Night Dive" />
+                  <div class="experience-badge highlight-badge">$65</div>
+                </div>
+                <div class="experience-details">
+                  <h3>
+                    Night Dive <span class="experience-tag">Most Popular</span>
+                  </h3>
+                  <p>
+                    Discover a completely different underwater world as
+                    nocturnal creatures emerge and bioluminescent organisms
+                    light up the reef in this unforgettable experience.
+                  </p>
+                  <div class="experience-meta">
+                    <span><i class="fas fa-clock"></i> 1.5 hours</span>
+                    <span
+                      ><i class="fas fa-certificate"></i> Certified divers
+                      only</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="experience-card">
+                <div class="experience-image">
+                  <img
+                    src="images/photography-under.jpg"
+                    alt="Underwater Photography"
+                  />
+                  <div class="experience-badge">$45</div>
+                </div>
+                <div class="experience-details">
+                  <h3>Underwater Photography</h3>
+                  <p>
+                    Professional underwater photography session with our
+                    experienced photographers to capture your most memorable
+                    underwater moments to treasure forever.
+                  </p>
+                  <div class="experience-meta">
+                    <span><i class="fas fa-clock"></i> 2 hours</span>
+                    <span
+                      ><i class="fas fa-camera"></i> Includes digital
+                      files</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="experiences-cta">
+              <p>
+                These exclusive activities can be added to any of our diving
+                packages to create your perfect Maldives experience
+              </p>
+            </div>
+          </section>
+
+          <!-- Important Notes -->
+          <section class="important-notes">
+            <h2 class="section-title">Important Information</h2>
+            <div class="section-subtitle">
+              <p>
+                Essential details to ensure your diving experience is safe and
+                enjoyable
+              </p>
+              <span class="divider"></span>
+            </div>
+
+            <div class="notes-container">
+              <div class="note-item">
+                <div class="note-icon">
+                  <i class="fas fa-plane"></i>
+                </div>
+                <div class="note-content">
+                  <h3>Flying After Diving</h3>
+                  <p>
+                    For your safety, wait at least 24 hours after your last dive
+                    before flying. This reduces the risk of decompression
+                    sickness by allowing residual nitrogen to safely exit your
+                    body.
+                  </p>
+                </div>
+              </div>
+
+              <div class="note-item">
+                <div class="note-icon">
+                  <i class="fas fa-fire-extinguisher"></i>
+                </div>
+                <div class="note-content">
+                  <h3>Equipment Rental</h3>
+                  <p>
+                    Full dive gear is available for rent upon request. Our
+                    equipment is regularly maintained and serviced to ensure
+                    your safety and comfort during all dives.
+                  </p>
+                </div>
+              </div>
+
+              <div class="note-item">
+                <div class="note-icon">
+                  <i class="fas fa-umbrella-beach"></i>
+                </div>
+                <div class="note-content">
+                  <h3>Non-Diver Options</h3>
+                  <p>
+                    We offer special rates for non-divers, including guided
+                    snorkeling trips, island excursions, and cultural
+                    experiences. Everyone can enjoy the beauty of the Maldives.
+                  </p>
+                </div>
+              </div>
+
+              <div class="note-item">
+                <div class="note-icon">
+                  <i class="fas fa-water"></i>
+                </div>
+                <div class="note-content">
+                  <h3>Weather Conditions</h3>
+                  <p>
+                    Dive trips may be rescheduled due to adverse weather
+                    conditions. Your safety is our priority, and our team will
+                    work to ensure you get the most from your diving experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="notes-disclaimer">
+              <p>
+                <i class="fas fa-info-circle"></i> All packages include tanks,
+                weights, and professional guides. Personal dive insurance is
+                recommended for all divers.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-waves">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#004953"
+            fill-opacity="1"
+            d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,149.3C672,160,768,160,864,138.7C960,117,1056,75,1152,69.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Footer top with logo and tagline -->
+      <div class="footer-top">
+        <div class="footer-logo-container">
+          <div class="footer-logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="Apex Dive Rasdhoo Logo" />
+            </a>
+          </div>
+          <p class="footer-tagline">Discover the Depths of the Maldives</p>
+        </div>
+        <div class="social-icons-container">
+          <p class="connect-text">Connect With Us</p>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Facebook" class="social-icon-bubble"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Instagram" class="social-icon-bubble"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="YouTube" class="social-icon-bubble"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a href="#" aria-label="WhatsApp" class="social-icon-bubble"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="#" aria-label="Phone" class="social-icon-bubble"
+              ><i class="fas fa-phone"></i
+            ></a>
+            <a href="#" aria-label="Trip Advisor" class="social-icon-bubble"
+              ><i class="fas fa-umbrella-beach"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main footer content with decorative elements -->
+      <div class="footer-main">
+        <div class="footer-content-wrapper">
+          <div class="footer-column about-column">
+            <h3>About Us</h3>
+            <p>
+              At Apex Dive Rasdhoo, we bring the thrill of diving to all levels,
+              from beginners to advanced explorers. As an SSI-certified dive
+              center, we offer top-tier training, unforgettable dive
+              experiences, and personalized service with the best of the
+              Maldives' underwater world.
+            </p>
+            <div class="certification-badges">
+              <span class="cert-badge">SSI Certified</span>
+              <span class="cert-badge">DAN Partner</span>
+            </div>
+          </div>
+
+          <div class="footer-column quick-links-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="courses.html"
+                  ><i class="fas fa-angle-right"></i> Courses</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-angle-right"></i> Packages</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-angle-right"></i> Contact Us</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-angle-right"></i> FAQ</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column contact-column">
+            <h3>Get in Touch</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Luboagasdhoshuge, AA Rasdhoo, Maldives, 09030</p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p><a href="tel:+9607956848">+960 7956848</a></p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>
+                  <a href="mailto:apexdiverasdhoo@gmail.com"
+                    >apexdiverasdhoo@gmail.com</a
+                  >
+                </p>
+              </div>
+              <a href="#" class="contact-btn">Contact Us Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative bubbles -->
+        <div class="footer-bubble bubble-1"></div>
+        <div class="footer-bubble bubble-2"></div>
+        <div class="footer-bubble bubble-3"></div>
+        <div class="footer-bubble bubble-4"></div>
+      </div>
+
+      <!-- Footer bottom with copyright -->
+      <div class="footer-bottom">
+        <div class="footer-divider">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C300,40 900,-10 1200,15 L1200,30 L0,30 Z"
+              fill="#003540"
+            ></path>
+          </svg>
+        </div>
+        <p class="copyright">© 2025, Apex Dive Rasdhoo. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
