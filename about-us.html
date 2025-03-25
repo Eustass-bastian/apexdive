@@ -29,11 +29,17 @@
             <li><a href="courses.html">COURSES</a></li>
             <li><a href="packages.html">PACKAGES</a></li>
             <li><a href="about-us.html" class="active">ABOUT US</a></li>
-            <li><a href="#">CONTACT US</a></li>
+            <li><a href="contact-us.html">CONTACT US</a></li>
           </ul>
         </nav>
         <div class="book-btn desktop-book">
-          <a href="#" class="btn">BOOK</a>
+          <a
+            href="https://wa.me/+9607956848"
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            >BOOK</a
+          >
         </div>
         <div class="mobile-menu-toggle">
           <div class="hamburger">
@@ -47,8 +53,16 @@
             <li><a href="courses.html">COURSES</a></li>
             <li><a href="packages.html">PACKAGES</a></li>
             <li><a href="about-us.html" class="active">ABOUT US</a></li>
-            <li><a href="#">CONTACT US</a></li>
-            <li class="mobile-book"><a href="#" class="btn">BOOK</a></li>
+            <li><a href="contact-us.html">CONTACT US</a></li>
+            <li class="mobile-book">
+              <a
+                href="https://wa.me/+9607956848"
+                class="btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                >BOOK</a
+              >
+            </li>
           </ul>
         </nav>
       </header>
@@ -179,7 +193,7 @@
               Our <span class="highlight-text">Team</span>
             </h2>
             <div class="section-subtitle">
-              <p>Meet our experienced and passionate diving professionals</p>
+              <p>Meet our experienced and passionate diving professional</p>
               <span class="divider"></span>
             </div>
 
@@ -211,7 +225,7 @@
                       already free diving to collect shells and observe the
                       colorful reefs surrounding my home island. This deep
                       connection to the marine environment has shaped my
-                      approach to diving – I don't just show you dive sites, I
+                      approach to diving. I don't just show you dive sites, I
                       share stories and knowledge about the incredible ecosystem
                       we're privileged to explore.
                     </p>
@@ -1117,7 +1131,7 @@
                   <p>
                     Book your diving adventure and island stay with us today
                   </p>
-                  <a href="#" class="island-cta-btn"
+                  <a href="https://wa.me/+9607956848" class="island-cta-btn"
                     >Book Your Trip <i class="fas fa-chevron-right"></i
                   ></a>
                 </div>
@@ -1152,7 +1166,7 @@
               <img src="images/logo.png" alt="Apex Dive Rasdhoo Logo" />
             </a>
           </div>
-          <p class="footer-tagline">Discover the Depths of the Maldives</p>
+          <p class="footer-tagline">Unleash The Explorer In You</p>
         </div>
         <div class="social-icons-container">
           <p class="connect-text">Connect With Us</p>
@@ -1209,16 +1223,19 @@
                 >
               </li>
               <li>
-                <a href="#"><i class="fas fa-angle-right"></i> Packages</a>
+                <a href="packages.html"
+                  ><i class="fas fa-angle-right"></i> Packages</a
+                >
               </li>
               <li>
-                <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+                <a href="about-us.html"
+                  ><i class="fas fa-angle-right"></i> About Us</a
+                >
               </li>
               <li>
-                <a href="#"><i class="fas fa-angle-right"></i> Contact Us</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-angle-right"></i> FAQ</a>
+                <a href="contact-us.html"
+                  ><i class="fas fa-angle-right"></i> Contact Us</a
+                >
               </li>
             </ul>
           </div>
@@ -1398,11 +1415,35 @@
               filteredItems[i].style.display = "block";
             }
           }
+
+          // Add a small delay before animating the items
+          setTimeout(animateItems, 50);
         }
 
-        // Initialize pagination
+        // Function to animate items as they appear
+        function animateItems() {
+          const visibleItems = document.querySelectorAll(
+            '.divesite-item[style="display: block;"]'
+          );
+
+          visibleItems.forEach((item, index) => {
+            // Reset the animation by removing and adding the class
+            item.classList.remove("item-animate");
+
+            // Force a reflow before adding the class back
+            void item.offsetWidth;
+
+            // Add the animation class with a delay based on index
+            setTimeout(() => {
+              item.classList.add("item-animate");
+            }, index * 100);
+          });
+        }
+
+        // Initialize pagination and show first page
         calculateItemsPerPage();
         updatePagination();
+        // We don't need to call animateItems() here as it's now called from showPage()
 
         // Add event listeners to difficulty tabs
         difficultyTabs.forEach((tab) => {
@@ -1458,40 +1499,6 @@
             }
           });
         }
-
-        // Function to animate items as they appear
-        function animateItems() {
-          const visibleItems = document.querySelectorAll(
-            '.divesite-item[style="display: block;"]'
-          );
-
-          visibleItems.forEach((item, index) => {
-            // Reset the animation by removing and adding the class
-            item.classList.remove("item-animate");
-
-            // Force a reflow before adding the class back
-            void item.offsetWidth;
-
-            // Add the animation class with a delay based on index
-            setTimeout(() => {
-              item.classList.add("item-animate");
-            }, index * 100);
-          });
-        }
-
-        // Initial animation
-        animateItems();
-
-        // Also animate when filter changes
-        difficultyTabs.forEach((tab) => {
-          tab.addEventListener("click", () => {
-            const difficulty = tab.dataset.filter;
-            filterItems(difficulty);
-
-            // Small delay to ensure DOM updates before animation
-            setTimeout(animateItems, 50);
-          });
-        });
 
         // Map toggle functionality
         if (mapToggleBtn && mapOverlay && mapCloseBtn) {

@@ -4710,7 +4710,7 @@ main {
 
 .footer-links a i {
   margin-right: 0.5rem;
-  color: #00c2cb;
+  color: #ffffff;
   transition: transform 0.3s ease;
 }
 
@@ -4733,6 +4733,7 @@ main {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  color: #ffffff;
 }
 
 .contact-item i {

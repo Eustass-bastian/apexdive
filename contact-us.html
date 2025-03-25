@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - APEX DIVE</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="toggle-styles.css" />
+    <link rel="stylesheet" href="custom-package.css" />
+    <link rel="stylesheet" href="about-us.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="script.js" defer></script>
+    <script src="custom-package.js" defer></script>
+    <style>
+      /* Contact Page Specific Styles */
+      .contact-section {
+        padding: 5rem 0;
+        background-color: #f9f9f9;
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .contact-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .contact-header h1 {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-header p {
+        color: #666;
+
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .contact-form {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-form h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #444;
+      }
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .contact-form textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: linear-gradient(90deg, #00c2cb, #008b93);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 1rem 2rem;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        width: 100%;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 20px rgba(0, 194, 203, 0.4);
+      }
+
+      .contact-info-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-info-card h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .info-list {
+        margin-bottom: 2rem;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-item i {
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        margin-right: 1rem;
+        margin-top: 0.2rem;
+      }
+
+      .info-item .info-content {
+        flex: 1;
+      }
+
+      .info-item h3 {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+        color: #333;
+      }
+
+      .info-item p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .info-item a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .info-item a:hover {
+        color: var(--primary-color);
+      }
+
+      .social-media {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #333;
+        border-radius: 50%;
+        color: #f2f2f2;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .social-icon:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .map-section {
+        height: 400px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        margin-bottom: 4rem;
+      }
+
+      .faq-section {
+        margin-bottom: 4rem;
+      }
+
+      .faq-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .faq-header h2 {
+        color: var(--primary-color);
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .faq-header p {
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* New FAQ Accordion Style */
+      .accordion {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .accordion-item {
+        margin-bottom: 1rem;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 194, 203, 0.1);
+      }
+
+      .accordion-button {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 1.3rem 1.5rem;
+        font-size: 1.05rem;
+        color: #333;
+        font-weight: 600;
+        text-align: left;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .accordion-button:hover {
+        background-color: rgba(0, 194, 203, 0.05);
+      }
+
+      .accordion-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 194, 203, 0.3);
+      }
+
+      .accordion-button-icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-color: rgba(0, 194, 203, 0.1);
+        border-radius: 50%;
+        position: relative;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+
+      .accordion-button-icon::before,
+      .accordion-button-icon::after {
+        content: "";
+        position: absolute;
+        background-color: var(--primary-color);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .accordion-button-icon::before {
+        width: 12px;
+        height: 2px;
+      }
+
+      .accordion-button-icon::after {
+        width: 2px;
+        height: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      .accordion-button[aria-expanded="true"] .accordion-button-icon::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      .accordion-button[aria-expanded="true"] {
+        color: var(--primary-color);
+        background-color: rgba(0, 194, 203, 0.05);
+        border-bottom: 1px solid rgba(0, 194, 203, 0.1);
+      }
+
+      .accordion-panel {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.35s ease-out;
+        border-top: none;
+      }
+
+      .accordion-panel-inner {
+        padding: 1.2rem 1.5rem 1.8rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .accordion-panel p {
+        margin: 0;
+      }
+
+      .cta-section {
+        text-align: center;
+        position: relative;
+        padding: 5rem 2rem;
+        border-radius: 12px;
+        margin-bottom: 4rem;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 38, 43, 0.95),
+          rgba(0, 73, 83, 0.9),
+          rgba(0, 121, 127, 0.85)
+        );
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("images/underwater-bg.jpg") center center/cover
+          no-repeat;
+        opacity: 0.2;
+        z-index: -1;
+        filter: blur(2px);
+      }
+
+      .cta-section h2 {
+        color: white;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-section p {
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 900px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.7;
+        font-size: 1.1rem;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        background: linear-gradient(90deg, #00c2cb, #008b93);
+        color: white;
+        padding: 1.2rem 2.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, #008b93, #00c2cb);
+        transition: width 0.4s ease;
+        z-index: -1;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .cta-btn:hover::before {
+        width: 100%;
+      }
+
+      .follow-us-h3 {
+        color: var(--primary-color);
+      }
+
+      /* Responsive Styles */
+      @media screen and (max-width: 992px) {
+        .contact-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .contact-info-card {
+          order: -1;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .contact-section {
+          padding: 3rem 0;
+        }
+
+        .contact-header h1 {
+          font-size: 2rem;
+        }
+
+        .faq-header h2 {
+          font-size: 1.8rem;
+        }
+
+        .cta-section h2 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="courses-container">
+      <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="Apex Dive Logo" />
+          </a>
+        </div>
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="courses.html">COURSES</a></li>
+            <li><a href="packages.html">PACKAGES</a></li>
+            <li><a href="about-us.html">ABOUT US</a></li>
+            <li><a href="contact-us.html" class="active">CONTACT US</a></li>
+          </ul>
+        </nav>
+        <div class="book-btn desktop-book">
+          <a
+            href="https://wa.me/+9607956848"
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            >BOOK</a
+          >
+        </div>
+        <div class="mobile-menu-toggle">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="courses.html">COURSES</a></li>
+            <li><a href="packages.html">PACKAGES</a></li>
+            <li><a href="about-us.html">ABOUT US</a></li>
+            <li><a href="contact-us.html" class="active">CONTACT US</a></li>
+            <li class="mobile-book">
+              <a
+                href="https://wa.me/+9607956848"
+                class="btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                >BOOK</a
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Contact Section -->
+      <section class="contact-section">
+        <div class="contact-container">
+          <div class="contact-header">
+            <h1>Get in Touch</h1>
+            <p>
+              Have questions about our diving courses or packages? Want to book
+              your next underwater adventure? We're here to help you every step
+              of the way.
+            </p>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-form">
+              <h2>Send Us a Message</h2>
+              <form
+                action="https://formsubmit.co/apexdiverasdhoo@gmail.com"
+                method="POST"
+              >
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject">
+                    <option value="inquiry">General Inquiry</option>
+                    <option value="booking">Course Booking</option>
+                    <option value="package">Package Information</option>
+                    <option value="support">Support</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+            </div>
+
+            <div class="contact-info-card">
+              <h2>Contact Information</h2>
+              <div class="info-list">
+                <div class="info-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div class="info-content">
+                    <h3>Location</h3>
+                    <p>
+                      Luboagasdhoshuge, AA. Rasdhoo, Maldives, 19080<br />GPS:
+                      4.263185, 72.993419
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <i class="fas fa-phone-alt"></i>
+                  <div class="info-content">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+9607956848">+960 795 6848</a></p>
+                    <p>
+                      <a href="tel:+9609876543">+960 795 6848</a> (WhatsApp
+                      available)
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <i class="fas fa-envelope"></i>
+                  <div class="info-content">
+                    <h3>Email</h3>
+                    <p>
+                      <a href="mailto:info@apexdive.com"
+                        >apexdiverasdhoo@gmail.com</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <i class="fas fa-clock"></i>
+                  <div class="info-content">
+                    <h3>Working Hours</h3>
+                    <p>Monday - Sunday: 7:00 AM - 7:00 PM</p>
+                    <p>Local Time (MVT)</p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="follow-us-h3">Follow Us</h3>
+              <div class="social-media">
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-section">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.820861843!2d72.99104307594552!3d4.263190496791715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMTUnNDcuNSJOIDcywrA1OSczNi4zIkU!5e0!3m2!1sen!2sus!4v1619789012345!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+
+          <div class="faq-section">
+            <div class="faq-header">
+              <h2>Frequently Asked Questions</h2>
+              <p>
+                Find answers to our most commonly asked questions. If you can't
+                find what you're looking for, please contact us.
+              </p>
+            </div>
+
+            <div class="faq-container">
+              <ul class="accordion" id="faq-accordion">
+                <li class="accordion-item">
+                  <button
+                    class="accordion-button"
+                    id="accordion-button-1"
+                    aria-expanded="false"
+                    aria-controls="accordion-1"
+                  >
+                    <span
+                      >Do I need to know how to swim to take a diving
+                      course?</span
+                    >
+                    <span class="accordion-button-icon"></span>
+                  </button>
+                  <div
+                    class="accordion-panel"
+                    id="accordion-1"
+                    role="region"
+                    aria-labelledby="accordion-button-1"
+                  >
+                    <div class="accordion-panel-inner">
+                      <p>
+                        Yes, basic swimming skills are required for all diving
+                        courses. For entry-level courses, you should be able to
+                        swim 200 meters without swimming aids and float/tread
+                        water for 10 minutes. Safety is our top priority, and
+                        being comfortable in water is essential.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="accordion-item">
+                  <button
+                    class="accordion-button"
+                    id="accordion-button-2"
+                    aria-expanded="false"
+                    aria-controls="accordion-2"
+                  >
+                    <span
+                      >What is the minimum age to participate in diving
+                      courses?</span
+                    >
+                    <span class="accordion-button-icon"></span>
+                  </button>
+                  <div
+                    class="accordion-panel"
+                    id="accordion-2"
+                    role="region"
+                    aria-labelledby="accordion-button-2"
+                  >
+                    <div class="accordion-panel-inner">
+                      <p>
+                        The minimum age depends on the course level. For Junior
+                        Open Water Diver, the minimum age is 10 years. For
+                        regular Open Water Diver certification, you must be at
+                        least 15 years old. We also offer special "Bubblemaker"
+                        experiences for children aged 8-9 years.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="accordion-item">
+                  <button
+                    class="accordion-button"
+                    id="accordion-button-3"
+                    aria-expanded="false"
+                    aria-controls="accordion-3"
+                  >
+                    <span
+                      >How long does it take to complete the Open Water Diver
+                      course?</span
+                    >
+                    <span class="accordion-button-icon"></span>
+                  </button>
+                  <div
+                    class="accordion-panel"
+                    id="accordion-3"
+                    role="region"
+                    aria-labelledby="accordion-button-3"
+                  >
+                    <div class="accordion-panel-inner">
+                      <p>
+                        The Open Water Diver course typically takes 3-4 days to
+                        complete. This includes theoretical sessions, confined
+                        water training, and open water dives. We offer flexible
+                        scheduling to accommodate your vacation plans.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="accordion-item">
+                  <button
+                    class="accordion-button"
+                    id="accordion-button-4"
+                    aria-expanded="false"
+                    aria-controls="accordion-4"
+                  >
+                    <span>Do I need to bring my own diving equipment?</span>
+                    <span class="accordion-button-icon"></span>
+                  </button>
+                  <div
+                    class="accordion-panel"
+                    id="accordion-4"
+                    role="region"
+                    aria-labelledby="accordion-button-4"
+                  >
+                    <div class="accordion-panel-inner">
+                      <p>
+                        No, all necessary diving equipment is provided for our
+                        courses and guided dives. We have high-quality equipment
+                        from leading brands in various sizes. If you have your
+                        own mask, fins, or snorkel that you're comfortable with,
+                        you're welcome to bring them.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="accordion-item">
+                  <button
+                    class="accordion-button"
+                    id="accordion-button-5"
+                    aria-expanded="false"
+                    aria-controls="accordion-5"
+                  >
+                    <span
+                      >What is the best time of year to dive in the
+                      Maldives?</span
+                    >
+                    <span class="accordion-button-icon"></span>
+                  </button>
+                  <div
+                    class="accordion-panel"
+                    id="accordion-5"
+                    role="region"
+                    aria-labelledby="accordion-button-5"
+                  >
+                    <div class="accordion-panel-inner">
+                      <p>
+                        The Maldives offers excellent diving conditions
+                        year-round with water temperatures between 26-30°C
+                        (79-86°F). The best visibility (20-30 meters) is
+                        generally during the dry season from December to April.
+                        The wet season (May to November) offers better chances
+                        to see manta rays and whale sharks.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="accordion-item">
+                  <button
+                    class="accordion-button"
+                    id="accordion-button-6"
+                    aria-expanded="false"
+                    aria-controls="accordion-6"
+                  >
+                    <span
+                      >How do I make a booking for a diving course or
+                      package?</span
+                    >
+                    <span class="accordion-button-icon"></span>
+                  </button>
+                  <div
+                    class="accordion-panel"
+                    id="accordion-6"
+                    role="region"
+                    aria-labelledby="accordion-button-6"
+                  >
+                    <div class="accordion-panel-inner">
+                      <p>
+                        You can book directly through our website, by email at
+                        apexdiverasdhoo@gmail.com, or by phone at +960 795 6848.
+                        We recommend booking in advance, especially during high
+                        season (December to March), to ensure availability for
+                        your preferred dates.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <h2>Ready for Your Underwater Adventure?</h2>
+            <p>
+              Whether you're a beginner or an experienced diver, we have the
+              perfect course or diving package for you. Join us for an
+              unforgettable underwater experience in the crystal-clear waters of
+              the Maldives.
+            </p>
+            <a href="#" class="cta-btn">Book Your Dive Today</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-waves">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#004953"
+            fill-opacity="1"
+            d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,149.3C672,160,768,160,864,138.7C960,117,1056,75,1152,69.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Footer top with logo and tagline -->
+      <div class="footer-top">
+        <div class="footer-logo-container">
+          <div class="footer-logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="Apex Dive Rasdhoo Logo" />
+            </a>
+          </div>
+          <p class="footer-tagline">Unleash The Explorer In You</p>
+        </div>
+        <div class="social-icons-container">
+          <p class="connect-text">Connect With Us</p>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Facebook" class="social-icon-bubble"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Instagram" class="social-icon-bubble"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="YouTube" class="social-icon-bubble"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a href="#" aria-label="WhatsApp" class="social-icon-bubble"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="#" aria-label="Phone" class="social-icon-bubble"
+              ><i class="fas fa-phone"></i
+            ></a>
+            <a href="#" aria-label="Trip Advisor" class="social-icon-bubble"
+              ><i class="fas fa-umbrella-beach"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main footer content with decorative elements -->
+      <div class="footer-main">
+        <div class="footer-content-wrapper">
+          <div class="footer-column about-column">
+            <h3>About Us</h3>
+            <p>
+              At Apex Dive Rasdhoo, we bring the thrill of diving to all levels,
+              from beginners to advanced explorers. As an SSI-certified dive
+              center, we offer top-tier training, unforgettable dive
+              experiences, and personalized service with the best of the
+              Maldives' underwater world.
+            </p>
+            <div class="certification-badges">
+              <span class="cert-badge">SSI Certified</span>
+              <span class="cert-badge">DAN Partner</span>
+            </div>
+          </div>
+
+          <div class="footer-column quick-links-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="courses.html"
+                  ><i class="fas fa-angle-right"></i> Courses</a
+                >
+              </li>
+              <li>
+                <a href="packages.html"
+                  ><i class="fas fa-angle-right"></i> Packages</a
+                >
+              </li>
+              <li>
+                <a href="about-us.html"
+                  ><i class="fas fa-angle-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="contact-us.html"
+                  ><i class="fas fa-angle-right"></i> Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-angle-right"></i> FAQ</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column contact-column">
+            <h3>Get in Touch</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Luboagasdhoshuge, AA Rasdhoo, Maldives, 09030</p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p><a href="tel:+9607956848">+960 7956848</a></p>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>
+                  <a href="mailto:apexdiverasdhoo@gmail.com"
+                    >apexdiverasdhoo@gmail.com</a
+                  >
+                </p>
+              </div>
+              <a href="#" class="contact-btn">Contact Us Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative bubbles -->
+        <div class="footer-bubble bubble-1"></div>
+        <div class="footer-bubble bubble-2"></div>
+        <div class="footer-bubble bubble-3"></div>
+        <div class="footer-bubble bubble-4"></div>
+      </div>
+
+      <!-- Footer bottom with copyright -->
+      <div class="footer-bottom">
+        <div class="footer-divider">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C300,40 900,-10 1200,15 L1200,30 L0,30 Z"
+              fill="#003540"
+            ></path>
+          </svg>
+        </div>
+        <p class="copyright">© 2025, Apex Dive Rasdhoo. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // New Accessible Accordion implementation
+      document.addEventListener("DOMContentLoaded", function () {
+        const accordionButtons = document.querySelectorAll(".accordion-button");
+
+        // Set up each accordion item
+        accordionButtons.forEach((button, index) => {
+          // Set the first accordion to be open by default
+          if (index === 0) {
+            openAccordionItem(button);
+          }
+
+          button.addEventListener("click", function () {
+            const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+            // Close all accordion items
+            accordionButtons.forEach((btn) => {
+              closeAccordionItem(btn);
+            });
+
+            // If the clicked item wasn't expanded, open it
+            if (!isExpanded) {
+              openAccordionItem(button);
+            }
+          });
+        });
+
+        // Function to open an accordion item
+        function openAccordionItem(button) {
+          const controlledPanel = document.getElementById(
+            button.getAttribute("aria-controls")
+          );
+          const panelInner = controlledPanel.querySelector(
+            ".accordion-panel-inner"
+          );
+
+          button.setAttribute("aria-expanded", "true");
+
+          // Set specific pixel height based on content
+          controlledPanel.style.maxHeight = panelInner.offsetHeight + "px";
+        }
+
+        // Function to close an accordion item
+        function closeAccordionItem(button) {
+          const controlledPanel = document.getElementById(
+            button.getAttribute("aria-controls")
+          );
+
+          button.setAttribute("aria-expanded", "false");
+          controlledPanel.style.maxHeight = "0px";
+        }
+      });
+    </script>
+  </body>
+</html>

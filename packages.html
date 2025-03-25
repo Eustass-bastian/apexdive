@@ -32,7 +32,13 @@
           </ul>
         </nav>
         <div class="book-btn desktop-book">
-          <a href="#" class="btn">BOOK</a>
+          <a
+            href="https://wa.me/+9607956848"
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            >BOOK</a
+          >
         </div>
         <div class="mobile-menu-toggle">
           <div class="hamburger">
@@ -47,7 +53,14 @@
             <li><a href="packages.html" class="active">PACKAGES</a></li>
             <li><a href="about-us.html">ABOUT US</a></li>
             <li><a href="#">CONTACT US</a></li>
-            <li class="mobile-book"><a href="#" class="btn">BOOK</a></li>
+            <li class="mobile-book">
+              <a
+                href="https://wa.me/+9607956848"
+                class="btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                >BOOK</a
+            </li>
           </ul>
         </nav>
       </header>
@@ -797,7 +810,7 @@
               <img src="images/logo.png" alt="Apex Dive Rasdhoo Logo" />
             </a>
           </div>
-          <p class="footer-tagline">Discover the Depths of the Maldives</p>
+          <p class="footer-tagline">Unleash The Explorer In You</p>
         </div>
         <div class="social-icons-container">
           <p class="connect-text">Connect With Us</p>
@@ -854,16 +867,19 @@
                 >
               </li>
               <li>
-                <a href="#"><i class="fas fa-angle-right"></i> Packages</a>
+                <a href="packages.html"
+                  ><i class="fas fa-angle-right"></i> Packages</a
+                >
               </li>
               <li>
-                <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+                <a href="about-us.html"
+                  ><i class="fas fa-angle-right"></i> About Us</a
+                >
               </li>
               <li>
-                <a href="#"><i class="fas fa-angle-right"></i> Contact Us</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-angle-right"></i> FAQ</a>
+                <a href="contact-us.html"
+                  ><i class="fas fa-angle-right"></i> Contact Us</a
+                >
               </li>
             </ul>
           </div>
@@ -916,5 +932,31 @@
         <p class="copyright">© 2025, Apex Dive Rasdhoo. All rights reserved.</p>
       </div>
     </footer>
+    <script>
+      // Fix scrolling issue for the "Explore Packages" button
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the "Explore Packages" button
+        const explorePackagesBtn = document.querySelector(
+          'a[href="#package-cards-section"]'
+        );
+
+        if (explorePackagesBtn) {
+          explorePackagesBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              // Use a larger offset (150px) to ensure the package cards are fully visible
+              window.scrollTo({
+                top: targetElement.offsetTop - 150,
+                behavior: "smooth",
+              });
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
