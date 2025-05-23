@@ -1,0 +1,142 @@
+/* Base animation classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animations for grid items */
+.stagger {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.stagger.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide animations */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.slide-left.appear,
+.slide-right.appear {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale animation */
+.scale-up {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.scale-up.appear {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Add delay utility classes */
+.delay-1 {
+  transition-delay: 0.1s;
+}
+.delay-2 {
+  transition-delay: 0.2s;
+}
+.delay-3 {
+  transition-delay: 0.3s;
+}
+.delay-4 {
+  transition-delay: 0.4s;
+}
+.delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  /* Reduce transform distances for smoother mobile animations */
+  .fade-in {
+    transform: translateY(20px);
+  }
+
+  .stagger {
+    transform: translateY(30px);
+  }
+
+  .slide-left {
+    transform: translateX(-50px);
+  }
+
+  .slide-right {
+    transform: translateX(50px);
+  }
+
+  /* Faster transitions on mobile */
+  .fade-in,
+  .stagger,
+  .slide-left,
+  .slide-right,
+  .scale-up {
+    transition-duration: 0.4s;
+  }
+
+  /* Reduce delay times on mobile */
+  .delay-1 {
+    transition-delay: 0.05s;
+  }
+  .delay-2 {
+    transition-delay: 0.1s;
+  }
+  .delay-3 {
+    transition-delay: 0.15s;
+  }
+  .delay-4 {
+    transition-delay: 0.2s;
+  }
+  .delay-5 {
+    transition-delay: 0.25s;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .stagger,
+  .slide-left,
+  .slide-right,
+  .scale-up {
+    transition: opacity 0.1s ease-out;
+    transform: none;
+  }
+
+  .delay-1,
+  .delay-2,
+  .delay-3,
+  .delay-4,
+  .delay-5 {
+    transition-delay: 0s;
+  }
+}

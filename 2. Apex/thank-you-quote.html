@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You - APEX DIVE</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .thank-you-container {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        background-color: #f8f9fa;
+        margin: 2rem auto;
+        max-width: 800px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .thank-you-icon {
+        font-size: 5rem;
+        color: #00c2cb;
+        margin-bottom: 1.5rem;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .thank-you-title {
+        font-size: 2.5rem;
+        color: #004953;
+        margin-bottom: 1rem;
+      }
+
+      .thank-you-message {
+        font-size: 1.2rem;
+        color: #555;
+        max-width: 600px;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .steps-container {
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .step-number {
+        background-color: #00c2cb;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex-grow: 1;
+      }
+
+      .step-title {
+        font-weight: 600;
+        color: #004953;
+        margin-bottom: 0.3rem;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn i {
+        margin-right: 0.5rem;
+      }
+
+      .primary-btn {
+        background-color: #00c2cb;
+        color: white;
+      }
+
+      .primary-btn:hover {
+        background-color: #00a8b0;
+        transform: translateY(-2px);
+      }
+
+      .secondary-btn {
+        background-color: transparent;
+        color: #004953;
+        border: 2px solid #004953;
+      }
+
+      .secondary-btn:hover {
+        background-color: #004953;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .return-home {
+        margin-top: 2rem;
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .return-home a {
+        color: #00c2cb;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .return-home a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .thank-you-title {
+          font-size: 2rem;
+        }
+
+        .thank-you-message {
+          font-size: 1rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content-wrapper">
+        <header>
+          <div class="logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="Apex Dive Logo" />
+            </a>
+          </div>
+          <nav class="desktop-nav">
+            <ul>
+              <li><a href="courses.html">COURSES</a></li>
+              <li><a href="packages.html">PACKAGES</a></li>
+              <li><a href="about-us.html">ABOUT US</a></li>
+              <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <div class="book-btn desktop-book">
+            <a
+              href="https://wa.me/+9607956848"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >BOOK</a
+            >
+          </div>
+          <div class="mobile-menu-toggle">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <nav class="mobile-nav">
+            <ul>
+              <li><a href="courses.html">COURSES</a></li>
+              <li><a href="packages.html">PACKAGES</a></li>
+              <li><a href="about-us.html">ABOUT US</a></li>
+              <li><a href="contact-us.html">CONTACT US</a></li>
+              <li class="mobile-book">
+                <a
+                  href="https://wa.me/+9607956848"
+                  class="btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >BOOK</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main>
+          <div class="thank-you-container">
+            <i class="fas fa-check-circle thank-you-icon"></i>
+            <h1 class="thank-you-title">Request Received!</h1>
+            <p class="thank-you-message">
+              Thank you for requesting a custom dive package quotation. We've
+              received your details and will respond directly to your email
+              address within 24 hours with a personalized quote.
+            </p>
+
+            <div class="steps-container">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <div class="step-title">Check Your Email</div>
+                  <p>
+                    We'll send your custom quotation directly to the email
+                    address you provided. Please check your inbox and spam
+                    folder.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <div class="step-title">Review Your Quote</div>
+                  <p>
+                    Your personalized quotation will include detailed pricing,
+                    dive schedules, and package options tailored to your
+                    requirements.
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <div class="step-title">Confirm Your Booking</div>
+                  <p>
+                    Reply to our email or contact us via WhatsApp to confirm
+                    your booking and arrange payment details.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="cta-buttons">
+              <a
+                href="https://wa.me/+9607956848"
+                class="btn primary-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-whatsapp"></i> Contact via WhatsApp
+              </a>
+              <a href="packages.html" class="btn secondary-btn">
+                <i class="fas fa-diving-helmet"></i> Explore Standard Packages
+              </a>
+            </div>
+
+            <div class="return-home">
+              <a href="index.html"
+                ><i class="fas fa-home"></i> Return to Home</a
+              >
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-waves">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#004953"
+            fill-opacity="1"
+            d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,149.3C672,160,768,160,864,138.7C960,117,1056,75,1152,69.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Footer content abbreviated for brevity -->
+      <div class="footer-bottom">
+        <div class="footer-divider">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C300,40 900,-10 1200,15 L1200,30 L0,30 Z"
+              fill="#003540"
+            ></path>
+          </svg>
+        </div>
+        <p class="copyright">© 2025, Apex Dive Rasdhoo. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

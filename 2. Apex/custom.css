@@ -1,0 +1,72 @@
+/* Footer address color fix */
+.footer-column .contact-item p {
+  color: #ffffff !important;
+}
+
+.contact-item p {
+  color: #ffffff !important;
+}
+
+/* Footer contact icons color fix */
+.footer-column .contact-item i {
+  color: #ffffff !important;
+}
+
+.contact-item i {
+  color: #ffffff !important;
+}
+
+/* Modern mobile social icons */
+@media (max-width: 768px) {
+  .social-icons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    padding: 20px 0 !important;
+    position: relative !important;
+  }
+
+  .social-icons a {
+    width: 45px !important;
+    height: 45px !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(5px) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .social-icons a:before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(0) !important;
+    transition: transform 0.3s ease !important;
+    border-radius: 50% !important;
+  }
+
+  .social-icons a:hover:before {
+    transform: scale(1) !important;
+  }
+
+  .social-icons i {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .social-icons a:hover {
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    transform: translateY(-2px) !important;
+  }
+}
