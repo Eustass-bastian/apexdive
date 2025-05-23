@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You - Apex Dive Rasdhoo</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="bundles.css" />
+    <link rel="stylesheet" href="gallery.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="script.js" defer></script>
+    <style>
+      /* Thank You Page Styles */
+      .thank-you-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .thank-you-icon {
+        font-size: 80px;
+        color: #10b981;
+        margin-bottom: 30px;
+        animation: bounce 1s ease infinite;
+      }
+
+      .thank-you-title {
+        font-size: 36px;
+        color: #004953;
+        margin-bottom: 20px;
+      }
+
+      .thank-you-message {
+        font-size: 18px;
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .thank-you-cta {
+        margin-top: 20px;
+      }
+
+      .return-btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #004953;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .return-btn:hover {
+        background-color: #006c7c;
+        transform: translateY(-3px);
+      }
+
+      .bubbles-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(0, 73, 83, 0.05);
+        animation: float 8s ease-in-out infinite;
+        opacity: 0.5;
+      }
+
+      .bubble:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        left: 10%;
+        top: 20%;
+        animation-delay: 0s;
+      }
+
+      .bubble:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        right: 15%;
+        top: 30%;
+        animation-delay: 2s;
+      }
+
+      .bubble:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        left: 30%;
+        bottom: 30%;
+        animation-delay: 4s;
+      }
+
+      .bubble:nth-child(4) {
+        width: 100px;
+        height: 100px;
+        right: 25%;
+        bottom: 20%;
+        animation-delay: 6s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content-wrapper">
+        <header>
+          <div class="logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="Apex Dive Logo" />
+            </a>
+          </div>
+          <nav class="desktop-nav">
+            <ul>
+              <li><a href="courses.html">COURSES</a></li>
+              <li><a href="packages.html">PACKAGES</a></li>
+              <li><a href="about-us.html">ABOUT US</a></li>
+              <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <div class="book-btn desktop-book">
+            <a
+              href="https://wa.me/+9607956848"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >BOOK</a
+            >
+          </div>
+          <div class="mobile-menu-toggle">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <nav class="mobile-nav">
+            <ul>
+              <li><a href="courses.html">COURSES</a></li>
+              <li><a href="packages.html">PACKAGES</a></li>
+              <li><a href="about-us.html">ABOUT US</a></li>
+              <li><a href="contact-us.html">CONTACT US</a></li>
+              <li class="mobile-book"><a href="#" class="btn">BOOK</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <main>
+          <div class="thank-you-container">
+            <div class="bubbles-container">
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+              <div class="bubble"></div>
+            </div>
+
+            <div class="thank-you-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+
+            <h1 class="thank-you-title">Thank You For Your Review!</h1>
+
+            <p class="thank-you-message">
+              We acknowledge your review and truly appreciate you taking the
+              time to share your diving experience with us. Your feedback is
+              invaluable as it helps us improve our services and inspires other
+              divers to explore the beautiful underwater world of Rasdhoo.
+              <br /><br />
+              An email confirmation has also been sent to you. We hope to see
+              you underwater again soon for more unforgettable adventures!
+            </p>
+
+            <div class="thank-you-cta">
+              <a href="index.html" class="return-btn">Return to Homepage</a>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-waves">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#004953"
+            fill-opacity="1"
+            d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,149.3C672,160,768,160,864,138.7C960,117,1056,75,1152,69.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Footer bottom with copyright -->
+      <div class="footer-bottom">
+        <div class="footer-divider">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 30"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,15 C300,40 900,-10 1200,15 L1200,30 L0,30 Z"
+              fill="#003540"
+            ></path>
+          </svg>
+        </div>
+        <p class="copyright">© 2025, Apex Dive Rasdhoo. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

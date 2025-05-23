@@ -1285,3 +1285,486 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Gallery Navigation
+document.addEventListener("DOMContentLoaded", function () {
+  const gallery = document.querySelector(".gallery-grid");
+  const items = document.querySelectorAll(".gallery-item");
+
+  if (gallery && items.length) {
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+    let currentX;
+    let velocity = 0;
+    let lastTimestamp;
+    let animationFrame;
+    let autoScrolling = false;
+
+    function lerp(start, end, factor) {
+      return start + (end - start) * factor;
+    }
+
+    function getSnapPosition(scrollPosition) {
+      const itemWidth = items[0].offsetWidth;
+      const gap = parseInt(window.getComputedStyle(gallery).gap) || 0;
+      const scrollAmount = itemWidth + gap;
+      return Math.round(scrollPosition / scrollAmount) * scrollAmount;
+    }
+
+    function smoothScroll(targetPosition, duration = 500) {
+      const startPosition = gallery.scrollLeft;
+      const distance = targetPosition - startPosition;
+      const startTime = performance.now();
+      autoScrolling = true;
+
+      function animate(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease out cubic
+        const easing = 1 - Math.pow(1 - progress, 3);
+        gallery.scrollLeft = startPosition + distance * easing;
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        } else {
+          autoScrolling = false;
+          gallery.scrollLeft = targetPosition; // Ensure we land exactly on target
+        }
+      }
+
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+      animationFrame = requestAnimationFrame(animate);
+    }
+
+    function startDragging(e) {
+      isDragging = true;
+      startX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+      currentX = startX;
+      scrollLeft = gallery.scrollLeft;
+      lastTimestamp = performance.now();
+      velocity = 0;
+
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+
+      gallery.style.scrollBehavior = "auto";
+      gallery.style.cursor = "grabbing";
+    }
+
+    function duringDragging(e) {
+      if (!isDragging) return;
+
+      const x = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+      const deltaX = x - currentX;
+      currentX = x;
+
+      // Update velocity
+      const now = performance.now();
+      const dt = now - lastTimestamp;
+      velocity = deltaX / dt;
+      lastTimestamp = now;
+
+      // Update scroll position
+      gallery.scrollLeft = gallery.scrollLeft - deltaX;
+
+      // Prevent default behavior
+      e.preventDefault();
+    }
+
+    function stopDragging() {
+      if (!isDragging) return;
+      isDragging = false;
+      gallery.style.cursor = "grab";
+
+      // Apply momentum with decay
+      const momentumDistance = velocity * 100; // Adjust this multiplier to control momentum
+      const targetScroll = gallery.scrollLeft - momentumDistance;
+      const snapTarget = getSnapPosition(targetScroll);
+
+      smoothScroll(snapTarget);
+    }
+
+    // Mouse Events
+    gallery.addEventListener("mousedown", startDragging);
+    gallery.addEventListener("mousemove", duringDragging);
+    document.addEventListener("mouseup", stopDragging);
+    gallery.addEventListener("mouseleave", stopDragging);
+
+    // Touch Events
+    gallery.addEventListener("touchstart", startDragging, { passive: false });
+    gallery.addEventListener("touchmove", duringDragging, { passive: false });
+    gallery.addEventListener("touchend", stopDragging);
+    gallery.addEventListener("touchcancel", stopDragging);
+
+    // Prevent click events during drag
+    gallery.addEventListener(
+      "click",
+      (e) => {
+        if (Math.abs(velocity) > 0.1) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      },
+      true
+    );
+
+    // Smooth wheel scrolling
+    gallery.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
+
+        if (autoScrolling) return;
+
+        const delta = e.deltaY || e.deltaX;
+        const targetScroll = gallery.scrollLeft + delta;
+
+        if (Math.abs(delta) > 50) {
+          // For larger scroll inputs, snap to next/previous item
+          const direction = delta > 0 ? 1 : -1;
+          const itemWidth = items[0].offsetWidth;
+          const gap = parseInt(window.getComputedStyle(gallery).gap) || 0;
+          const currentIndex = Math.round(
+            gallery.scrollLeft / (itemWidth + gap)
+          );
+          const targetIndex = currentIndex + direction;
+          const snapTarget = targetIndex * (itemWidth + gap);
+
+          smoothScroll(snapTarget);
+        } else {
+          // For smaller scroll inputs, smooth scroll to position
+          smoothScroll(targetScroll, 300);
+        }
+      },
+      { passive: false }
+    );
+
+    // Cleanup
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }
+});
+
+// Image Gallery Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".gallery-slide");
+  const dots = document.querySelectorAll(".pagination-dot");
+  let currentSlide = 0;
+  let isAnimating = false;
+  let autoplayInterval;
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  // Initialize first slide
+  slides[0].classList.add("active");
+
+  function goToSlide(index) {
+    if (isAnimating || index === currentSlide) return;
+    isAnimating = true;
+
+    // Remove active class from current slide and dot
+    slides[currentSlide].classList.remove("active");
+    slides[currentSlide].classList.add("previous");
+    dots[currentSlide].classList.remove("active");
+
+    // Add active class to new slide and dot
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    // After animation completes
+    setTimeout(() => {
+      slides[currentSlide].classList.remove("previous");
+      currentSlide = index;
+      isAnimating = false;
+    }, 1200); // Match this to the CSS transition duration
+  }
+
+  function nextSlide() {
+    const next = (currentSlide + 1) % slides.length;
+    goToSlide(next);
+  }
+
+  function previousSlide() {
+    const prev = (currentSlide - 1 + slides.length) % slides.length;
+    goToSlide(prev);
+  }
+
+  // Add click handlers to pagination dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      goToSlide(index);
+      resetAutoplay();
+    });
+  });
+
+  // Touch events for swipe
+  const gallery = document.querySelector(".gallery-track");
+  if (gallery) {
+    gallery.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    gallery.addEventListener(
+      "touchend",
+      (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+      },
+      { passive: true }
+    );
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchEndX - touchStartX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        previousSlide();
+      } else {
+        nextSlide();
+      }
+      resetAutoplay();
+    }
+  }
+
+  // Autoplay functionality
+  function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 8000); // Change slide every 8 seconds
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayInterval);
+    startAutoplay();
+  }
+
+  // Start autoplay
+  startAutoplay();
+
+  // Pause autoplay when user interacts with the gallery
+  gallery.addEventListener("mouseenter", () => clearInterval(autoplayInterval));
+  gallery.addEventListener("mouseleave", startAutoplay);
+  gallery.addEventListener("touchstart", () => clearInterval(autoplayInterval));
+  gallery.addEventListener("touchend", startAutoplay);
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      previousSlide();
+      resetAutoplay();
+    } else if (e.key === "ArrowRight") {
+      nextSlide();
+      resetAutoplay();
+    }
+  });
+});
+
+// Star rating functionality
+document
+  .querySelector(".rating-input")
+  ?.addEventListener("click", function (e) {
+    if (e.target.matches(".fas.fa-star")) {
+      const rating = e.target.dataset.rating;
+      const stars = document.querySelectorAll(".rating-input .fas.fa-star");
+
+      // Update hidden input
+      const ratingInput = document.getElementById("ratingInput");
+      if (ratingInput) ratingInput.value = rating;
+
+      stars.forEach((star) => {
+        star.classList.remove("active");
+        if (star.dataset.rating <= rating) {
+          star.classList.add("active");
+        }
+      });
+    }
+  });
+
+// Avatar selection
+document
+  .querySelector(".avatar-selection")
+  ?.addEventListener("click", function (e) {
+    if (e.target.matches(".avatar-option")) {
+      document
+        .querySelectorAll(".avatar-option")
+        .forEach((avatar) => avatar.classList.remove("selected"));
+      e.target.classList.add("selected");
+
+      // Update hidden input
+      const avatarInput = document.getElementById("avatarInput");
+      if (avatarInput) avatarInput.value = e.target.dataset.avatar;
+    }
+  });
+
+// Review Submission Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const shareReviewBtn = document.getElementById("shareReviewBtn");
+  const reviewPopup = document.getElementById("reviewPopup");
+  const closePopupBtn = document.getElementById("closePopup");
+  const reviewForm = document.getElementById("reviewForm");
+  const ratingStars = document.querySelectorAll(".rating-input i");
+  const avatarOptions = document.querySelectorAll(".avatar-option");
+  const formSubmitNote = document.getElementById("formSubmitNote");
+
+  // Show FormSubmit note on first visit
+  if (formSubmitNote && !localStorage.getItem("formSubmitNoteShown")) {
+    formSubmitNote.style.display = "block";
+    localStorage.setItem("formSubmitNoteShown", "true");
+  }
+
+  // Open popup
+  if (shareReviewBtn) {
+    shareReviewBtn.addEventListener("click", () => {
+      reviewPopup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
+  // Close popup
+  if (closePopupBtn) {
+    closePopupBtn.addEventListener("click", () => {
+      reviewPopup.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+  // Close popup when clicking outside
+  if (reviewPopup) {
+    reviewPopup.addEventListener("click", (e) => {
+      if (e.target === reviewPopup) {
+        reviewPopup.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+  }
+
+  // Initialize the form with defaults
+  if (document.getElementById("ratingInput")) {
+    document.getElementById("ratingInput").value = "5";
+    const stars = document.querySelectorAll(".rating-input .fas.fa-star");
+    stars.forEach((star) => {
+      if (star.dataset.rating <= 5) {
+        star.classList.add("active");
+      }
+    });
+  }
+
+  if (document.getElementById("avatarInput") && avatarOptions.length > 0) {
+    document.getElementById("avatarInput").value =
+      avatarOptions[0].getAttribute("data-avatar");
+    avatarOptions[0].classList.add("selected");
+  }
+
+  // Store review data before form submission (no preventDefault)
+  if (reviewForm) {
+    reviewForm.addEventListener("submit", function () {
+      try {
+        // Get form values for local storage
+        const name = document.getElementById("reviewerName").value;
+        const title = document.getElementById("reviewTitle").value;
+        const review = document.getElementById("reviewText").value;
+        const rating = document.getElementById("ratingInput").value;
+        const avatar = document.getElementById("avatarInput").value;
+
+        // Store form data to add review locally when returning from thank-you page
+        localStorage.setItem(
+          "pendingReview",
+          JSON.stringify({
+            name: name,
+            title: title,
+            text: review,
+            rating: parseInt(rating),
+            avatar: avatar,
+          })
+        );
+
+        console.log("Form submitted to FormSubmit.co");
+      } catch (error) {
+        console.error("Error storing review data:", error);
+      }
+      // Let the form submit naturally - no need to return false or prevent default
+    });
+  }
+});
+
+// Check for pending review on page load
+document.addEventListener("DOMContentLoaded", function () {
+  const pendingReview = localStorage.getItem("pendingReview");
+
+  if (pendingReview) {
+    try {
+      // Parse the stored review data
+      const reviewData = JSON.parse(pendingReview);
+
+      // Create a new review card
+      const reviewCard = createReviewCard(reviewData);
+
+      // Add to carousel
+      const reviewsContainer = document.querySelector(".reviews-container");
+      if (reviewsContainer) {
+        reviewsContainer.appendChild(reviewCard);
+
+        // Create new indicator dot
+        const indicators = document.querySelector(".reviews-indicators");
+        if (indicators) {
+          const newDot = document.createElement("span");
+          newDot.className = "indicator";
+          newDot.setAttribute(
+            "data-index",
+            document.querySelectorAll(".review-card").length - 1
+          );
+          indicators.appendChild(newDot);
+        }
+      }
+
+      // Clear the pending review
+      localStorage.removeItem("pendingReview");
+    } catch (error) {
+      console.error("Error processing pending review:", error);
+      localStorage.removeItem("pendingReview");
+    }
+  }
+});
+
+function createReviewCard(review) {
+  const card = document.createElement("div");
+  card.className = "review-card";
+
+  card.innerHTML = `
+    <div class="review-bubbles">
+      <div class="review-bubble bubble-1"></div>
+      <div class="review-bubble bubble-2"></div>
+      <div class="review-bubble bubble-3"></div>
+    </div>
+    <div class="review-profile">
+      <div class="review-avatar">
+        <img src="images/${review.avatar}" alt="${review.name}">
+      </div>
+      <div class="review-info">
+        <h3>${review.title}</h3>
+        <p>${review.text}</p>
+        <div class="reviewer-name">${review.name}</div>
+        <div class="review-rating">
+          ${Array(review.rating).fill('<i class="fas fa-star"></i>').join("")}
+          ${Array(5 - review.rating)
+            .fill('<i class="far fa-star"></i>')
+            .join("")}
+        </div>
+      </div>
+    </div>
+  `;
+
+  return card;
+}

@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>APEX DIVE</title>
+    <title>Apex Dive Rasdhoo</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="bundles.css" />
+    <link rel="stylesheet" href="gallery.css" />
+    <link rel="stylesheet" href="custom.css" />
+    <link rel="stylesheet" href="animations.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <script src="script.js" defer></script>
+    <script src="animations.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -29,7 +36,13 @@
             </ul>
           </nav>
           <div class="book-btn desktop-book">
-            <a href="#" class="btn">BOOK</a>
+            <a
+              href="https://wa.me/+9607956848"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >BOOK</a
+            >
           </div>
           <div class="mobile-menu-toggle">
             <div class="hamburger">
@@ -53,14 +66,10 @@
           <div class="hero"></div>
           <div class="footer-content">
             <div class="social-icons">
-              <a href="https://www.facebook.com/profile.php?id=61572287477279"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/apexdiverasdhoo/"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-tiktok"></i></a>
-              <a href="https://wa.me/+9607956848"
-                ><i class="fab fa-whatsapp"></i></a
-              >
-              <a href="tel:+9607956848"><i class="fas fa-phone"></i></a>
-              <a href="#"><i class="fas fa-umbrella-beach"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61572287477279" aria-label="Facebook" class="social-icon-bubble"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/apexdiverasdhoo/" aria-label="Instagram" class="social-icon-bubble"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/+9607956848" aria-label="WhatsApp" class="social-icon-bubble"><i class="fab fa-whatsapp"></i></a>
+              <a href="tel:+9607956848" aria-label="Phone" class="social-icon-bubble"><i class="fas fa-phone"></i></a>
             </div>
             <div class="cta">
               <p>Ready to Dive? Let's Make It Happen!</p>
@@ -250,7 +259,7 @@
                     The team was professional, and the dive sites were
                     incredible
                   </p>
-                  <div class="reviewer-name">Yai Bro</div>
+                  <div class="reviewer-name">Peter Denial</div>
                   <div class="review-rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -332,10 +341,10 @@
                   <img src="images/woman.png" alt="Emma & Tom" />
                 </div>
                 <div class="review-info">
-                  <h3>Perfect honeymoon diving experience</h3>
+                  <h3>Perfect diving experience</h3>
                   <p>
                     The team went above and beyond to make our trip special. We
-                    even saw manta rays!
+                    even saw manta rays and it was an unforgettable experience.
                   </p>
                   <div class="reviewer-name">Emma & Tom</div>
                   <div class="review-rating">
@@ -393,10 +402,65 @@
         </div>
 
         <div class="reviews-footer">
-          <a href="#" class="review-btn">Share Your Experience</a>
+          <button class="review-btn" id="shareReviewBtn">Share Your Experience</button>
         </div>
       </div>
     </section>
+
+    <!-- Review Submission Popup -->
+    <div class="review-popup" id="reviewPopup">
+      <div class="review-popup-content">
+        <button class="close-popup" id="closePopup">×</button>
+        <h3>Share Your Diving Experience</h3>
+        <div id="formSubmitNote" style="background-color: #fffde7; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; display: none;">
+          <strong>Note:</strong> The first time you submit a review, you may receive a confirmation email from FormSubmit. Please check your email and confirm to activate the review system.
+        </div>
+        <form id="reviewForm" class="review-form" action="https://formsubmit.co/apexdiverasdhoo@gmail.com" method="POST" enctype="multipart/form-data">
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_subject" value="New Review Submission">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="thank-you.html">
+          <input type="hidden" name="_autoresponse" value="Thank you for your review! We've received your feedback and truly appreciate you sharing your diving experience with us. Your insights help us improve and inspire future divers. We hope to see you underwater again soon!">
+          
+          <div class="form-group">
+            <label for="reviewerName">Your Name</label>
+            <input type="text" id="reviewerName" name="Name" required placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="reviewTitle">Review Title</label>
+            <input type="text" id="reviewTitle" name="Review Title" required placeholder="Give your review a title">
+          </div>
+          <div class="form-group">
+            <label for="reviewText">Your Experience</label>
+            <textarea id="reviewText" name="Review Text" required placeholder="Tell us about your diving experience"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Rate Your Experience</label>
+            <div class="rating-input">
+              <i class="fas fa-star" data-rating="1"></i>
+              <i class="fas fa-star" data-rating="2"></i>
+              <i class="fas fa-star" data-rating="3"></i>
+              <i class="fas fa-star" data-rating="4"></i>
+              <i class="fas fa-star" data-rating="5"></i>
+              <input type="hidden" name="Rating" id="ratingInput" value="5">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reviewerAvatar">Choose Avatar</label>
+            <div class="avatar-selection">
+              <img src="images/boy.png" alt="Avatar 1" data-avatar="boy.png" class="avatar-option">
+              <img src="images/boy (1).png" alt="Avatar 2" data-avatar="boy (1).png" class="avatar-option">
+              <img src="images/woman.png" alt="Avatar 3" data-avatar="woman.png" class="avatar-option">
+              <img src="images/woman (1).png" alt="Avatar 4" data-avatar="woman (1).png" class="avatar-option">
+              <img src="images/man.png" alt="Avatar 5" data-avatar="man.png" class="avatar-option">
+              <input type="hidden" name="Avatar" id="avatarInput" value="boy.png">
+            </div>
+          </div>
+          <button type="submit" class="submit-review">Submit Review</button>
+        </form>
+      </div>
+    </div>
 
     <section class="marine-life-section">
       <div class="content-wrapper">
@@ -451,13 +515,6 @@
             Explore Rasdhoo's marine life with APEX Dive <br />your adventure
             awaits!
           </p>
-          <a
-            href="https://wa.me/+9607956848"
-            class="btn book-now-btn"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Book Now!</a
-          >
         </div>
       </div>
     </section>
@@ -537,17 +594,15 @@
         </div>
 
         <div class="courses-grid">
-          <!-- Course Card 1 -->
+          <!-- Course Card 1 - Beginner -->
           <div class="course-card" data-category="beginner">
             <div class="course-image">
               <img src="images/bubble maker.jpg" alt="Bubble Maker Course" />
               <div class="course-overlay"></div>
-              <div class="course-difficulty">
-                <span>Beginner</span>
-              </div>
+              <div class="course-level beginner">Beginner</div>
             </div>
             <div class="course-content">
-              <h3>Bubble Maker</h3>
+              <h3>Try Scuba Diving</h3>
               <div class="course-details">
                 <div class="course-detail">
                   <i class="fas fa-calendar-alt"></i>
@@ -555,54 +610,15 @@
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-water"></i>
-                  <span>Confined Water</span>
+                  <span>Ocean Dive</span>
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-child"></i>
-                  <span>Ages 8-10</span>
+                  <span>Ages 10+</span>
                 </div>
               </div>
               <p class="course-description">
-                A fun introduction to scuba diving for children, allowing them
-                to experience the underwater world in a safe, controlled
-                environment.
-              </p>
-              <div class="course-action">
-                <a href="courses.html" class="course-btn">Learn More</a>
-                <div class="course-price"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Course Card 2 -->
-          <div class="course-card" data-category="beginner">
-            <div class="course-image">
-              <img src="images/open water.jpg" alt="Open Water Course" />
-              <div class="course-overlay"></div>
-              <div class="course-difficulty">
-                <span>Beginner</span>
-              </div>
-            </div>
-            <div class="course-content">
-              <h3>Open Water Diver</h3>
-              <div class="course-details">
-                <div class="course-detail">
-                  <i class="fas fa-calendar-alt"></i>
-                  <span>3-4 Days</span>
-                </div>
-                <div class="course-detail">
-                  <i class="fas fa-water"></i>
-                  <span>Confined water</span>
-                </div>
-                <div class="course-detail">
-                  <i class="fas fa-graduation-cap"></i>
-                  <span>Certify</span>
-                </div>
-              </div>
-              <p class="course-description">
-                Your gateway to the underwater world. Learn essential diving
-                skills and earn your first scuba certification to dive anywhere
-                in the world.
+                Experience the thrill of scuba diving with professional guidance in the beautiful Maldivian waters.
               </p>
               <div class="course-action">
                 <a href="courses.html" class="course-btn">Learn More</a>
@@ -610,20 +626,15 @@
             </div>
           </div>
 
-          <!-- Course Card 3 -->
+          <!-- Course Card 2 - Advanced -->
           <div class="course-card" data-category="advanced">
             <div class="course-image">
-              <img
-                src="images/advance certificates.jpg"
-                alt="Advanced Certificates"
-              />
+              <img src="images/pic 1.avif" alt="Advanced Adventurer Course" />
               <div class="course-overlay"></div>
-              <div class="course-difficulty">
-                <span>Advanced</span>
-              </div>
+              <div class="course-level advanced">Advanced</div>
             </div>
             <div class="course-content">
-              <h3>Advanced Certificates</h3>
+              <h3>Advanced Adventurer</h3>
               <div class="course-details">
                 <div class="course-detail">
                   <i class="fas fa-calendar-alt"></i>
@@ -631,16 +642,15 @@
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-water"></i>
-                  <span>Ocean Dives</span>
+                  <span>Deep Dives</span>
                 </div>
                 <div class="course-detail">
-                  <i class="fas fa-tag"></i>
-                  <span>Prerequisites</span>
+                  <i class="fas fa-ruler-vertical"></i>
+                  <span>Max 30m</span>
                 </div>
               </div>
               <p class="course-description">
-                Take your diving to the next level with specialized skills
-                including deep diving, navigation, and night diving adventures.
+                Take your diving to the next level with specialized adventure dives including deep diving, night diving, and navigation.
               </p>
               <div class="course-action">
                 <a href="courses.html" class="course-btn">Learn More</a>
@@ -648,35 +658,63 @@
             </div>
           </div>
 
-          <!-- Course Card 4 -->
+          <!-- Course Card 3 - Specialty -->
           <div class="course-card" data-category="specialty">
             <div class="course-image">
-              <img src="images/specialities.jpg" alt="Specialties" />
+              <img src="images/deep-diving.jpg" alt="Deep Diving Course" />
               <div class="course-overlay"></div>
-              <div class="course-difficulty">
-                <span>Specialty</span>
-              </div>
+              <div class="course-level specialty">Specialty</div>
             </div>
             <div class="course-content">
-              <h3>Specialties</h3>
+              <h3>Deep Diving</h3>
               <div class="course-details">
                 <div class="course-detail">
                   <i class="fas fa-calendar-alt"></i>
-                  <span>1-2 Days</span>
+                  <span>2-3 Days</span>
                 </div>
                 <div class="course-detail">
                   <i class="fas fa-water"></i>
-                  <span>Custom Dives</span>
+                  <span>Deep Dives</span>
                 </div>
                 <div class="course-detail">
-                  <i class="fas fa-certificate"></i>
-                  <span>Specialized</span>
+                  <i class="fas fa-ruler-vertical"></i>
+                  <span>Max 40m</span>
                 </div>
               </div>
               <p class="course-description">
-                Master specific diving skills with our specialty courses
-                including underwater photography, wreck diving, and marine
-                conservation.
+                Master the skills and knowledge needed for safe deep diving adventures in the Maldivian waters.
+              </p>
+              <div class="course-action">
+                <a href="courses.html" class="course-btn">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Card 4 - Professional -->
+          <div class="course-card" data-category="professional">
+            <div class="course-image">
+              <img src="images/manta.jpg" alt="Divemaster Course" />
+              <div class="course-overlay"></div>
+              <div class="course-level professional">Professional</div>
+            </div>
+            <div class="course-content">
+              <h3>SSI Dive Master</h3>
+              <div class="course-details">
+                <div class="course-detail">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>2-4 Weeks</span>
+                </div>
+                <div class="course-detail">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>Professional</span>
+                </div>
+                <div class="course-detail">
+                  <i class="fas fa-child"></i>
+                  <span>Ages 18+</span>
+                </div>
+              </div>
+              <p class="course-description">
+                Begin your professional diving career and learn to lead certified divers and assist with training.
               </p>
               <div class="course-action">
                 <a href="courses.html" class="course-btn">Learn More</a>
@@ -693,9 +731,118 @@
             </button>
             <button class="filter-btn" data-filter="beginner">Beginner</button>
             <button class="filter-btn" data-filter="advanced">Advanced</button>
-            <button class="filter-btn" data-filter="specialty">
-              Specialty
-            </button>
+            <button class="filter-btn" data-filter="specialty">Specialty</button>
+            <button class="filter-btn" data-filter="professional">Professional</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Bundles Section -->
+    <section class="course-bundles-section">
+      <div class="content-wrapper">
+        <div class="bundles-header">
+          <span class="section-badge">Special Offers</span>
+          <h2>Course Bundle Top Picks</h2>
+          <p class="bundles-subtitle">
+            Bundles tailored by our instructors to give you the bang for your buck. Learn & get to see all the animals and what the underwater world around Rasdhoo atoll is all about.
+          </p>
+        </div>
+
+        <div class="bundles-grid">
+          <!-- Complete Bundle -->
+          <div class="bundle-card featured">
+            <div class="bundle-image">
+              <img src="images/new/dive-yai.jpg" alt="Complete Course Bundle" />
+              <div class="bundle-overlay"></div>
+              <div class="bundle-tag">Most Popular</div>
+            </div>
+            <div class="bundle-content">
+              <div class="bundle-header">
+                <h3>Complete Diving Journey</h3>
+                <span class="bundle-duration"><i class="fas fa-calendar-alt"></i> 5-7 Days</span>
+              </div>
+              <div class="bundle-description">
+                Start your complete diving journey with our comprehensive bundle designed for aspiring divers.
+              </div>
+              <ul class="bundle-courses">
+                <li><i class="fas fa-check-circle"></i> SSI Open Water</li>
+                <li><i class="fas fa-check-circle"></i> SSI Deep Dive Specialty</li>
+                <li><i class="fas fa-check-circle"></i> Enriched Air Diver</li>
+              </ul>
+              <div class="bundle-features">
+                <div class="feature">
+                  <i class="fas fa-book-reader"></i>
+                  <span>Theory Sessions</span>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-water"></i>
+                  <span>Confined Water Training</span>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-certificate"></i>
+                  <span>Certification</span>
+                </div>
+              </div>
+              <div class="bundle-price">
+                <div class="price-tag">Special Price</div>
+                <span class="price-amount">850</span>
+                <span class="price-period">Complete Package</span>
+              </div>
+              <div class="bundle-action">
+                <a href="https://wa.me/+9607956848?text=Hi, I'm interested in the Complete Diving Journey bundle (SSI Open Water, Deep Dive Specialty, and Enriched Air) for $850." target="_blank" rel="noopener noreferrer" class="bundle-btn">
+                  <span>Book Now</span>
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Bundle -->
+          <div class="bundle-card">
+            <div class="bundle-image">
+              <img src="images/new/whitetip.jpg" alt="Advanced Course Bundle" />
+              <div class="bundle-overlay"></div>
+              <div class="bundle-tag">Advanced</div>
+            </div>
+            <div class="bundle-content">
+              <div class="bundle-header">
+                <h3>Advanced Specialties Bundle</h3>
+                <span class="bundle-duration"><i class="fas fa-calendar-alt"></i> 3-4 Days</span>
+              </div>
+              <div class="prerequisite">
+                <i class="fas fa-info-circle"></i>
+                <span>Prerequisite: Open Water Diver License</span>
+              </div>
+              <div class="bundle-description">
+                Take your diving to the next level with our advanced specialties package.
+              </div>
+              <ul class="bundle-courses">
+                <li><i class="fas fa-check-circle"></i> SSI Deep Diver Specialty</li>
+                <li><i class="fas fa-check-circle"></i> Enriched Air Nitrox</li>
+              </ul>
+              <div class="bundle-features">
+                <div class="feature">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>Advanced Training</span>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-award"></i>
+                  <span>Specialty Cards</span>
+                </div>
+              </div>
+              <div class="bundle-price">
+                <div class="price-tag">Special Price</div>
+                <span class="price-amount">555</span>
+                <span class="price-period">Complete Package</span>
+              </div>
+              <div class="bundle-action">
+                <a href="https://wa.me/+9607956848?text=Hi, I'm interested in the Advanced Specialties bundle (Deep Diver Specialty and Enriched Air Nitrox) for $555." target="_blank" rel="noopener noreferrer" class="bundle-btn">
+                  <span>Book Now</span>
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -713,25 +860,25 @@
         </div>
 
         <div class="packages-grid">
-          <!-- Ocean Quest Package -->
+          <!-- Maldives Discovery Package -->
           <div class="package-card">
             <div class="package-image">
-              <img src="images/package - 3.avif" alt="Ocean Quest Package" />
+              <img src="images/turtle.jpg" alt="Maldives Discovery Package" />
             </div>
             <div class="package-content">
-              <h3>APEX Ocean Quest</h3>
+              <h3>Maldives Discovery</h3>
               <p class="package-description">
-                A short but thrilling dive escape
+                Perfect for a quick diving experience
               </p>
 
               <div class="package-details">
                 <div class="package-icons">
                   <span><i class="fas fa-water"></i> 4 Dives</span>
-                  <span><i class="fas fa-calendar-alt"></i> 2 Days</span>
+                  <span><i class="fas fa-check-circle"></i> All Equipment</span>
                 </div>
 
                 <div class="package-price-wrapper">
-                  <div class="package-price">$640</div>
+                  <div class="package-price">$240</div>
                 </div>
               </div>
 
@@ -739,26 +886,26 @@
             </div>
           </div>
 
-          <!-- Deep Odyssey Package -->
+          <!-- Rasdhoo Explorer Package -->
           <div class="package-card">
             <div class="package-image">
-              <img src="images/pic 2.avif" alt="Deep Odyssey Package" />
+              <img src="images/shark.jpg" alt="Rasdhoo Explorer Package" />
               <div class="package-tag">Popular</div>
             </div>
             <div class="package-content">
-              <h3>APEX Deep Odyssey</h3>
+              <h3>Rasdhoo Explorer</h3>
               <p class="package-description">
-                Explore Maldives depths in style
+                Explore Rasdhoo's vibrant reefs
               </p>
 
               <div class="package-details">
                 <div class="package-icons">
                   <span><i class="fas fa-water"></i> 8 Dives</span>
-                  <span><i class="fas fa-calendar-alt"></i> 4 Days</span>
+                  <span><i class="fas fa-check-circle"></i> All Equipment</span>
                 </div>
 
                 <div class="package-price-wrapper">
-                  <div class="package-price">$935</div>
+                  <div class="package-price">$400</div>
                 </div>
               </div>
 
@@ -766,24 +913,24 @@
             </div>
           </div>
 
-          <!-- Ultimate Drift Package -->
+          <!-- Reef Odyssey Package -->
           <div class="package-card">
             <div class="package-image">
-              <img src="images/pic 1.avif" alt="Ultimate Drift Package" />
+              <img src="images/new/deep.jpg" alt="Reef Odyssey Package" />
               <div class="package-tag">Premium</div>
             </div>
             <div class="package-content">
-              <h3>APEX Ultimate Drift</h3>
+              <h3>Deep Reef Explorer</h3>
               <p class="package-description">The ultimate dive adventure</p>
 
               <div class="package-details">
                 <div class="package-icons">
                   <span><i class="fas fa-water"></i> 12 Dives</span>
-                  <span><i class="fas fa-calendar-alt"></i> 6 Days</span>
+                  <span><i class="fas fa-check-circle"></i> All Equipment</span>
                 </div>
 
                 <div class="package-price-wrapper">
-                  <div class="package-price">$1505</div>
+                  <div class="package-price">$600</div>
                 </div>
               </div>
 
@@ -794,85 +941,101 @@
       </div>
     </section>
 
+    <!-- Image Gallery -->
+    <section class="image-gallery">
+      <div class="gallery-container">
+        <div class="gallery-track">
+          <div class="gallery-slide">
+            <img src="images/new/g1.jpg" alt="Diving Experience" loading="lazy">
+          </div>
+          <div class="gallery-slide">
+            <img src="images/new/g2.jpg" alt="Underwater Adventure" loading="lazy">
+          </div>
+          <div class="gallery-slide">
+            <img src="images/new/g3.jpg" alt="Marine Life" loading="lazy">
+          </div>
+          <div class="gallery-slide">
+            <img src="images/new/g4.jpg" alt="Coral Reef" loading="lazy">
+          </div>
+          <div class="gallery-slide">
+            <img src="images/new/g5.jpg" alt="Ocean Discovery" loading="lazy">
+          </div>
+        </div>
+        <div class="gallery-pagination">
+          <button class="pagination-dot active" aria-label="Image 1"></button>
+          <button class="pagination-dot" aria-label="Image 2"></button>
+          <button class="pagination-dot" aria-label="Image 3"></button>
+          <button class="pagination-dot" aria-label="Image 4"></button>
+          <button class="pagination-dot" aria-label="Image 5"></button>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-waves">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#004953"
-            fill-opacity="1"
-            d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,149.3C672,160,768,160,864,138.7C960,117,1056,75,1152,69.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
-        </svg>
-      </div>
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#004953"
+          fill-opacity="1"
+          d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,149.3C672,160,768,160,864,138.7C960,117,1056,75,1152,69.3C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
 
-      <!-- Footer top with logo and tagline -->
-      <div class="footer-top">
-        <div class="footer-logo-container">
-          <div class="footer-logo">
-            <img src="images/logo.png" alt="Apex Dive Rasdhoo Logo" />
-          </div>
-          <p class="footer-tagline">Unleash The Explorer In You</p>
+    <!-- Footer top with logo and tagline -->
+    <div class="footer-top">
+      <div class="footer-logo-container">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="Apex Dive Rasdhoo Logo" />
         </div>
-        <div class="social-icons-container">
-          <p class="connect-text">Connect With Us</p>
-          <div class="footer-social-icons">
-            <a href="#" aria-label="Facebook" class="social-icon-bubble"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" aria-label="Instagram" class="social-icon-bubble"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a href="#" aria-label="YouTube" class="social-icon-bubble"
-              ><i class="fab fa-youtube"></i
-            ></a>
-            <a href="#" aria-label="WhatsApp" class="social-icon-bubble"
-              ><i class="fab fa-whatsapp"></i
-            ></a>
-            <a href="#" aria-label="Phone" class="social-icon-bubble"
-              ><i class="fas fa-phone"></i
-            ></a>
-            <a href="#" aria-label="Trip Advisor" class="social-icon-bubble"
-              ><i class="fas fa-umbrella-beach"></i
-            ></a>
-          </div>
+        <p class="footer-tagline">Unleash The Explorer In You</p>
+      </div>
+      <div class="social-icons-container">
+        <p class="connect-text">Connect With Us</p>
+        <div class="footer-social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61572287477279" aria-label="Facebook" class="social-icon-bubble"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/apexdiverasdhoo/" aria-label="Instagram" class="social-icon-bubble"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/+9607956848" aria-label="WhatsApp" class="social-icon-bubble"><i class="fab fa-whatsapp"></i></a>
+          <a href="tel:+9607956848" aria-label="Phone" class="social-icon-bubble"><i class="fas fa-phone"></i></a>
         </div>
       </div>
+    </div>
 
-      <!-- Main footer content with decorative elements -->
-      <div class="footer-main">
-        <div class="footer-content-wrapper">
-          <div class="footer-column about-column">
-            <h3>About Us</h3>
-            <p>
-              At Apex Dive Rasdhoo, we bring the thrill of diving to all levels,
-              from beginners to advanced explorers. As an SSI-certified dive
-              center, we offer top-tier training, unforgettable dive
-              experiences, and personalized service with the best of the
-              Maldives' underwater world.
-            </p>
-            <div class="certification-badges">
-              <span class="cert-badge">SSI Certified</span>
-              <span class="cert-badge">DAN Partner</span>
-            </div>
+    <!-- Main footer content with decorative elements -->
+    <div class="footer-main">
+      <div class="footer-content-wrapper">
+        <div class="footer-column about-column">
+          <h3>About Us</h3>
+          <p>
+            At Apex Dive Rasdhoo, we bring the thrill of diving to all levels,
+            from beginners to advanced explorers. As an SSI-certified dive
+            center, we offer top-tier training, unforgettable dive
+            experiences, and personalized service with the best of the
+            Maldives' underwater world.
+          </p>
+          <div class="certification-badges">
+            <span class="cert-badge">SSI Certified</span>
+            <span class="cert-badge">DAN Partner</span>
           </div>
+        </div>
 
-          <div class="footer-column quick-links-column">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="about-us.html"
-                  ><i class="fas fa-angle-right"></i> About us</a
-                >
-              </li>
-              <li>
-                <a href="packages.html"
-                  ><i class="fas fa-angle-right"></i> Packages</a
-              </li>
+        <div class="footer-column quick-links-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="about-us.html"
+                ><i class="fas fa-angle-right"></i> About us</a
+              >
+            </li>
+            <li>
+              <a href="packages.html"
+                ><i class="fas fa-angle-right"></i> Packages</a
+              ></li>
               <li>
                 <a href="courses.html"
                   ><i class="fas fa-angle-right"></i> Courses</a
@@ -881,9 +1044,8 @@
               <li>
                 <a href="contact-us.html"
                   ><i class="fas fa-angle-right"></i> Contact Us</a
+                >
               </li>
-              
-              
             </ul>
           </div>
 
@@ -892,7 +1054,7 @@
             <div class="contact-info">
               <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <p>Luboagasdhoshuge, AA Rasdhoo, Maldives, 09030</p>
+                <p>Moonstone villa, Ghaazee magu, AA Rasdhoo, 09030, Maldives</p>
               </div>
               <div class="contact-item">
                 <i class="fas fa-phone-alt"></i>
@@ -906,34 +1068,35 @@
                   >
                 </p>
               </div>
-              <a href="#" class="contact-btn">Contact Us Now</a>
+              <a href="contact-us.html" class="contact-btn">Contact Us Now</a>
             </div>
           </div>
         </div>
-
-        <!-- Decorative bubbles -->
-        <div class="footer-bubble bubble-1"></div>
-        <div class="footer-bubble bubble-2"></div>
-        <div class="footer-bubble bubble-3"></div>
-        <div class="footer-bubble bubble-4"></div>
       </div>
 
-      <!-- Footer bottom with copyright -->
-      <div class="footer-bottom">
-        <div class="footer-divider">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 30"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,15 C300,40 900,-10 1200,15 L1200,30 L0,30 Z"
-              fill="#003540"
-            ></path>
-          </svg>
-        </div>
-        <p class="copyright">© 2025, Apex Dive Rasdhoo. All rights reserved.</p>
+      <!-- Decorative bubbles -->
+      <div class="footer-bubble bubble-1"></div>
+      <div class="footer-bubble bubble-2"></div>
+      <div class="footer-bubble bubble-3"></div>
+      <div class="footer-bubble bubble-4"></div>
+    </div>
+
+    <!-- Footer bottom with copyright -->
+    <div class="footer-bottom">
+      <div class="footer-divider">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 30"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,15 C300,40 900,-10 1200,15 L1200,30 L0,30 Z"
+            fill="#003540"
+          ></path>
+        </svg>
       </div>
-    </footer>
-  </body>
+      <p class="copyright">© 2025, Apex Dive Rasdhoo. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
 </html>
