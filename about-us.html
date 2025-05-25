@@ -9,6 +9,676 @@
     <link rel="stylesheet" href="custom-package.css" />
     <link rel="stylesheet" href="about-us.css" />
     <link rel="stylesheet" href="custom.css" />
+    <style>
+      /* Enhanced Accommodation Section Styles */
+      .accommodation-section {
+        padding: 4rem 2rem;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 73, 83, 0.05),
+          rgba(0, 73, 83, 0.1)
+        );
+        border-radius: 1rem;
+        margin: 2rem 0;
+      }
+
+      .accommodation-title {
+        text-align: center;
+        color: #004953;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .accommodation-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        color: #333;
+        line-height: 1.6;
+        padding: 0 1rem;
+      }
+
+      .accommodations-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .accommodation-card {
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .accommodation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .featured-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .accommodation-card:hover .featured-image {
+        transform: scale(1.05);
+      }
+
+      .accommodation-details {
+        padding: 1.5rem;
+      }
+
+      .accommodation-details h4 {
+        font-size: 1.5rem;
+        color: #004953;
+        margin-bottom: 0.75rem;
+      }
+
+      .accommodation-location {
+        color: #004953;
+        font-weight: 500;
+        margin: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .accommodation-description {
+        color: #444;
+        line-height: 1.6;
+        margin: 1rem 0;
+      }
+
+      .accommodation-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .accommodation-features span {
+        background: rgba(0, 73, 83, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.9rem;
+        color: #004953;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .accommodation-features span i {
+        color: #004953;
+      }
+
+      .accommodation-cta {
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      .book-accommodation {
+        background: #004953;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+      }
+
+      .book-accommodation:hover {
+        background: #006270;
+      }
+
+      @media (max-width: 768px) {
+        .accommodation-section {
+          padding: 3rem 1rem;
+          margin: 1rem 0;
+        }
+
+        .accommodation-title {
+          font-size: 2rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .accommodation-intro {
+          font-size: 0.95rem;
+          margin-bottom: 2rem;
+          padding: 0;
+        }
+
+        .accommodations-wrapper {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .accommodation-card {
+          max-width: 100%;
+          margin: 0;
+        }
+
+        .featured-image {
+          height: 200px;
+        }
+
+        .accommodation-details {
+          padding: 1.25rem;
+        }
+
+        .accommodation-details h4 {
+          font-size: 1.25rem;
+        }
+
+        .accommodation-description {
+          font-size: 0.95rem;
+          margin: 0.75rem 0;
+        }
+
+        .accommodation-features {
+          gap: 0.5rem;
+          margin-top: 1rem;
+        }
+
+        .accommodation-features span {
+          padding: 0.4rem 0.75rem;
+          font-size: 0.85rem;
+        }
+
+        .accommodation-cta {
+          margin-top: 2rem;
+        }
+
+        .book-accommodation {
+          width: 100%;
+          justify-content: center;
+          padding: 1rem;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .accommodation-section {
+          padding: 2rem 1rem;
+        }
+
+        .accommodation-title {
+          font-size: 1.75rem;
+        }
+
+        .featured-image {
+          height: 180px;
+        }
+
+        .accommodation-features {
+          justify-content: center;
+        }
+      }
+
+      /* Dive Site Maps Section Styles */
+      .dive-site-maps-section {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 73, 83, 0.02),
+          rgba(0, 73, 83, 0.05)
+        );
+        border-radius: 1rem;
+      }
+
+      .maps-section-title {
+        font-size: 1.75rem;
+        color: #004953;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .maps-section-description {
+        text-align: center;
+        color: #666;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dive-maps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .dive-map-item {
+        background: white;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .dive-map-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #004953, #006270);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .dive-map-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 73, 83, 0.15);
+        border-color: rgba(0, 73, 83, 0.1);
+      }
+
+      .dive-map-item:hover::before {
+        transform: scaleX(1);
+      }
+
+      .dive-map-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .dive-map-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .dive-map-item i.fas.fa-map {
+        color: #004953;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        width: 20px;
+        text-align: center;
+      }
+
+      .dive-site-name {
+        color: #004953;
+        font-size: 0.95rem;
+        font-weight: 600;
+        flex: 1;
+      }
+
+      .marine-highlight {
+        padding: 0.25rem 0.6rem;
+        border-radius: 1rem;
+        font-size: 0.7rem;
+        font-weight: 500;
+        background: linear-gradient(135deg, #0891b2, #0e7490);
+        color: white;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .marine-highlight i {
+        font-size: 0.65rem;
+      }
+
+      .dive-map-details {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-left: 1.95rem;
+      }
+
+      .depth-info {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: #0891b2;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .depth-info i {
+        font-size: 0.75rem;
+      }
+
+      .dive-type {
+        color: #6b7280;
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.15rem 0.5rem;
+        background: rgba(0, 73, 83, 0.08);
+        border-radius: 0.75rem;
+      }
+
+      /* Pagination Styles */
+      .dive-maps-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding: 1rem 0;
+      }
+
+      .pagination-btn {
+        background: linear-gradient(135deg, #004953, #006270);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 2rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .pagination-btn:hover:not(:disabled) {
+        background: linear-gradient(135deg, #006270, #0891b2);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 73, 83, 0.3);
+      }
+
+      .pagination-btn:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .pagination-info {
+        background: rgba(0, 73, 83, 0.1);
+        color: #004953;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      /* Hover effect for the entire item */
+      .dive-map-item:hover .dive-site-name {
+        color: #006270;
+      }
+
+      .dive-map-item:hover .depth-info {
+        color: #0369a1;
+      }
+
+      .dive-map-item:hover .dive-type {
+        background: rgba(0, 73, 83, 0.12);
+        color: #374151;
+      }
+
+      .dive-map-item:hover .marine-highlight {
+        background: linear-gradient(135deg, #0369a1, #0891b2);
+      }
+
+      /* Map Modal Styles */
+      .map-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        padding: 1rem;
+      }
+
+      .map-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .map-modal {
+        background: white;
+        border-radius: 1rem;
+        max-width: 90vw;
+        max-height: 90vh;
+        width: 800px;
+        overflow: hidden;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+      }
+
+      .map-modal-overlay.active .map-modal {
+        transform: scale(1);
+      }
+
+      .map-modal-header {
+        padding: 1.5rem 2rem;
+        background: #004953;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .map-modal-title {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .map-modal-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: background 0.3s ease;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .map-modal-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .map-modal-content {
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .modal-map-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .dive-site-maps-section {
+          margin-top: 1.5rem;
+          padding: 1rem 0;
+        }
+
+        .maps-section-title {
+          font-size: 1.5rem;
+        }
+
+        .maps-section-description {
+          font-size: 0.9rem;
+          padding: 0 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .dive-maps-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 0.75rem;
+          padding: 0 0.5rem;
+        }
+
+        .dive-map-item {
+          padding: 0.75rem;
+        }
+
+        .dive-map-header {
+          gap: 0.5rem;
+        }
+
+        .dive-site-name {
+          font-size: 0.9rem;
+        }
+
+        .marine-highlight {
+          font-size: 0.65rem;
+          padding: 0.2rem 0.4rem;
+        }
+
+        .marine-highlight i {
+          font-size: 0.6rem;
+        }
+
+        .dive-map-details {
+          gap: 0.75rem;
+          padding-left: 1.7rem;
+        }
+
+        .depth-info {
+          font-size: 0.75rem;
+        }
+
+        .dive-type {
+          font-size: 0.75rem;
+          padding: 0.1rem 0.4rem;
+        }
+
+        .dive-maps-pagination {
+          gap: 0.75rem;
+          margin-top: 1.5rem;
+        }
+
+        .pagination-btn {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.85rem;
+        }
+
+        .pagination-info {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.85rem;
+        }
+
+        .map-modal {
+          width: 95vw;
+          margin: 0.5rem;
+        }
+
+        .map-modal-header {
+          padding: 1rem 1.5rem;
+        }
+
+        .map-modal-title {
+          font-size: 1.25rem;
+        }
+
+        .map-modal-content {
+          padding: 0.75rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .dive-maps-grid {
+          grid-template-columns: 1fr;
+          gap: 0.5rem;
+        }
+
+        .dive-map-item {
+          padding: 0.65rem;
+        }
+
+        .dive-map-header {
+          gap: 0.4rem;
+        }
+
+        .dive-site-name {
+          font-size: 0.85rem;
+        }
+
+        .marine-highlight {
+          font-size: 0.6rem;
+          padding: 0.15rem 0.35rem;
+        }
+
+        .marine-highlight i {
+          font-size: 0.55rem;
+        }
+
+        .dive-map-details {
+          gap: 0.5rem;
+          padding-left: 1.6rem;
+        }
+
+        .depth-info {
+          font-size: 0.7rem;
+        }
+
+        .dive-type {
+          font-size: 0.7rem;
+        }
+
+        .maps-section-title {
+          font-size: 1.3rem;
+        }
+
+        .dive-maps-pagination {
+          gap: 0.5rem;
+          margin-top: 1rem;
+        }
+
+        .pagination-btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.8rem;
+        }
+
+        .pagination-info {
+          padding: 0.35rem 0.7rem;
+          font-size: 0.8rem;
+        }
+
+        .map-modal-header {
+          padding: 0.75rem 1rem;
+        }
+      }
+    </style>
 
     <link
       rel="stylesheet"
@@ -270,10 +940,10 @@
             <div class="dive-sites-container">
               <div class="dive-sites-intro">
                 <p>
-                  Discover the 15 breathtaking dive sites that make Rasdhoo
-                  Atoll a diver's paradise. From vibrant coral reefs to
-                  thrilling drift dives, each location offers unique marine
-                  encounters and unforgettable experiences.
+                  Discover the breathtaking dive sites that make Rasdhoo Atoll a
+                  diver's paradise. From vibrant coral reefs to thrilling drift
+                  dives, each location offers unique marine encounters and
+                  unforgettable experiences.
                 </p>
               </div>
 
@@ -817,6 +1487,554 @@
                   <i class="fas fa-fish"></i> Explore Our Dive Packages
                 </a>
               </div>
+
+              <!-- Dive Site Maps Section -->
+              <div id="dive-site-maps-section" class="dive-site-maps-section">
+                <h3 class="maps-section-title">Dive Site Maps</h3>
+                <p class="maps-section-description">
+                  Explore the different dive sites and the topography of our
+                  pristine dive sites
+                </p>
+
+                <div class="dive-maps-grid">
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/RASDHOO CHANNEL.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Rasdhoo Channel</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Sharks & Rays</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 12-35m</span
+                        >
+                        <span class="dive-type">Drift Dive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/RASDHOO BEYRU.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Rasdhoo Beyru</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Manta Rays</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 15-40m</span
+                        >
+                        <span class="dive-type">Wall Dive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/MADIVARU CORNER.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Madivaru Corner</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Eagle Rays</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 12-30m</span
+                        >
+                        <span class="dive-type">Corner Dive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/MADIVARU CHANNEL.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Madivaru Channel</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Reef Sharks</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 10-30m</span
+                        >
+                        <span class="dive-type">Channel</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/MADIVARU REEF.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Madivaru Reef</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-seedling"></i> Coral Gardens</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 8-25m</span
+                        >
+                        <span class="dive-type">Reef Dive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/MANTA POINT.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Manta Point</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-star"></i> Manta Rays</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 10-25m</span
+                        >
+                        <span class="dive-type">Cleaning Station</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/THREE PALMS.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Three Palms</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-leaf"></i> Turtles</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 8-25m</span
+                        >
+                        <span class="dive-type">Coral Garden</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/BODU GAA.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Bodu Gaa</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-seedling"></i> Hard Corals</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 5-25m</span
+                        >
+                        <span class="dive-type">House Reef</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/REEF EXPLORER.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Reef Explorer Wreck</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-anchor"></i> Wreck Life</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 15-30m</span
+                        >
+                        <span class="dive-type">Wreck</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/MAAYA THILA.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Maaya Thila</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Schools of Fish</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 10-30m</span
+                        >
+                        <span class="dive-type">Thila</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/FESDU WRECK.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Fesdu Wreck</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-anchor"></i> Historic Wreck</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 20-35m</span
+                        >
+                        <span class="dive-type">Historic Wreck</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/VELIGANDU NORTH.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Veligandu North</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-leaf"></i> Turtles</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 5-18m</span
+                        >
+                        <span class="dive-type">Reef Dive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/VELIGANDU EAST.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Veligandu East</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-sun"></i> Clear Waters</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 6-20m</span
+                        >
+                        <span class="dive-type">Sandbank</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/NORTH CHANNEL.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">North Channel</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Pelagics</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 15-40m</span
+                        >
+                        <span class="dive-type">Channel</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/NORTH CORNER.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">North Corner</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Sharks</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 15-35m</span
+                        >
+                        <span class="dive-type">Corner</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/MAALHOS THILA.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Maalhos Thila</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-seedling"></i> Soft Corals</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 12-28m</span
+                        >
+                        <span class="dive-type">Thila</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/KURAMATHI QUEEN.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Kuramathi Queen</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Reef Fish</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 10-30m</span
+                        >
+                        <span class="dive-type">Reef Dive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/KURAMATHI HOUSE REEF.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Kuramathi House Reef</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-seedling"></i> Coral Gardens</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 5-22m</span
+                        >
+                        <span class="dive-type">House Reef</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/HAFZA THILA.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Hafza Thila</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Groupers</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 8-25m</span
+                        >
+                        <span class="dive-type">Thila</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/GANGEHI KANDU.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Gangehi Kandu</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Barracudas</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 10-30m</span
+                        >
+                        <span class="dive-type">Kandu</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/FAN REEF.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Fan Reef</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fan"></i> Sea Fans</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 10-30m</span
+                        >
+                        <span class="dive-type">Sea Fan Wall</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/CAVES.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Caves</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-mountain"></i> Cave Systems</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 12-28m</span
+                        >
+                        <span class="dive-type">Cave Dive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/BATHALAA MAAGAA KAN THILA.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name"
+                          >Bathalaa Maagaa Kan Thila</span
+                        >
+                        <span class="marine-highlight"
+                          ><i class="fas fa-fish"></i> Napoleon Wrasse</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 15-35m</span
+                        >
+                        <span class="dive-type">Thila</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="dive-map-item"
+                    data-map="images/dive-sites/ORI FARU.jpg"
+                  >
+                    <div class="dive-map-content">
+                      <div class="dive-map-header">
+                        <i class="fas fa-map"></i>
+                        <span class="dive-site-name">Ori Faru</span>
+                        <span class="marine-highlight"
+                          ><i class="fas fa-seedling"></i> Coral Garden</span
+                        >
+                      </div>
+                      <div class="dive-map-details">
+                        <span class="depth-info"
+                          ><i class="fas fa-water"></i> 8-25m</span
+                        >
+                        <span class="dive-type">Faru</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Pagination Controls -->
+                <div class="dive-maps-pagination">
+                  <button class="pagination-btn maps-prev-btn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                  </button>
+                  <div class="pagination-info">
+                    <span class="maps-current-page">1</span>/<span
+                      class="maps-total-pages"
+                      >3</span
+                    >
+                  </div>
+                  <button class="pagination-btn maps-next-btn">
+                    Next <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+
+                <!-- Map Modal -->
+                <div class="map-modal-overlay">
+                  <div class="map-modal">
+                    <div class="map-modal-header">
+                      <h3 class="map-modal-title"></h3>
+                      <button class="map-modal-close">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <div class="map-modal-content">
+                      <img src="" alt="Dive Site Map" class="modal-map-image" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -918,18 +2136,20 @@
               <div class="accommodation-section">
                 <h3 class="accommodation-title">Stay With Us</h3>
                 <p class="accommodation-intro">
-                  We've partnered with the finest guesthouses on Rasdhoo Island
-                  to ensure your diving adventure is complemented by comfortable
+                  We've partnered with select guesthouses on Rasdhoo Island to
+                  ensure your diving adventure is complemented by comfortable
                   and authentic accommodations.
                 </p>
 
                 <div class="accommodations-carousel">
                   <div class="accommodations-wrapper">
+                    <!-- First Card -->
                     <div class="accommodation-card">
                       <div class="accommodation-image">
                         <img
                           src="images/summervibes.jpg"
                           alt="Summer Vibes Beach Front"
+                          class="featured-image"
                         />
                         <div class="accommodation-rating">
                           <i class="fas fa-star"></i>
@@ -943,26 +2163,33 @@
                       <div class="accommodation-details">
                         <h4>Summer Vibes Beach Front</h4>
                         <p class="accommodation-location">
-                          <i class="fas fa-map-marker-alt"></i> Beachfront
+                          <i class="fas fa-map-marker-alt"></i> Premium
+                          Beachfront Location
                         </p>
                         <p class="accommodation-description">
-                          Luxury beachfront guesthouse with stunning ocean views
-                          and direct beach access. Perfect for divers seeking
-                          comfort.
+                          Experience luxury beachfront living with stunning
+                          ocean views and direct beach access. Perfect for
+                          divers seeking comfort and convenience with modern
+                          amenities.
                         </p>
                         <div class="accommodation-features">
                           <span><i class="fas fa-wifi"></i> Free WiFi</span>
-                          <span><i class="fas fa-coffee"></i> Breakfast</span>
+                          <span
+                            ><i class="fas fa-coffee"></i> Breakfast
+                            Included</span
+                          >
                           <span><i class="fas fa-water"></i> Beach Access</span>
                         </div>
                       </div>
                     </div>
 
+                    <!-- Second Card -->
                     <div class="accommodation-card">
                       <div class="accommodation-image">
                         <img
                           src="images/coralville.jpg"
                           alt="Rasdhoo Coralville"
+                          class="featured-image"
                         />
                         <div class="accommodation-rating">
                           <i class="fas fa-star"></i>
@@ -976,12 +2203,13 @@
                       <div class="accommodation-details">
                         <h4>Rasdhoo Coralville</h4>
                         <p class="accommodation-location">
-                          <i class="fas fa-map-marker-alt"></i> Central Location
+                          <i class="fas fa-map-marker-alt"></i> Central Island
+                          Location
                         </p>
                         <p class="accommodation-description">
-                          Comfortable and affordable guesthouse in the heart of
-                          Rasdhoo with easy access to dive centers and local
-                          attractions.
+                          A charming guesthouse in the heart of Rasdhoo,
+                          offering easy access to dive centers and local
+                          attractions. Perfect blend of comfort and convenience.
                         </p>
                         <div class="accommodation-features">
                           <span><i class="fas fa-wifi"></i> Free WiFi</span>
@@ -995,52 +2223,16 @@
                         </div>
                       </div>
                     </div>
-
-                    <div class="accommodation-card">
-                      <div class="accommodation-image">
-                        <img
-                          src="images/holidayhome.jpg"
-                          alt="Rasdhoo Holiday Home"
-                        />
-                        <div class="accommodation-rating">
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <span>5.0</span>
-                        </div>
-                      </div>
-                      <div class="accommodation-details">
-                        <h4>Rasdhoo Holiday Home</h4>
-                        <p class="accommodation-location">
-                          <i class="fas fa-map-marker-alt"></i> Beachside
-                        </p>
-                        <p class="accommodation-description">
-                          Premium guesthouse with spacious rooms and excellent
-                          amenities. Known for exceptional service and
-                          comfortable accommodations.
-                        </p>
-                        <div class="accommodation-features">
-                          <span><i class="fas fa-wifi"></i> Free WiFi</span>
-                          <span><i class="fas fa-snowflake"></i> AC</span>
-                          <span
-                            ><i class="fas fa-swimming-pool"></i> Terrace</span
-                          >
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
-                <div class="accommodation-nav">
-                  <button class="accommodation-nav-btn prev-accommodation">
-                    <i class="fas fa-chevron-left"></i>
-                  </button>
-                  <div class="accommodation-dots"></div>
-                  <button class="accommodation-nav-btn next-accommodation">
-                    <i class="fas fa-chevron-right"></i>
-                  </button>
+                <div class="accommodation-cta">
+                  <a
+                    href="https://wa.me/+9607956848"
+                    class="btn book-accommodation"
+                  >
+                    <i class="fas fa-calendar-check"></i> Book Your Stay
+                  </a>
                 </div>
               </div>
 
@@ -1532,6 +2724,54 @@
         // Update on window resize
         window.addEventListener("resize", calculateItemsPerPage);
 
+        // Dive Site Maps Modal Functionality
+        const mapItems = document.querySelectorAll(".dive-map-item");
+        const mapModal = document.querySelector(".map-modal-overlay");
+        const mapModalTitle = document.querySelector(".map-modal-title");
+        const mapModalImage = document.querySelector(".modal-map-image");
+        const mapModalClose = document.querySelector(".map-modal-close");
+
+        // Open map modal
+        mapItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const mapSrc = item.dataset.map;
+            const mapTitle = item.querySelector(".dive-site-name").textContent;
+
+            mapModalTitle.textContent = mapTitle;
+            mapModalImage.src = mapSrc;
+            mapModalImage.alt = `${mapTitle} Dive Site Map`;
+
+            mapModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          });
+        });
+
+        // Close map modal
+        function closeMapModal() {
+          mapModal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        if (mapModalClose) {
+          mapModalClose.addEventListener("click", closeMapModal);
+        }
+
+        // Close modal when clicking outside
+        if (mapModal) {
+          mapModal.addEventListener("click", (e) => {
+            if (e.target === mapModal) {
+              closeMapModal();
+            }
+          });
+        }
+
+        // Close modal with Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && mapModal.classList.contains("active")) {
+            closeMapModal();
+          }
+        });
+
         // Island Section - Accommodation Carousel
         const accommodationsWrapper = document.querySelector(
           ".accommodations-wrapper"
@@ -1539,110 +2779,17 @@
         const accommodationCards = document.querySelectorAll(
           ".accommodation-card"
         );
-        const prevAccommodation = document.querySelector(".prev-accommodation");
-        const nextAccommodation = document.querySelector(".next-accommodation");
-        const accommodationDots = document.querySelector(".accommodation-dots");
 
-        // Calculate number of visible cards based on screen width
-        function getVisibleCards() {
-          if (window.innerWidth < 768) {
-            return 1;
-          } else if (window.innerWidth < 1200) {
-            return 2;
-          } else {
-            return 3;
-          }
-        }
-
-        // Initialize accommodation carousel
-        let accommodationIndex = 0;
-        let visibleCards = getVisibleCards();
-        let accommodationMaxIndex = Math.max(
-          0,
-          accommodationCards.length - visibleCards
-        );
-
-        // Create pagination dots
-        function createDots() {
-          accommodationDots.innerHTML = "";
-
-          const numDots = accommodationMaxIndex + 1;
-          for (let i = 0; i < numDots; i++) {
-            const dot = document.createElement("div");
-            dot.classList.add("dot");
-            if (i === accommodationIndex) {
-              dot.classList.add("active");
-            }
-
-            dot.addEventListener("click", () => {
-              scrollToAccommodation(i);
+        // Add hover effect for accommodation cards
+        if (accommodationCards) {
+          accommodationCards.forEach((card) => {
+            card.addEventListener("mouseenter", () => {
+              card.style.transform = "translateY(-5px)";
             });
-
-            accommodationDots.appendChild(dot);
-          }
-        }
-
-        // Scroll accommodation carousel
-        function scrollToAccommodation(index) {
-          accommodationIndex = Math.max(
-            0,
-            Math.min(index, accommodationMaxIndex)
-          );
-
-          // Update carousel position
-          if (accommodationsWrapper) {
-            const cardWidth = accommodationCards[0].offsetWidth + 24; // Width + gap
-            accommodationsWrapper.style.transform = `translateX(-${
-              accommodationIndex * cardWidth
-            }px)`;
-          }
-
-          // Update dots
-          const dots = accommodationDots.querySelectorAll(".dot");
-          dots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === accommodationIndex);
+            card.addEventListener("mouseleave", () => {
+              card.style.transform = "translateY(0)";
+            });
           });
-
-          // Update button states
-          if (prevAccommodation) {
-            prevAccommodation.disabled = accommodationIndex === 0;
-          }
-
-          if (nextAccommodation) {
-            nextAccommodation.disabled =
-              accommodationIndex === accommodationMaxIndex;
-          }
-        }
-
-        // Initialize accommodation carousel
-        if (accommodationsWrapper && accommodationCards.length > 0) {
-          createDots();
-          scrollToAccommodation(0);
-
-          // Add event listeners
-          window.addEventListener("resize", () => {
-            visibleCards = getVisibleCards();
-            accommodationMaxIndex = Math.max(
-              0,
-              accommodationCards.length - visibleCards
-            );
-            createDots();
-            scrollToAccommodation(
-              Math.min(accommodationIndex, accommodationMaxIndex)
-            );
-          });
-
-          if (prevAccommodation) {
-            prevAccommodation.addEventListener("click", () => {
-              scrollToAccommodation(accommodationIndex - 1);
-            });
-          }
-
-          if (nextAccommodation) {
-            nextAccommodation.addEventListener("click", () => {
-              scrollToAccommodation(accommodationIndex + 1);
-            });
-          }
         }
 
         // Island Gallery
@@ -1760,39 +2907,160 @@
           }
         }
 
-        // Add the same touch swipe functionality to accommodation carousel
-        if (accommodationsWrapper) {
-          let touchStartX = 0;
-          let touchEndX = 0;
+        // Close modal with Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && mapModal.classList.contains("active")) {
+            closeMapModal();
+          }
+        });
 
-          accommodationsWrapper.addEventListener(
-            "touchstart",
-            (e) => {
-              touchStartX = e.changedTouches[0].screenX;
-            },
-            { passive: true }
-          );
+        // Dive Site Maps Pagination
+        const allDiveMapItems = document.querySelectorAll(".dive-map-item");
+        const mapsCurrentPageEl = document.querySelector(".maps-current-page");
+        const mapsTotalPagesEl = document.querySelector(".maps-total-pages");
+        const mapsPrevBtn = document.querySelector(".maps-prev-btn");
+        const mapsNextBtn = document.querySelector(".maps-next-btn");
 
-          accommodationsWrapper.addEventListener(
-            "touchend",
-            (e) => {
-              touchEndX = e.changedTouches[0].screenX;
-              handleAccommodationSwipe();
-            },
-            { passive: true }
-          );
+        let mapsCurrentPage = 1;
+        let mapsItemsPerPage = getMapsItemsPerPage();
+        let mapsTotalPages = Math.ceil(
+          allDiveMapItems.length / mapsItemsPerPage
+        );
 
-          function handleAccommodationSwipe() {
-            const swipeDistance = touchEndX - touchStartX;
-            if (swipeDistance > 50) {
-              // Swipe right, go to previous
-              scrollToAccommodation(accommodationIndex - 1);
-            } else if (swipeDistance < -50) {
-              // Swipe left, go to next
-              scrollToAccommodation(accommodationIndex + 1);
-            }
+        function getMapsItemsPerPage() {
+          if (window.innerWidth < 480) {
+            return 6; // Mobile: 6 items per page
+          } else if (window.innerWidth < 768) {
+            return 8; // Tablet: 8 items per page
+          } else {
+            return 12; // Desktop: 12 items per page
           }
         }
+
+        function updateMapsDisplay() {
+          mapsItemsPerPage = getMapsItemsPerPage();
+          mapsTotalPages = Math.ceil(allDiveMapItems.length / mapsItemsPerPage);
+
+          if (mapsCurrentPage > mapsTotalPages) {
+            mapsCurrentPage = mapsTotalPages;
+          }
+
+          // Update pagination display
+          if (mapsCurrentPageEl)
+            mapsCurrentPageEl.textContent = mapsCurrentPage;
+          if (mapsTotalPagesEl) mapsTotalPagesEl.textContent = mapsTotalPages;
+
+          // Update button states
+          if (mapsPrevBtn) mapsPrevBtn.disabled = mapsCurrentPage === 1;
+          if (mapsNextBtn)
+            mapsNextBtn.disabled = mapsCurrentPage === mapsTotalPages;
+
+          // Show/hide items
+          showMapsPage(mapsCurrentPage);
+        }
+
+        function showMapsPage(page) {
+          const startIndex = (page - 1) * mapsItemsPerPage;
+          const endIndex = startIndex + mapsItemsPerPage;
+
+          // Phase 1: Smooth fade out of current items
+          allDiveMapItems.forEach((item, index) => {
+            if (index < startIndex || index >= endIndex) {
+              // Items to hide
+              item.style.opacity = "0";
+              item.style.transform = "translateY(-15px) scale(0.98)";
+            }
+          });
+
+          // Phase 2: Prepare new items (but keep them invisible)
+          setTimeout(() => {
+            allDiveMapItems.forEach((item, index) => {
+              if (index >= startIndex && index < endIndex) {
+                // Items to show - prepare for animation
+                item.style.display = "block";
+                item.style.opacity = "0";
+                item.style.transform = "translateY(20px) scale(0.96)";
+              } else {
+                // Hide completed fade-out items
+                item.style.display = "none";
+              }
+            });
+          }, 150);
+
+          // Phase 3: Smooth staggered fade-in of new items
+          setTimeout(() => {
+            allDiveMapItems.forEach((item, index) => {
+              if (index >= startIndex && index < endIndex) {
+                const staggerDelay = (index - startIndex) * 60; // Reduced delay for smoother feel
+                setTimeout(() => {
+                  item.style.opacity = "1";
+                  item.style.transform = "translateY(0) scale(1)";
+                }, staggerDelay);
+              }
+            });
+          }, 200);
+        }
+
+        // Initialize dive site items with optimized transition styles
+        allDiveMapItems.forEach((item) => {
+          item.style.transition =
+            "opacity 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1)";
+        });
+
+        // Initialize maps pagination
+        updateMapsDisplay();
+
+        // Pagination event listeners
+        if (mapsPrevBtn) {
+          mapsPrevBtn.addEventListener("click", () => {
+            if (mapsCurrentPage > 1) {
+              mapsCurrentPage--;
+              updateMapsDisplay();
+
+              // Add smooth scroll to dive site maps section
+              const diveSiteMapsSection = document.getElementById(
+                "dive-site-maps-section"
+              );
+              if (diveSiteMapsSection) {
+                setTimeout(() => {
+                  diveSiteMapsSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest",
+                  });
+                }, 100);
+              }
+            }
+          });
+        }
+
+        if (mapsNextBtn) {
+          mapsNextBtn.addEventListener("click", () => {
+            if (mapsCurrentPage < mapsTotalPages) {
+              mapsCurrentPage++;
+              updateMapsDisplay();
+
+              // Add smooth scroll to dive site maps section
+              const diveSiteMapsSection = document.getElementById(
+                "dive-site-maps-section"
+              );
+              if (diveSiteMapsSection) {
+                setTimeout(() => {
+                  diveSiteMapsSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest",
+                  });
+                }, 100);
+              }
+            }
+          });
+        }
+
+        // Update maps pagination on window resize
+        window.addEventListener("resize", () => {
+          setTimeout(updateMapsDisplay, 100);
+        });
       });
     </script>
   </body>
