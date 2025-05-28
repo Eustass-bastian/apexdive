@@ -678,6 +678,53 @@
           padding: 0.75rem 1rem;
         }
       }
+
+      /* Team Member Image B&W Styling */
+      .team-member-image img {
+        filter: grayscale(100%);
+        transition: all 0.3s ease;
+      }
+
+      .team-member-image img:hover {
+        filter: grayscale(100%) brightness(1.1) contrast(1.1);
+        transform: scale(1.05);
+      }
+
+      /* Mobile Team Member Attributes Fix */
+      @media (max-width: 480px) {
+        .team-member-attributes {
+          display: grid !important;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+          justify-items: center;
+          margin-top: 1.5rem;
+        }
+
+        .team-member-attribute {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+        }
+
+        .team-member-attribute i {
+          width: 32px;
+          height: 32px;
+          font-size: 0.9rem;
+          margin-bottom: 0.4rem;
+        }
+
+        .team-member-attribute span {
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-align: center;
+          word-break: break-word;
+          line-height: 1.2;
+        }
+      }
+
+      /* Dive Site Maps Section Styles */
     </style>
 
     <link
@@ -875,48 +922,57 @@
                 </div>
                 <div class="team-member-info">
                   <div class="team-member-header">
-                    <h3 class="team-member-name">Yaish</h3>
-                    <p class="team-member-role">
-                      Lead Dive Instructor & Founder
-                    </p>
+                    <h3 class="team-member-name">
+                      Ali Yaish Mohamed - (Yaikko)
+                    </h3>
+                    <p class="team-member-role">Director of Diving & Founder</p>
                   </div>
                   <div class="team-member-bio">
                     <p>
-                      I'm a professional dive instructor with more than 3 years
-                      of experience, and I simply love sharing the magic of the
-                      ocean. I grew up next to the ocean, and I was always
-                      intrigued by the world underwater and spent my days
-                      exploring the Maldives' reefs. That early interest turned
-                      into a profession, and now I get to share that magic with
-                      others.
+                      I'm a professional dive instructor with more than 4 years
+                      of teaching & guiding experience, and I simply love
+                      sharing the magic of the ocean. I grew up next to the
+                      ocean, and I was always intrigued by the world underwater
+                      and spent my days exploring the Maldives' reefs. That
+                      early interest turned into a profession, and now I get to
+                      share that magic with others.
                     </p>
                     <p>
-                      As a child, I would sit for hours watching the waves and
-                      dreaming about what lay beneath. By the age of 10, I was
-                      already free diving to collect shells and observe the
-                      colorful reefs surrounding my home island. This deep
-                      connection to the marine environment has shaped my
-                      approach to diving. I don't just show you dive sites, I
+                      This deep connection to the marine environment has shaped
+                      my approach to diving. I don't just show you dive sites, I
                       share stories and knowledge about the incredible ecosystem
-                      we're privileged to explore.
+                      we're privileged to explore. As a young and driven
+                      professional, I'm passionate about striving for excellence
+                      in everything we do.
+                    </p>
+                    <p>
+                      <strong
+                        >We're revolutionizing the diving industry in Rasdhoo
+                        and taking it to the next level.</strong
+                      >
+                      Our mission is to set new standards of excellence and
+                      redefine what underwater exploration means in the
+                      Maldives. We're not just following trends—we're creating
+                      them, pushing boundaries, and delivering experiences that
+                      exceed every expectation.
                     </p>
                   </div>
                   <div class="team-member-attributes">
                     <div class="team-member-attribute">
-                      <i class="fas fa-water"></i>
-                      <span>Versatile</span>
+                      <i class="fas fa-rocket"></i>
+                      <span>Innovative</span>
                     </div>
                     <div class="team-member-attribute">
-                      <i class="fas fa-heart"></i>
-                      <span>Passionate</span>
+                      <i class="fas fa-crown"></i>
+                      <span>Excellence</span>
                     </div>
                     <div class="team-member-attribute">
-                      <i class="fas fa-medal"></i>
-                      <span>Experienced</span>
+                      <i class="fas fa-bolt"></i>
+                      <span>Driven</span>
                     </div>
                     <div class="team-member-attribute">
-                      <i class="fas fa-hands-helping"></i>
-                      <span>Dedicated</span>
+                      <i class="fas fa-trophy"></i>
+                      <span>Industry Leader</span>
                     </div>
                   </div>
                 </div>
