@@ -690,6 +690,36 @@
         transform: scale(1.05);
       }
 
+      /* Dive Sites Section Spacing */
+      #dive-sites-section {
+        padding-top: 3rem;
+      }
+
+      /* Team Section Spacing */
+      #team-section {
+        padding-top: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        #dive-sites-section {
+          padding-top: 3rem;
+        }
+
+        #team-section {
+          padding-top: 3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #dive-sites-section {
+          padding-top: 3rem;
+        }
+
+        #team-section {
+          padding-top: 3rem;
+        }
+      }
+
       /* Mobile Team Member Attributes Fix */
       @media (max-width: 480px) {
         .team-member-attributes {
@@ -724,7 +754,2077 @@
         }
       }
 
-      /* Dive Site Maps Section Styles */
+      /* Boat Section - Base Styles */
+      .boat-section {
+        margin-top: 4rem;
+        padding: 3rem 2rem;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 73, 83, 0.03),
+          rgba(0, 137, 178, 0.05)
+        );
+        border-radius: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .boat-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #004953, #0891b2, #004953);
+        background-size: 200% 100%;
+        animation: shimmer 3s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0%,
+        100% {
+          background-position: -200% 0;
+        }
+        50% {
+          background-position: 200% 0;
+        }
+      }
+
+      .boat-section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 0 1rem;
+      }
+
+      .boat-section-title {
+        font-size: 2.2rem;
+        color: #004953;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+      }
+
+      .boat-section-title::after {
+        content: "⚓";
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #0891b2;
+        font-size: 1.5rem;
+        animation: anchor-sway 2s ease-in-out infinite;
+      }
+
+      @keyframes anchor-sway {
+        0%,
+        100% {
+          transform: translateY(-50%) rotate(-5deg);
+        }
+        50% {
+          transform: translateY(-50%) rotate(5deg);
+        }
+      }
+
+      .boat-section-subtitle {
+        color: #666;
+        font-size: 1.1rem;
+        font-style: italic;
+        text-align: center;
+      }
+
+      .boat-container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1400px;
+        padding: 0;
+      }
+
+      .boat-images {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        width: 100%;
+      }
+
+      .boat-image-frame {
+        position: relative;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 73, 83, 0.15);
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        width: 100%;
+        height: 70%;
+        max-width: 700px;
+        aspect-ratio: 16/9;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      .boat-image-main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .boat-main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      .boat-info {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .boat-description h4 {
+        font-size: 1.8rem;
+        color: #004953;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .boat-description > p {
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+        text-align: left;
+      }
+
+      .boat-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 0 auto 2rem auto;
+        max-width: 500px;
+      }
+
+      .boat-feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 73, 83, 0.1);
+      }
+
+      .boat-feature:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 73, 83, 0.1);
+      }
+
+      .feature-icon {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, #004953, #0891b2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .feature-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .feature-content h5 {
+        color: #004953;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      .feature-content p {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      .boat-cta {
+        text-align: center;
+        margin-top: 1.5rem;
+        width: 100%;
+      }
+
+      .schedule-btn {
+        background: linear-gradient(135deg, #004953, #0891b2);
+        color: white;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 73, 83, 0.3);
+      }
+
+      .schedule-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .schedule-btn:hover::before {
+        left: 100%;
+      }
+
+      .schedule-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 73, 83, 0.4);
+      }
+
+      .schedule-btn:active {
+        transform: translateY(-1px) scale(1.02);
+      }
+
+      .schedule-note {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        font-style: italic;
+      }
+
+      .btn-ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        pointer-events: none;
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+      }
+
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+
+      /* Schedule Modal Styles */
+      .schedule-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        padding: 1rem;
+      }
+
+      .schedule-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .schedule-modal {
+        background: white;
+        border-radius: 2rem;
+        max-width: 90vw;
+        max-height: 90vh;
+        width: 900px;
+        overflow: hidden;
+        transform: scale(0.8) translateY(50px);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+      }
+
+      .schedule-modal-overlay.active .schedule-modal {
+        transform: scale(1) translateY(0);
+      }
+
+      .schedule-modal-header {
+        padding: 2rem;
+        background: linear-gradient(135deg, #004953, #0891b2);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .schedule-modal-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="60" cy="15" r="1" fill="rgba(255,255,255,0.06)"/><circle cx="80" cy="40" r="2.5" fill="rgba(255,255,255,0.05)"/></svg>');
+        background-size: 100px 100px;
+        animation: pattern-move 20s linear infinite;
+      }
+
+      @keyframes pattern-move {
+        0% {
+          transform: translateX(0) translateY(0);
+        }
+        100% {
+          transform: translateX(-100px) translateY(-100px);
+        }
+      }
+
+      .schedule-modal-title {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        z-index: 1;
+        position: relative;
+      }
+
+      .schedule-modal-close {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.75rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
+      .schedule-modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg) scale(1.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .schedule-modal-content {
+        padding: 2rem;
+        text-align: center;
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+
+      /* Boat Gallery */
+      .boat-gallery-full {
+        margin-top: 4rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1.5rem;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 2rem;
+        height: 500px;
+      }
+
+      .boat-gallery-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.75rem;
+      }
+
+      .boat-gallery-image:first-child {
+        grid-row: 1 / -1;
+        grid-column: 1;
+      }
+
+      .boat-gallery-image:nth-child(2) {
+        grid-row: 1;
+        grid-column: 2;
+      }
+
+      .boat-gallery-image:nth-child(3) {
+        grid-row: 2;
+        grid-column: 2;
+      }
+
+      .boat-gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        filter: brightness(0.9);
+        border-radius: 0.75rem;
+      }
+
+      .boat-gallery-image:hover img {
+        transform: scale(1.05);
+        filter: brightness(1);
+      }
+
+      .boat-gallery-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(0, 73, 83, 0.2),
+          rgba(0, 137, 178, 0.1)
+        );
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 0.75rem;
+      }
+
+      .boat-gallery-image:hover::before {
+        opacity: 1;
+      }
+
+      /* Responsive Design for Boat Section */
+      @media (max-width: 1200px) {
+        .boat-section {
+          padding: 3rem 1.5rem;
+        }
+
+        .boat-section-header {
+          margin-bottom: 2.5rem;
+        }
+
+        .boat-section-title {
+          font-size: 2rem;
+        }
+
+        .boat-container {
+          gap: 3rem;
+          max-width: 1200px;
+        }
+
+        .boat-images {
+          height: 500px;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .boat-section {
+          padding: 2.5rem 1rem;
+        }
+
+        .boat-section-header {
+          margin-bottom: 2rem;
+        }
+
+        .boat-section-title {
+          font-size: 1.8rem;
+        }
+
+        .boat-section-title::after {
+          right: -35px;
+          font-size: 1.3rem;
+        }
+
+        .boat-section-subtitle {
+          font-size: 1rem;
+        }
+
+        .boat-container {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          text-align: center;
+        }
+
+        .boat-images {
+          height: 400px;
+          order: 1;
+        }
+
+        .boat-info {
+          order: 2;
+          align-items: center;
+          text-align: center;
+        }
+
+        .boat-description h4 {
+          text-align: center;
+          font-size: 1.6rem;
+        }
+
+        .boat-description > p {
+          text-align: center;
+          max-width: 600px;
+        }
+
+        .boat-features {
+          max-width: 600px;
+          margin: 0 auto 2rem auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .boat-section {
+          margin-top: 3rem;
+          padding: 2rem 1rem;
+        }
+
+        .boat-section-header {
+          margin-bottom: 1.5rem;
+          padding: 0;
+        }
+
+        .boat-section-title {
+          font-size: 1.6rem;
+        }
+
+        .boat-section-title::after {
+          right: -30px;
+          font-size: 1.2rem;
+        }
+
+        .boat-section-subtitle {
+          font-size: 0.95rem;
+          padding: 0 0.5rem;
+        }
+
+        .boat-container {
+          gap: 2rem;
+          padding: 0;
+        }
+
+        .boat-images {
+          height: 300px;
+        }
+
+        .boat-image-frame {
+          height: 100%;
+          max-width: 100%;
+        }
+
+        .boat-description h4 {
+          font-size: 1.4rem;
+          margin-bottom: 1rem;
+        }
+
+        .boat-description > p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+        }
+
+        .boat-features {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          max-width: 500px;
+        }
+
+        .boat-feature {
+          text-align: left;
+          align-items: center;
+          flex-direction: row;
+        }
+
+        .feature-content {
+          text-align: left;
+        }
+
+        .feature-content h5 {
+          font-size: 0.95rem;
+          margin-bottom: 0.25rem;
+        }
+
+        .feature-content p {
+          font-size: 0.85rem;
+          line-height: 1.3;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .boat-section {
+          margin-top: 2rem;
+          padding: 1.5rem 1rem;
+        }
+
+        .boat-section-header {
+          margin-bottom: 1.5rem;
+          padding: 0 0.5rem;
+        }
+
+        .boat-section-title {
+          font-size: 1.4rem;
+          line-height: 1.3;
+        }
+
+        .boat-section-title::after {
+          display: none;
+        }
+
+        .boat-section-subtitle {
+          font-size: 0.9rem;
+          text-align: center;
+          padding: 0 0.75rem;
+          word-wrap: break-word;
+          line-height: 1.4;
+        }
+
+        .boat-container {
+          gap: 1.5rem;
+          padding: 0 0.75rem;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .boat-images {
+          height: 240px;
+          padding: 0.5rem;
+          width: 100%;
+          max-width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          box-sizing: border-box;
+        }
+
+        .boat-image-frame {
+          width: 100%;
+          max-width: 100%;
+          height: 100%;
+          margin: 0;
+          border-radius: 0.75rem;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 6px 15px rgba(0, 73, 83, 0.15);
+        }
+
+        .boat-image-main {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .boat-main-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 0.75rem;
+        }
+
+        .boat-info {
+          padding: 0 0.75rem;
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+
+        .boat-description h4 {
+          font-size: 1.2rem;
+          text-align: center;
+          margin-bottom: 1rem;
+          word-wrap: break-word;
+          line-height: 1.3;
+        }
+
+        .boat-description > p {
+          font-size: 0.9rem;
+          text-align: left;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          word-wrap: break-word;
+        }
+
+        .boat-features {
+          gap: 0.75rem;
+          margin-top: 1.5rem;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .boat-feature {
+          padding: 1rem;
+          text-align: left;
+          width: 100%;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 0.75rem;
+          min-height: auto;
+          justify-content: flex-start;
+        }
+
+        .feature-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 0.9rem;
+          flex-shrink: 0;
+          border-radius: 8px;
+        }
+
+        .feature-content {
+          flex: 1;
+          min-width: 0;
+          text-align: left;
+        }
+
+        .feature-content h5 {
+          font-size: 0.95rem;
+          margin-bottom: 0.4rem;
+          text-align: left;
+          word-wrap: break-word;
+          line-height: 1.2;
+        }
+
+        .feature-content p {
+          font-size: 0.85rem;
+          line-height: 1.4;
+          text-align: left;
+          margin: 0;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+
+        .boat-cta {
+          text-align: center;
+          margin-top: 1.5rem;
+          padding: 0 0.75rem;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .schedule-btn {
+          padding: 0.75rem 1.25rem;
+          font-size: 0.9rem;
+          width: auto;
+          min-width: 250px;
+          max-width: calc(100% - 1.5rem);
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+
+        .schedule-note {
+          font-size: 0.9rem;
+          margin-top: 1rem;
+          text-align: center;
+          line-height: 1.4;
+          word-wrap: break-word;
+          max-width: 100%;
+        }
+
+        .boat-gallery-full {
+          display: block;
+          margin-top: 2rem;
+          padding: 1rem 0.75rem;
+          height: auto;
+          max-width: 100%;
+          width: 100%;
+          position: relative;
+        }
+
+        .boat-gallery-image {
+          position: relative;
+          border-radius: 1rem;
+          overflow: hidden;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 8px 25px rgba(0, 73, 83, 0.15);
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* First image - Large feature image */
+        .boat-gallery-image:first-child {
+          height: 220px;
+          width: 90%;
+          margin: 0 auto 2rem auto;
+          transform: rotate(-1deg);
+          z-index: 3;
+          position: relative;
+        }
+
+        /* Second image - Medium, offset right */
+        .boat-gallery-image:nth-child(2) {
+          height: 180px;
+          width: 85%;
+          margin-left: auto;
+          margin-right: 0.5rem;
+          transform: rotate(1.5deg) translateX(-10px);
+          z-index: 2;
+          position: relative;
+          margin-top: -1rem;
+        }
+
+        /* Third image - Medium, offset left */
+        .boat-gallery-image:nth-child(3) {
+          height: 180px;
+          width: 85%;
+          margin-left: 0.5rem;
+          margin-right: auto;
+          transform: rotate(-0.8deg) translateX(10px);
+          z-index: 1;
+          position: relative;
+          margin-top: -1rem;
+        }
+
+        .boat-gallery-image::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(0, 73, 83, 0.1),
+            rgba(0, 137, 178, 0.05)
+          );
+          z-index: 1;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          border-radius: 1rem;
+        }
+
+        .boat-gallery-image:hover::before {
+          opacity: 1;
+        }
+
+        .boat-gallery-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 1rem;
+          transition: transform 0.4s ease;
+        }
+
+        .boat-gallery-image:hover {
+          transform: scale(1.03) rotate(0deg) !important;
+          box-shadow: 0 15px 40px rgba(0, 73, 83, 0.25);
+          z-index: 10;
+        }
+
+        .boat-gallery-image:hover img {
+          transform: scale(1.05);
+        }
+
+        /* Add decorative elements */
+        .boat-gallery-image:first-child::after {
+          content: "🚤";
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          font-size: 1.5rem;
+          background: white;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0, 73, 83, 0.2);
+          z-index: 5;
+          animation: boat-float 3s ease-in-out infinite;
+        }
+
+        .boat-gallery-image:nth-child(2)::after {
+          content: "⚓";
+          position: absolute;
+          bottom: -10px;
+          left: -10px;
+          font-size: 1.2rem;
+          background: rgba(0, 73, 83, 0.9);
+          color: white;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0, 73, 83, 0.3);
+          z-index: 5;
+          animation: anchor-sway 2.5s ease-in-out infinite;
+        }
+
+        .boat-gallery-image:nth-child(3)::after {
+          content: "🌊";
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          font-size: 1.2rem;
+          background: rgba(0, 137, 178, 0.9);
+          color: white;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0, 137, 178, 0.3);
+          z-index: 5;
+          animation: wave-float 2s ease-in-out infinite;
+        }
+
+        @keyframes boat-float {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-5px) rotate(5deg);
+          }
+        }
+
+        @keyframes anchor-sway {
+          0%,
+          100% {
+            transform: rotate(-10deg);
+          }
+          50% {
+            transform: rotate(10deg);
+          }
+        }
+
+        @keyframes wave-float {
+          0%,
+          100% {
+            transform: translateY(0) scale(1);
+          }
+          50% {
+            transform: translateY(-3px) scale(1.05);
+          }
+        }
+
+        /* Reset grid properties */
+        .boat-gallery-image:first-child,
+        .boat-gallery-image:nth-child(2),
+        .boat-gallery-image:nth-child(3) {
+          grid-row: auto;
+          grid-column: auto;
+        }
+      }
+
+      /* Boat Gallery Responsive Styles */
+      @media (max-width: 1200px) {
+        .boat-gallery-full {
+          margin-top: 3rem;
+          max-width: 1200px;
+          padding: 0 1.5rem;
+          gap: 1.25rem;
+          height: 450px;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .boat-gallery-full {
+          height: 350px;
+          padding: 0 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .boat-gallery-full {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          margin-top: 2.5rem;
+          gap: 0.75rem;
+          padding: 0 1rem;
+          height: 300px;
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .boat-gallery-image {
+          height: auto;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .boat-gallery-full {
+          display: block;
+          margin-top: 2rem;
+          padding: 1rem 0.75rem;
+          height: auto;
+          max-width: 100%;
+          width: 100%;
+          position: relative;
+        }
+
+        .boat-gallery-image {
+          position: relative;
+          border-radius: 1rem;
+          overflow: hidden;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 8px 25px rgba(0, 73, 83, 0.15);
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* First image - Large feature image */
+        .boat-gallery-image:first-child {
+          height: 220px;
+          width: 90%;
+          margin: 0 auto 2rem auto;
+          transform: rotate(-1deg);
+          z-index: 3;
+          position: relative;
+        }
+
+        /* Second image - Medium, offset right */
+        .boat-gallery-image:nth-child(2) {
+          height: 180px;
+          width: 85%;
+          margin-left: auto;
+          margin-right: 0.5rem;
+          transform: rotate(1.5deg) translateX(-10px);
+          z-index: 2;
+          position: relative;
+          margin-top: -1rem;
+        }
+
+        /* Third image - Medium, offset left */
+        .boat-gallery-image:nth-child(3) {
+          height: 180px;
+          width: 85%;
+          margin-left: 0.5rem;
+          margin-right: auto;
+          transform: rotate(-0.8deg) translateX(10px);
+          z-index: 1;
+          position: relative;
+          margin-top: -1rem;
+        }
+
+        .boat-gallery-image::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(0, 73, 83, 0.1),
+            rgba(0, 137, 178, 0.05)
+          );
+          z-index: 1;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          border-radius: 1rem;
+        }
+
+        .boat-gallery-image:hover::before {
+          opacity: 1;
+        }
+
+        .boat-gallery-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 1rem;
+          transition: transform 0.4s ease;
+        }
+
+        .boat-gallery-image:hover {
+          transform: scale(1.03) rotate(0deg) !important;
+          box-shadow: 0 15px 40px rgba(0, 73, 83, 0.25);
+          z-index: 10;
+        }
+
+        .boat-gallery-image:hover img {
+          transform: scale(1.05);
+        }
+
+        /* Add decorative elements */
+        .boat-gallery-image:first-child::after {
+          content: "🚤";
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          font-size: 1.5rem;
+          background: white;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0, 73, 83, 0.2);
+          z-index: 5;
+          animation: boat-float 3s ease-in-out infinite;
+        }
+
+        .boat-gallery-image:nth-child(2)::after {
+          content: "⚓";
+          position: absolute;
+          bottom: -10px;
+          left: -10px;
+          font-size: 1.2rem;
+          background: rgba(0, 73, 83, 0.9);
+          color: white;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0, 73, 83, 0.3);
+          z-index: 5;
+          animation: anchor-sway 2.5s ease-in-out infinite;
+        }
+
+        .boat-gallery-image:nth-child(3)::after {
+          content: "🌊";
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          font-size: 1.2rem;
+          background: rgba(0, 137, 178, 0.9);
+          color: white;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0, 137, 178, 0.3);
+          z-index: 5;
+          animation: wave-float 2s ease-in-out infinite;
+        }
+
+        @keyframes boat-float {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-5px) rotate(5deg);
+          }
+        }
+
+        @keyframes anchor-sway {
+          0%,
+          100% {
+            transform: rotate(-10deg);
+          }
+          50% {
+            transform: rotate(10deg);
+          }
+        }
+
+        @keyframes wave-float {
+          0%,
+          100% {
+            transform: translateY(0) scale(1);
+          }
+          50% {
+            transform: translateY(-3px) scale(1.05);
+          }
+        }
+
+        /* Reset grid properties */
+        .boat-gallery-image:first-child,
+        .boat-gallery-image:nth-child(2),
+        .boat-gallery-image:nth-child(3) {
+          grid-row: auto;
+          grid-column: auto;
+        }
+      }
+
+      /* Mobile Responsive Design - Complete Rewrite */
+      @media (max-width: 768px) {
+        .boat-section {
+          margin-top: 3rem;
+          padding: 3rem 1.5rem;
+          border-radius: 1.5rem;
+        }
+
+        .boat-section-header {
+          text-align: center;
+          margin-bottom: 3rem;
+          padding: 0 1rem;
+        }
+
+        .boat-section-title {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          line-height: 1.2;
+        }
+
+        .boat-section-title::after {
+          right: -35px;
+          font-size: 1.3rem;
+        }
+
+        .boat-section-subtitle {
+          font-size: 1.1rem;
+          line-height: 1.4;
+          color: #666;
+          margin: 0;
+        }
+
+        .boat-container {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+          max-width: 100%;
+          padding: 0;
+          margin: 0 auto;
+        }
+
+        .boat-images {
+          width: 100%;
+          height: 280px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          order: 1;
+          margin-bottom: 2rem;
+        }
+
+        .boat-image-frame {
+          width: 100%;
+          max-width: 400px;
+          height: 100%;
+          border-radius: 1rem;
+          margin: 0 auto;
+        }
+
+        .boat-image-main {
+          width: 100%;
+          height: 100%;
+        }
+
+        .boat-main-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+
+        .boat-info {
+          width: 100%;
+          order: 2;
+          text-align: center;
+          padding: 0 1rem;
+        }
+
+        .boat-description {
+          margin-bottom: 3rem;
+        }
+
+        .boat-description h4 {
+          font-size: 1.8rem;
+          color: #004953;
+          margin-bottom: 1.5rem;
+          text-align: center;
+          line-height: 1.3;
+        }
+
+        .boat-description > p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: #555;
+          text-align: center;
+          margin: 0 auto 2rem auto;
+          max-width: 500px;
+        }
+
+        .boat-features {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+          margin: 0 auto 3rem auto;
+          max-width: 500px;
+        }
+
+        .boat-feature {
+          background: rgba(255, 255, 255, 0.8);
+          border: 1px solid rgba(0, 73, 83, 0.1);
+          border-radius: 1rem;
+          padding: 1rem;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+          transition: all 0.3s ease;
+        }
+
+        .boat-feature:hover {
+          background: rgba(255, 255, 255, 0.95);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(0, 73, 83, 0.1);
+        }
+
+        .feature-icon {
+          width: 44px;
+          height: 44px;
+          background: linear-gradient(135deg, #004953, #0891b2);
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 1rem;
+          flex-shrink: 0;
+        }
+
+        .feature-content {
+          text-align: center;
+          width: 100%;
+        }
+
+        .feature-content h5 {
+          font-size: 1rem;
+          color: #004953;
+          font-weight: 600;
+          margin-bottom: 0.4rem;
+          line-height: 1.2;
+        }
+
+        .feature-content p {
+          font-size: 0.9rem;
+          color: #666;
+          line-height: 1.3;
+          margin: 0;
+        }
+
+        .boat-cta {
+          text-align: center;
+          margin-top: 1.5rem;
+        }
+
+        .schedule-btn {
+          padding: 1rem 2rem;
+          font-size: 1rem;
+          min-width: 250px;
+          max-width: 90%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+
+        .schedule-note {
+          font-size: 1rem;
+          margin-top: 1rem;
+          color: #666;
+          text-align: center;
+          line-height: 1.4;
+        }
+
+        /* Gallery for tablet */
+        .boat-gallery-full {
+          margin-top: 4rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 1.5rem;
+          height: 300px;
+          padding: 0 1rem;
+        }
+
+        .boat-gallery-image {
+          border-radius: 0.75rem;
+          overflow: hidden;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .boat-section {
+          margin-top: 1.5rem;
+          padding: 1.5rem 1rem;
+        }
+
+        .boat-section-header {
+          margin-bottom: 1.5rem;
+        }
+
+        .boat-section-title {
+          font-size: 1.7rem;
+        }
+
+        .boat-section-title::after {
+          display: none;
+        }
+
+        .boat-section-subtitle {
+          font-size: 1rem;
+        }
+
+        .boat-container {
+          gap: 1.5rem;
+        }
+
+        .boat-images {
+          height: 240px;
+        }
+
+        .boat-image-frame {
+          max-width: 350px;
+        }
+
+        .boat-description h4 {
+          font-size: 1.6rem;
+        }
+
+        .boat-description > p {
+          font-size: 1rem;
+        }
+
+        .boat-features {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          max-width: 350px;
+        }
+
+        .boat-feature {
+          padding: 1rem;
+          flex-direction: row;
+          text-align: left;
+          gap: 1rem;
+        }
+
+        .feature-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 0.9rem;
+          flex-shrink: 0;
+        }
+
+        .feature-content {
+          text-align: left;
+          flex: 1;
+        }
+
+        .feature-content h5 {
+          font-size: 1rem;
+          margin-bottom: 0.3rem;
+        }
+
+        .feature-content p {
+          font-size: 0.9rem;
+        }
+
+        .schedule-btn {
+          padding: 0.9rem 1.8rem;
+          font-size: 1rem;
+          min-width: 220px;
+        }
+
+        .schedule-note {
+          font-size: 0.95rem;
+        }
+
+        /* Mobile Gallery - Clean & Simple */
+        .boat-gallery-full {
+          margin-top: 2rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          height: auto;
+          padding: 0 1rem;
+        }
+
+        .boat-gallery-image {
+          width: 100%;
+          height: 200px;
+          margin: 0;
+          transform: none !important;
+          border-radius: 1rem;
+          box-shadow: 0 4px 15px rgba(0, 73, 83, 0.1);
+          grid-row: auto;
+          grid-column: auto;
+        }
+
+        .boat-gallery-image:first-child {
+          height: 220px;
+        }
+
+        .boat-gallery-image:nth-child(2),
+        .boat-gallery-image:nth-child(3) {
+          height: 180px;
+        }
+
+        .boat-gallery-image::after {
+          display: none;
+        }
+
+        .boat-gallery-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .boat-section {
+          padding: 1rem 0.75rem;
+        }
+
+        .boat-section-title {
+          font-size: 1.5rem;
+        }
+
+        .boat-section-subtitle {
+          font-size: 0.95rem;
+        }
+
+        .boat-images {
+          height: 200px;
+        }
+
+        .boat-image-frame {
+          max-width: 300px;
+        }
+
+        .boat-description h4 {
+          font-size: 1.4rem;
+        }
+
+        .boat-description > p {
+          font-size: 0.95rem;
+        }
+
+        .boat-features {
+          max-width: 300px;
+        }
+
+        .boat-feature {
+          padding: 0.8rem;
+        }
+
+        .feature-icon {
+          width: 36px;
+          height: 36px;
+          font-size: 0.85rem;
+        }
+
+        .feature-content h5 {
+          font-size: 0.95rem;
+        }
+
+        .feature-content p {
+          font-size: 0.85rem;
+        }
+
+        .schedule-btn {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.95rem;
+          min-width: 200px;
+        }
+
+        .schedule-note {
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Override any conflicting styles with high specificity */
+      @media (max-width: 768px) {
+        .boat-section .boat-container {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 2rem !important;
+          max-width: 100% !important;
+          padding: 0 !important;
+          margin: 0 auto !important;
+          grid-template-columns: none !important;
+        }
+
+        .boat-section .boat-images {
+          width: 100% !important;
+          height: 280px !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          order: 1 !important;
+          padding: 0 !important;
+          margin: 0 auto !important;
+        }
+
+        .boat-section .boat-image-frame {
+          width: 100% !important;
+          max-width: 400px !important;
+          height: 100% !important;
+          border-radius: 1rem !important;
+          margin: 0 auto !important;
+        }
+
+        .boat-section .boat-info {
+          width: 100% !important;
+          order: 2 !important;
+          text-align: center !important;
+          padding: 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+
+        .boat-section .boat-description {
+          margin-bottom: 2rem !important;
+          text-align: center !important;
+          width: 100% !important;
+        }
+
+        .boat-section .boat-features {
+          display: grid !important;
+          grid-template-columns: 1fr 1fr !important;
+          gap: 1rem !important;
+          margin: 0 auto 2rem auto !important;
+          max-width: 500px !important;
+          width: 100% !important;
+        }
+
+        .boat-section .boat-cta {
+          text-align: center !important;
+          margin-top: 1rem !important;
+          width: 100% !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .boat-section .boat-images {
+          height: 240px !important;
+        }
+
+        .boat-section .boat-image-frame {
+          max-width: 350px !important;
+        }
+
+        .boat-section .boat-features {
+          grid-template-columns: 1fr !important;
+          max-width: 350px !important;
+        }
+
+        .boat-section .boat-feature {
+          flex-direction: row !important;
+          text-align: left !important;
+          gap: 1rem !important;
+          padding: 1rem !important;
+        }
+
+        .boat-section .feature-content {
+          text-align: left !important;
+          flex: 1 !important;
+        }
+
+        .boat-section .boat-gallery-full {
+          margin-top: 2rem !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 1rem !important;
+          height: auto !important;
+          padding: 0 1rem !important;
+          grid-template-columns: none !important;
+          grid-template-rows: none !important;
+        }
+
+        .boat-section .boat-gallery-image {
+          width: 100% !important;
+          height: 200px !important;
+          margin: 0 !important;
+          transform: none !important;
+          border-radius: 1rem !important;
+          box-shadow: 0 4px 15px rgba(0, 73, 83, 0.1) !important;
+          grid-row: auto !important;
+          grid-column: auto !important;
+          position: static !important;
+          z-index: auto !important;
+        }
+
+        .boat-section .boat-gallery-image::after {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .boat-section .boat-images {
+          height: 200px !important;
+        }
+
+        .boat-section .boat-image-frame {
+          max-width: 300px !important;
+        }
+
+        .boat-section .boat-features {
+          max-width: 300px !important;
+        }
+
+        .boat-section .boat-gallery-image {
+          height: 180px !important;
+        }
+      }
+
+      /* FAQ Section Styles */
+      #faq-section {
+        padding-top: 3rem;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 73, 83, 0.02),
+          rgba(0, 73, 83, 0.06)
+        );
+        border-radius: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 73, 83, 0.08);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid rgba(0, 73, 83, 0.1);
+      }
+
+      .faq-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 73, 83, 0.15);
+        border-color: rgba(0, 73, 83, 0.2);
+      }
+
+      .faq-question {
+        padding: 1.5rem 2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 73, 83, 0.02),
+          rgba(0, 73, 83, 0.05)
+        );
+        transition: all 0.3s ease;
+      }
+
+      .faq-question:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 73, 83, 0.05),
+          rgba(0, 73, 83, 0.08)
+        );
+      }
+
+      .faq-question h4 {
+        margin: 0;
+        color: #004953;
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.4;
+        flex: 1;
+        padding-right: 1rem;
+      }
+
+      .faq-icon {
+        color: #0891b2;
+        font-size: 1rem;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+        color: #004953;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          padding 0.4s ease;
+        background: white;
+        padding: 0 2rem;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        padding: 0 2rem 1.5rem 2rem;
+      }
+
+      .faq-answer p {
+        margin: 0;
+        color: #555;
+        line-height: 1.7;
+        font-size: 1rem;
+        transition: opacity 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer p {
+        opacity: 1;
+      }
+
+      /* FAQ CTA Section */
+      .faq-cta {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        padding: 2rem 1.5rem 2.5rem 1.5rem;
+        border-radius: 1rem;
+        text-align: center;
+        background: linear-gradient(135deg, #004953, #0891b2);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .faq-cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="30" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="80" cy="15" r="1.5" fill="rgba(255,255,255,0.06)"/><circle cx="40" cy="60" r="2.5" fill="rgba(255,255,255,0.05)"/></svg>');
+        background-size: 200px 200px;
+        animation: float-pattern 20s linear infinite;
+      }
+
+      @keyframes float-pattern {
+        0% {
+          transform: translateX(0) translateY(0);
+        }
+        100% {
+          transform: translateX(-200px) translateY(-200px);
+        }
+      }
+
+      .faq-cta-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .faq-cta h3 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+
+      .faq-cta p {
+        margin: 0 0 1.5rem 0;
+        font-size: 1.05rem;
+        opacity: 0.9;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+      }
+
+      .faq-contact-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .faq-contact-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .faq-contact-btn i {
+        font-size: 1.2rem;
+      }
+
+      /* Mobile Responsive FAQ Styles */
+      @media (max-width: 768px) {
+        #faq-section {
+          margin-top: 1.5rem;
+          padding-top: 2rem;
+          border-radius: 1rem;
+        }
+
+        .faq-container {
+          padding: 0 1rem;
+        }
+
+        .faq-item {
+          margin-bottom: 0.75rem;
+          border-radius: 0.75rem;
+        }
+
+        .faq-question {
+          padding: 1.25rem 1.5rem;
+        }
+
+        .faq-question h4 {
+          font-size: 1rem;
+          padding-right: 0.75rem;
+        }
+
+        .faq-icon {
+          font-size: 0.9rem;
+        }
+
+        .faq-item.active .faq-answer {
+          padding: 0 1.5rem 1.25rem 1.5rem;
+          max-height: 400px;
+        }
+
+        .faq-answer p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+
+        .faq-cta {
+          margin-top: 2rem;
+          padding: 2rem 1.5rem;
+          border-radius: 1rem;
+        }
+
+        .faq-cta h3 {
+          font-size: 1.4rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .faq-cta p {
+          font-size: 1rem;
+          margin-bottom: 1.25rem;
+        }
+
+        .faq-contact-btn {
+          padding: 0.9rem 1.8rem;
+          font-size: 0.95rem;
+          gap: 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #faq-section {
+          padding-top: 1.5rem;
+        }
+
+        .faq-container {
+          padding: 0 0.5rem;
+        }
+
+        .faq-question {
+          padding: 1rem 1.25rem;
+        }
+
+        .faq-question h4 {
+          font-size: 0.95rem;
+          line-height: 1.3;
+        }
+
+        .faq-item.active .faq-answer {
+          padding: 0 1.25rem 1rem 1.25rem;
+          max-height: 400px;
+        }
+
+        .faq-answer p {
+          font-size: 0.9rem;
+        }
+
+        .faq-cta {
+          padding: 1.5rem 1rem;
+        }
+
+        .faq-cta h3 {
+          font-size: 1.25rem;
+        }
+
+        .faq-cta p {
+          font-size: 0.95rem;
+        }
+
+        .faq-contact-btn {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+      }
+
+      /* Additional FAQ CTA Bottom Spacing */
+      .faq-cta {
+        margin-bottom: 2rem !important;
+        padding-bottom: 3rem !important;
+      }
+
+      @media (max-width: 768px) {
+        .faq-cta {
+          margin-bottom: 1.5rem !important;
+          padding-bottom: 2.5rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .faq-cta {
+          margin-bottom: 1rem !important;
+          padding-bottom: 2rem !important;
+        }
+      }
+
+      /* Override any conflicting styles with high specificity */
     </style>
 
     <link
@@ -975,6 +3075,124 @@
                       <span>Industry Leader</span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Boat Section -->
+            <div class="boat-section">
+              <div class="boat-section-header">
+                <h3 class="boat-section-title">Our Dive Boat</h3>
+                <p class="boat-section-subtitle">
+                  Your Gateway to Underwater Adventures
+                </p>
+              </div>
+
+              <div class="boat-container">
+                <div class="boat-images">
+                  <div class="boat-image-main">
+                    <div class="boat-image-frame">
+                      <img
+                        src="images/boat-1.jpg"
+                        alt="Apex Dive Boat - Main View"
+                        class="boat-main-image"
+                      />
+                      <div class="boat-image-overlay">
+                        <i class="fas fa-ship"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Decorative Elements -->
+                  <div class="boat-wave-decoration wave-1"></div>
+                  <div class="boat-wave-decoration wave-2"></div>
+                </div>
+
+                <div class="boat-info">
+                  <div class="boat-description">
+                    <h4>Experience Comfort & Safety on the Water</h4>
+                    <p>
+                      Our well-maintained dive boat is equipped with all the
+                      modern amenities and safety equipment to ensure your
+                      diving adventure is both comfortable and secure. Designed
+                      specifically for diving operations, our vessel provides
+                      easy access to the best dive sites around Rasdhoo Atoll.
+                    </p>
+
+                    <div class="boat-features">
+                      <div class="boat-feature">
+                        <div class="feature-icon">
+                          <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-content">
+                          <h5>Spacious Deck</h5>
+                          <p>Comfortable seating and gear preparation area</p>
+                        </div>
+                      </div>
+
+                      <div class="boat-feature">
+                        <div class="feature-icon">
+                          <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                          <h5>Safety First</h5>
+                          <p>Full safety equipment and emergency protocols</p>
+                        </div>
+                      </div>
+
+                      <div class="boat-feature">
+                        <div class="feature-icon">
+                          <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="feature-content">
+                          <h5>Fresh Water</h5>
+                          <p>Rinse station for gear and post-dive comfort</p>
+                        </div>
+                      </div>
+
+                      <div class="boat-feature">
+                        <div class="feature-icon">
+                          <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="feature-content">
+                          <h5>Shaded Areas</h5>
+                          <p>Protection from sun during surface intervals</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="boat-cta">
+                    <button class="schedule-btn" id="scheduleBtn">
+                      <i class="fas fa-calendar-alt"></i>
+                      <span>View Dive Schedule</span>
+                      <div class="btn-ripple"></div>
+                    </button>
+                    <p class="schedule-note">
+                      Check our daily dive trips and timings
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Full Width Boat Gallery -->
+              <div class="boat-gallery-full">
+                <div class="boat-gallery-image">
+                  <img
+                    src="images/boat-2.jpg"
+                    alt="Apex Dive Boat - Side View"
+                  />
+                </div>
+                <div class="boat-gallery-image">
+                  <img
+                    src="images/boat-4.jpg"
+                    alt="Apex Dive Boat - Deck View"
+                  />
+                </div>
+                <div class="boat-gallery-image">
+                  <img
+                    src="images/boat-3.jpg"
+                    alt="Apex Dive Boat - Equipment Area"
+                  />
                 </div>
               </div>
             </div>
@@ -2388,7 +4606,196 @@
             </div>
           </div>
         </section>
+
+        <section id="faq-section" class="about-section">
+          <div class="content-wrapper">
+            <h2 class="section-title">
+              Frequently Asked <span class="highlight-text">Questions</span>
+            </h2>
+            <div class="section-subtitle">
+              <p>
+                Everything you need to know for your diving adventure in Rasdhoo
+              </p>
+              <span class="divider"></span>
+            </div>
+
+            <div class="faq-container">
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>How do I get to Rasdhoo Island?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    From Malé Airport, your guesthouse will organize the
+                    transfer to Rasdhoo Island. There are two speedboat
+                    transfers available daily - one in the morning and one in
+                    the afternoon. The scenic journey takes approximately 1 hour
+                    and 30 minutes across the beautiful turquoise waters of the
+                    Maldives. Alternatively, you can take a domestic flight (20
+                    minutes) followed by a short boat transfer.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>What payment methods do you accept?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    We accept both cash and card payments for your convenience.
+                    Please note that card payments include a 3.6% processing fee
+                    added to your total amount. We recommend bringing some cash
+                    (USD or EUR) as many local businesses prefer cash
+                    transactions, and it's often more convenient for smaller
+                    purchases around the island.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>Can non-divers join the boat trips?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Absolutely! Whether you're traveling with friends, family,
+                    or partners, non-divers are welcome to join our diving boat
+                    trips. They can enjoy snorkeling sessions at the dive sites
+                    for an additional fee. This way, everyone can experience the
+                    incredible marine life of the Maldives, whether above or
+                    below the surface. We provide all necessary snorkeling
+                    equipment.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>What currency is used in the Maldives?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    The official currency in the Maldives is the Rufiyaa (MVR).
+                    However, US Dollars and Euros are widely accepted throughout
+                    the islands. For the best rates and convenience around
+                    Rasdhoo Island, you can exchange your euros or dollars for
+                    rufiyaas at local shops, banks, or directly at Malé Airport
+                    upon arrival.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>Do you provide diving equipment?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Yes, we provide all necessary diving equipment including
+                    BCDs, regulators, wetsuits, masks, fins, and tanks. All our
+                    equipment is regularly serviced and maintained to the
+                    highest safety standards. If you prefer to use your own
+                    gear, you're welcome to bring it. We also offer equipment
+                    for snorkeling including masks, fins, and snorkels.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>What should I bring for my diving experience?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Please bring your diving certification card, logbook, and
+                    any personal diving equipment you prefer to use. Don't
+                    forget sunscreen (reef-safe), a towel, and a change of
+                    clothes. We recommend bringing an underwater camera to
+                    capture the amazing marine life. If you have any medical
+                    conditions, please bring relevant documentation or medical
+                    clearance.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>Can complete beginners dive with you?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Absolutely! We welcome divers of all levels, including
+                    complete beginners. We offer SSI Open Water courses and
+                    Discover Scuba Diving programs for those who want to try
+                    diving for the first time. Our experienced instructors will
+                    ensure you feel comfortable and safe throughout your
+                    underwater journey. We also have shallow, calm dive sites
+                    perfect for beginners.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>When is the best time to dive in Rasdhoo?</h4>
+                  <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Diving in Rasdhoo is excellent year-round! The best
+                    visibility and calmest conditions are typically from
+                    November to April (dry season). However, each season offers
+                    unique experiences - hammerhead sharks are more commonly
+                    seen from December to April, while manta rays are frequently
+                    spotted from May to November. Water temperature remains
+                    comfortable at 27-30°C throughout the year.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-cta">
+              <div class="faq-cta-content">
+                <h3>Still have questions?</h3>
+                <p>
+                  Don't hesitate to contact us - we're here to help make your
+                  diving adventure perfect!
+                </p>
+                <a href="https://wa.me/+9607956848" class="faq-contact-btn">
+                  <i class="fab fa-whatsapp"></i>
+                  Ask Us on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+    </div>
+
+    <!-- Schedule Modal -->
+    <div class="schedule-modal-overlay" id="scheduleModal">
+      <div class="schedule-modal">
+        <div class="schedule-modal-header">
+          <h3 class="schedule-modal-title">
+            <i class="fas fa-calendar-alt"></i>
+            Dive Schedule
+          </h3>
+          <button class="schedule-modal-close" id="scheduleModalClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="schedule-modal-content" id="scheduleModalContent">
+          <p>Schedule details will be loaded here...</p>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
@@ -3116,6 +5523,308 @@
         // Update maps pagination on window resize
         window.addEventListener("resize", () => {
           setTimeout(updateMapsDisplay, 100);
+        });
+
+        // Schedule Modal Functionality
+        const scheduleBtn = document.getElementById("scheduleBtn");
+        const scheduleModal = document.getElementById("scheduleModal");
+        const scheduleModalClose =
+          document.getElementById("scheduleModalClose");
+        const scheduleModalContent = document.getElementById(
+          "scheduleModalContent"
+        );
+
+        // Add ripple effect to schedule button
+        if (scheduleBtn) {
+          scheduleBtn.addEventListener("click", function (e) {
+            // Create ripple effect
+            const ripple = document.createElement("span");
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = size + "px";
+            ripple.style.left = x + "px";
+            ripple.style.top = y + "px";
+            ripple.classList.add("btn-ripple");
+
+            this.appendChild(ripple);
+
+            // Remove ripple after animation
+            setTimeout(() => {
+              if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+              }
+            }, 600);
+
+            // Open schedule modal
+            openScheduleModal();
+          });
+        }
+
+        function openScheduleModal() {
+          if (scheduleModal) {
+            scheduleModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+            // Load schedule content with user's specific information
+            if (scheduleModalContent) {
+              scheduleModalContent.innerHTML = `
+                <div style="padding: 1rem 0; max-width: 800px; margin: 0 auto;">
+                  
+                  <!-- Header Section -->
+                  <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="color: #004953; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">Diving Schedule</h2>
+                    <p style="color: #555; font-size: 1.05rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                      Discover the mesmerizing underwater world of the Maldives through a carefully curated diving schedule that promises unparalleled experiences for enthusiasts.
+                    </p>
+                  </div>
+
+                  <!-- Main Schedule Grid -->
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                    
+                    <!-- Daily Schedule -->
+                    <div style="background: linear-gradient(135deg, #004953, #006270); color: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 8px 25px rgba(0, 73, 83, 0.3);">
+                      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="background: rgba(255, 255, 255, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                          <i class="fas fa-clock" style="font-size: 1.3rem; color: #FFD700;"></i>
+                        </div>
+                        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 0;">Daily Dive Times</h3>
+                      </div>
+                      <div style="space-y: 0.75rem;">
+                        <div style="margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                          <strong>8:30 AM</strong> - First dive
+                        </div>
+                        <div style="margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                          <strong>10:00 AM</strong> - Island coffee break
+                        </div>
+                        <div style="margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                          <strong>11:00 AM</strong> - Second dive
+                        </div>
+                        <div style="padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                          <strong>2:30 PM</strong> - Third dive (after lunch)
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Meeting Times -->
+                    <div style="background: linear-gradient(135deg, #0891b2, #00c2cb); color: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3);">
+                      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="background: rgba(255, 255, 255, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                          <i class="fas fa-map-marker-alt" style="font-size: 1.3rem; color: #FFE135;"></i>
+                        </div>
+                        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 0;">Meeting Times</h3>
+                      </div>
+                      <div style="margin-bottom: 1rem; padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                        <strong>Regular Schedule:</strong><br>
+                        Saturday - Sunday: 8:30 AM
+                      </div>
+                      <div style="margin-bottom: 1rem; padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                        <strong>Friday:</strong><br>
+                        8:00 AM (due to 12:00 PM prayer)
+                      </div>
+                      <div style="padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
+                        Boat departs at 8:00 AM sharp
+                      </div>
+                    </div>
+
+                    <!-- Special Dives -->
+                    <div style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);">
+                      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="background: rgba(255, 255, 255, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                          <i class="fas fa-star" style="font-size: 1.3rem; color: #FFE135;"></i>
+                        </div>
+                        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 0;">Special Dives</h3>
+                      </div>
+                      <div style="margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                        <strong>🌅 Sunrise Dive:</strong> 5:45 AM
+                      </div>
+                      <div style="margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem;">
+                        <strong>🌙 Night Dive:</strong> 5:45 PM
+                      </div>
+                      <div style="padding: 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: 0.5rem; font-size: 0.9rem;">
+                        <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>
+                        Available upon request
+                      </div>
+                    </div>
+
+                    <!-- Services -->
+                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 8px 25px rgba(26, 26, 46, 0.4);">
+                      <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="background: rgba(255, 255, 255, 0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                          <i class="fas fa-concierge-bell" style="font-size: 1.3rem; color: #E6E6FA;"></i>
+                        </div>
+                        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 0;">Services on Board</h3>
+                      </div>
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem;">
+                        <div>☕ Coffee & Hot Tea</div>
+                        <div>🥤 Water & Juice</div>
+                        <div>🍪 Snacks</div>
+                        <div>🚿 Fresh Water Shower</div>
+                        <div>🏖️ Towels</div>
+                        <div>🏝️ Sandbank Visits</div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Additional Information -->
+                  <div style="background: rgba(0, 73, 83, 0.05); border: 2px solid rgba(0, 73, 83, 0.1); border-radius: 1rem; padding: 1.5rem; margin-bottom: 2rem;">
+                    <h4 style="color: #004953; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600; display: flex; align-items: center;">
+                      <i class="fas fa-info-circle" style="margin-right: 0.75rem; color: #0891b2;"></i>
+                      Important Details
+                    </h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #444;">
+                      <div>
+                        <h5 style="color: #004953; margin-bottom: 0.5rem; font-size: 1rem;">Surface Interval</h5>
+                        <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                          Enjoy a 1-hour break on Rasdhoo's famous sandbank (weather permitting)
+                        </p>
+                      </div>
+                      <div>
+                        <h5 style="color: #004953; margin-bottom: 0.5rem; font-size: 1rem;">Flexibility</h5>
+                        <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                          We accommodate flight schedules and special requests for early departures
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Contact CTA -->
+                  <div style="text-align: center;">
+                    <a href="https://wa.me/+9607956848" style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 1rem 2rem; border-radius: 2rem; text-decoration: none; font-weight: 600; font-size: 1rem; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3); transition: transform 0.3s ease;">
+                      <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
+                      Book Your Dive Schedule
+                    </a>
+                  </div>
+                </div>
+
+                <style>
+                  @media (max-width: 768px) {
+                    .schedule-modal-content > div > div:nth-child(2) {
+                      grid-template-columns: 1fr !important;
+                      gap: 1rem !important;
+                    }
+                    .schedule-modal-content div[style*="padding: 1.5rem"] {
+                      padding: 1rem !important;
+                    }
+                    .schedule-modal-content div[style*="grid-template-columns: 1fr 1fr"] {
+                      grid-template-columns: 1fr !important;
+                      gap: 0.5rem !important;
+                    }
+                  }
+                </style>
+              `;
+            }
+          }
+        }
+
+        function closeScheduleModal() {
+          if (scheduleModal) {
+            scheduleModal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        }
+
+        // Close modal functionality
+        if (scheduleModalClose) {
+          scheduleModalClose.addEventListener("click", closeScheduleModal);
+        }
+
+        // Close modal when clicking outside
+        if (scheduleModal) {
+          scheduleModal.addEventListener("click", (e) => {
+            if (e.target === scheduleModal) {
+              closeScheduleModal();
+            }
+          });
+        }
+
+        // Close modal with Escape key
+        document.addEventListener("keydown", (e) => {
+          if (
+            e.key === "Escape" &&
+            scheduleModal &&
+            scheduleModal.classList.contains("active")
+          ) {
+            closeScheduleModal();
+          }
+        });
+
+        // FAQ Accordion Functionality
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item, index) => {
+          const question = item.querySelector(".faq-question");
+
+          question.addEventListener("click", () => {
+            const isActive = item.classList.contains("active");
+
+            // Close all other FAQ items first
+            faqItems.forEach((otherItem) => {
+              if (otherItem !== item) {
+                otherItem.classList.remove("active");
+              }
+            });
+
+            // Toggle current item after a small delay to ensure smooth animation
+            setTimeout(() => {
+              if (isActive) {
+                item.classList.remove("active");
+              } else {
+                item.classList.add("active");
+              }
+            }, 100);
+          });
+
+          // Add keyboard accessibility
+          question.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              question.click();
+            }
+          });
+
+          // Make it focusable for accessibility
+          question.setAttribute("tabindex", "0");
+          question.setAttribute("role", "button");
+          question.setAttribute("aria-expanded", "false");
+        });
+
+        // Optional: Open first FAQ item by default
+        if (faqItems.length > 0) {
+          setTimeout(() => {
+            faqItems[0].classList.add("active");
+            faqItems[0]
+              .querySelector(".faq-question")
+              .setAttribute("aria-expanded", "true");
+          }, 500);
+        }
+
+        // Update aria-expanded when items are toggled
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (
+              mutation.type === "attributes" &&
+              mutation.attributeName === "class"
+            ) {
+              const item = mutation.target;
+              const question = item.querySelector(".faq-question");
+              const isActive = item.classList.contains("active");
+              if (question) {
+                question.setAttribute("aria-expanded", isActive.toString());
+              }
+            }
+          });
+        });
+
+        faqItems.forEach((item) => {
+          observer.observe(item, {
+            attributes: true,
+            attributeFilter: ["class"],
+          });
         });
       });
     </script>

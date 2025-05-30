@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="gallery.css" />
     <link rel="stylesheet" href="custom.css" />
     <link rel="stylesheet" href="animations.css" />
+    <link rel="stylesheet" href="special-offers.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <script src="script.js" defer></script>
     <script src="animations.js" defer></script>
+    <script src="special-offers.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -65,6 +67,16 @@
         <main>
           <div class="hero"></div>
           <div class="footer-content">
+            <!-- Special Offers Button in Hero Section -->
+            <div class="hero-special-offers">
+              <button class="hero-offers-btn" id="openSpecialOffersHero">
+                <div class="offer-pulse"></div>
+                <i class="fas fa-gift"></i>
+                <span>🔥 Special Offers Available!</span>
+                <div class="offer-sparkle"></div>
+              </button>
+            </div>
+            
             <div class="social-icons">
               <a href="https://www.facebook.com/profile.php?id=61572287477279" aria-label="Facebook" class="social-icon-bubble"><i class="fab fa-facebook-f"></i></a>
               <a href="https://www.instagram.com/apexdiverasdhoo/" aria-label="Instagram" class="social-icon-bubble"><i class="fab fa-instagram"></i></a>
@@ -970,6 +982,60 @@
         </div>
       </div>
     </section>
+
+    <!-- Special Offer Pop-up -->
+    <div class="special-offer-popup" id="specialOfferPopup">
+      <div class="popup-backdrop"></div>
+      <div class="popup-content">
+        <button class="popup-close" id="closeSpecialOffer" aria-label="Close offer">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="popup-header">
+          <div class="popup-icon">
+            <i class="fas fa-gift"></i>
+          </div>
+          <h2>🎉 <span class="highlight-text">Exclusive Offer</span> Just for You!</h2>
+          <p class="popup-subtitle">Limited Time Special Deals</p>
+        </div>
+        
+        <div class="popup-offers">
+          <div class="offer-item featured-offer">
+            <div class="offer-badge">FREE</div>
+            <div class="offer-content">
+              <h3><i class="fas fa-wind"></i> Free Nitrox for Certified Divers</h3>
+              <p>Enriched Air Nitrox certified divers get <strong>FREE NITROX</strong> on all dives! Extend your bottom time and enhance your diving experience.</p>
+            </div>
+          </div>
+          
+          <div class="offer-item special-offer">
+            <div class="offer-badge">SPECIAL</div>
+            <div class="offer-content">
+              <h3><i class="fas fa-users"></i> Group Booking Discounts</h3>
+              <p>Book for <strong>4+ divers</strong> and save up to <strong>15%</strong> on all dive packages! Perfect for families and friends diving together.</p>
+            </div>
+          </div>
+          
+          <div class="offer-item limited-offer">
+            <div class="offer-badge">LIMITED</div>
+            <div class="offer-content">
+              <h3><i class="fas fa-trophy"></i> Ultimate Dive Package</h3>
+              <p>Complete <strong>10 dives</strong> and get <strong>20% off</strong> + FREE advanced certification upgrade + complimentary underwater photography session!</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="popup-cta">
+          <a href="https://wa.me/+9607956848?text=Hi! I'm interested in your special offers. Can you tell me more?" 
+             class="offer-btn primary" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Claim Your Offers Now
+          </a>
+          <button class="offer-btn secondary" id="remindLater">Remind Me Later</button>
+        </div>
+        
+        <p class="popup-note">* Terms and conditions apply. Offers valid for new bookings only.</p>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
