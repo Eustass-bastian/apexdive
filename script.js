@@ -1768,3 +1768,112 @@ function createReviewCard(review) {
 
   return card;
 }
+
+// Video handling for better compatibility and looping
+document.addEventListener("DOMContentLoaded", function () {
+  const videos = document.querySelectorAll(".diving-video");
+
+  videos.forEach((video) => {
+    const container = video.closest(".video-container");
+    const fallback = container.querySelector(".video-fallback");
+
+    // Ensure video loops properly
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    // Force autoplay and loop
+    function ensureVideoPlays() {
+      if (video.paused) {
+        video.play().catch((e) => {
+          console.log("Autoplay failed, but video is ready:", e);
+        });
+      }
+    }
+
+    // Check if video can be played
+    video.addEventListener("error", function () {
+      console.log("Video failed to load:", video.src);
+      if (fallback) {
+        fallback.style.display = "block";
+        video.style.display = "none";
+      }
+    });
+
+    // Check if video loads successfully
+    video.addEventListener("loadeddata", function () {
+      console.log("Video loaded successfully:", video.src);
+      container.classList.remove("loading");
+      if (fallback) {
+        fallback.style.display = "none";
+      }
+      // Ensure video starts playing
+      ensureVideoPlays();
+    });
+
+    // Show loading state
+    video.addEventListener("loadstart", function () {
+      container.classList.add("loading");
+    });
+
+    // Ensure video loops when it ends
+    video.addEventListener("ended", function () {
+      console.log("Video ended, restarting loop");
+      video.currentTime = 0;
+      video.play().catch((e) => {
+        console.log("Loop restart failed:", e);
+      });
+    });
+
+    // Handle play/pause events
+    video.addEventListener("play", function () {
+      console.log("Video started playing");
+    });
+
+    video.addEventListener("pause", function () {
+      console.log("Video paused");
+    });
+
+    // Add click handler for fallback to try loading video again
+    if (fallback) {
+      fallback.addEventListener("click", function () {
+        video.load();
+        video.play().catch((e) => {
+          console.log("Video still cannot be played:", e);
+        });
+      });
+    }
+
+    // Handle video format compatibility
+    const sources = video.querySelectorAll("source");
+    let currentSourceIndex = 0;
+
+    video.addEventListener("error", function () {
+      currentSourceIndex++;
+      if (currentSourceIndex < sources.length) {
+        video.src = sources[currentSourceIndex].src;
+        video.load();
+      } else {
+        // All sources failed, show fallback
+        if (fallback) {
+          fallback.style.display = "block";
+          video.style.display = "none";
+        }
+      }
+    });
+
+    // Intersection Observer to ensure videos play when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            ensureVideoPlays();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(video);
+  });
+});
