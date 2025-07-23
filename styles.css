@@ -48,12 +48,11 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("images/lugey.jpg");
+  background-image: url("images/lugey.webp");
   background-size: cover;
-  background-position: center;
+  background-position: 100% 35%;
   background-repeat: no-repeat;
   position: relative;
-  background-position: 100% 35%;
 }
 
 .content-wrapper {
@@ -1638,7 +1637,7 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("images/lugey.jpg");
+  background-image: url("images/lugey.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11276,7 +11275,7 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("images/lugey.jpg");
+  background-image: url("images/lugey.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15126,7 +15125,7 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("images/lugey.jpg");
+  background-image: url("images/lugey.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16716,7 +16715,7 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("images/lugey.jpg");
+  background-image: url("images/lugey.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23656,7 +23655,7 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("images/lugey.jpg");
+  background-image: url("images/lugey.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
