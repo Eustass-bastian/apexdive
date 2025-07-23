@@ -448,6 +448,8 @@
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .review-popup.active {
@@ -467,6 +469,7 @@
   transform: translateY(-50px);
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
 }
 
 .review-popup.active .review-popup-content {
@@ -495,6 +498,7 @@
 
 .review-form {
   margin-top: 1rem;
+  max-width: 100%;
 }
 
 .form-group {
@@ -528,6 +532,7 @@
 .form-group textarea {
   height: 120px;
   resize: vertical;
+  min-height: 80px;
 }
 
 .rating-input {
@@ -550,9 +555,10 @@
 
 .avatar-selection {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
   margin-top: 0.5rem;
+  justify-content: center;
 }
 
 .avatar-option {
@@ -563,6 +569,8 @@
   border: 2px solid transparent;
   transition: all 0.3s ease;
   padding: 2px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .avatar-option:hover {
@@ -623,16 +631,108 @@
 }
 
 @media (max-width: 768px) {
+  .review-popup {
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
   .review-popup-content {
-    padding: 1.5rem;
+    padding: 1rem;
+    width: 95%;
+    max-width: none;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 1rem 0;
+    transform: none;
+  }
+
+  .review-popup.active .review-popup-content {
+    transform: none;
+  }
+
+  .close-popup {
+    position: sticky;
+    top: 0;
+    right: 0;
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    margin-left: auto;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.7rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .form-group textarea {
+    height: 100px;
   }
 
   .avatar-selection {
     justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .avatar-option {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    object-position: center;
   }
 
   .rating-input {
     justify-content: center;
+    font-size: 1.3rem;
+  }
+
+  .submit-review {
+    padding: 0.8rem 1.5rem;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-popup {
+    padding: 0.5rem;
+  }
+
+  .review-popup-content {
+    padding: 0.8rem;
+    width: 100%;
+    max-height: 95vh;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem;
+    font-size: 16px;
+  }
+
+  .avatar-option {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .rating-input {
+    font-size: 1.2rem;
   }
 }
 

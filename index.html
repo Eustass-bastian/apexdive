@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="custom.css" />
     <link rel="stylesheet" href="animations.css" />
     <link rel="stylesheet" href="special-offers.css" />
+    <link rel="stylesheet" href="contact-styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -266,7 +267,7 @@
               </div>
               <div class="review-profile">
                 <div class="review-avatar">
-                  <img src="images/boy (1).png" alt="Yai Bro" />
+                  <img src="images/Avaters/Asset 3@4x-100.jpg" alt="Yai Bro" />
                 </div>
                 <div class="review-info">
                   <h3>
@@ -298,7 +299,7 @@
               </div>
               <div class="review-profile">
                 <div class="review-avatar">
-                  <img src="images/woman (1).png" alt="Sarah M." />
+                  <img src="images/Avaters/Asset 1@4x-100.jpg" alt="Sarah M." />
                 </div>
                 <div class="review-info">
                   <h3>Saw hammerhead sharks on my first dive!</h3>
@@ -327,7 +328,7 @@
               </div>
               <div class="review-profile">
                 <div class="review-avatar">
-                  <img src="images/man.png" alt="Marco D." />
+                  <img src="images/Avaters/Asset 5@4x-100.jpg" alt="Marco D." />
                 </div>
                 <div class="review-info">
                   <h3>Completed my Advanced Open Water with APEX</h3>
@@ -356,7 +357,7 @@
               </div>
               <div class="review-profile">
                 <div class="review-avatar">
-                  <img src="images/woman.png" alt="Emma & Tom" />
+                  <img src="images/Avaters/Asset 4@4x-100.jpg" alt="Emma & Tom" />
                 </div>
                 <div class="review-info">
                   <h3>Perfect diving experience</h3>
@@ -385,7 +386,7 @@
               </div>
               <div class="review-profile">
                 <div class="review-avatar">
-                  <img src="images/boy.png" alt="Raj P." />
+                  <img src="images/Avaters/Asset 9@4x-100.jpg" alt="Raj P." />
                 </div>
                 <div class="review-info">
                   <h3>Best diving center in Rasdhoo, hands down!</h3>
@@ -421,6 +422,33 @@
 
         <div class="reviews-footer">
           <button class="review-btn" id="shareReviewBtn">Share Your Experience</button>
+          
+          <!-- Contact Information for Questions -->
+          <div class="contact-info-section">
+            <h4>Have Questions About Prices or Services?</h4>
+            <p>We're here to help! Contact us directly:</p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/+9607956848?text=Hi! I have questions about your diving services and prices. Can you help me?" 
+                   target="_blank" rel="noopener noreferrer">
+                  WhatsApp: +960 7956848
+                </a>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:apexdiverasdhoo@gmail.com?subject=Questions about diving services">
+                  Email: apexdiverasdhoo@gmail.com
+                </a>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+9607956848">
+                  Phone: +960 7956848
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -446,6 +474,14 @@
             <input type="text" id="reviewerName" name="Name" required placeholder="Enter your name">
           </div>
           <div class="form-group">
+            <label for="reviewerEmail">Your Email</label>
+            <input type="email" id="reviewerEmail" name="Email" required placeholder="Enter your email address">
+          </div>
+          <div class="form-group">
+            <label for="reviewerWhatsApp">Your WhatsApp Number</label>
+            <input type="tel" id="reviewerWhatsApp" name="WhatsApp" placeholder="Enter your WhatsApp number (optional)">
+          </div>
+          <div class="form-group">
             <label for="reviewTitle">Review Title</label>
             <input type="text" id="reviewTitle" name="Review Title" required placeholder="Give your review a title">
           </div>
@@ -467,12 +503,16 @@
           <div class="form-group">
             <label for="reviewerAvatar">Choose Avatar</label>
             <div class="avatar-selection">
-              <img src="images/boy.png" alt="Avatar 1" data-avatar="boy.png" class="avatar-option">
-              <img src="images/boy (1).png" alt="Avatar 2" data-avatar="boy (1).png" class="avatar-option">
-              <img src="images/woman.png" alt="Avatar 3" data-avatar="woman.png" class="avatar-option">
-              <img src="images/woman (1).png" alt="Avatar 4" data-avatar="woman (1).png" class="avatar-option">
-              <img src="images/man.png" alt="Avatar 5" data-avatar="man.png" class="avatar-option">
-              <input type="hidden" name="Avatar" id="avatarInput" value="boy.png">
+              <img src="images/Avaters/Asset 1@4x-100.jpg" alt="Avatar 1" data-avatar="Asset 1@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 2@4x-100.jpg" alt="Avatar 2" data-avatar="Asset 2@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 3@4x-100.jpg" alt="Avatar 3" data-avatar="Asset 3@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 4@4x-100.jpg" alt="Avatar 4" data-avatar="Asset 4@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 5@4x-100.jpg" alt="Avatar 5" data-avatar="Asset 5@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 6@4x-100.jpg" alt="Avatar 6" data-avatar="Asset 6@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 7@4x-100.jpg" alt="Avatar 7" data-avatar="Asset 7@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 8@4x-100.jpg" alt="Avatar 8" data-avatar="Asset 8@4x-100.jpg" class="avatar-option">
+              <img src="images/Avaters/Asset 9@4x-100.jpg" alt="Avatar 9" data-avatar="Asset 9@4x-100.jpg" class="avatar-option">
+              <input type="hidden" name="Avatar" id="avatarInput" value="Asset 1@4x-100.jpg">
             </div>
           </div>
           <button type="submit" class="submit-review">Submit Review</button>
@@ -537,6 +577,60 @@
       </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="video-section">
+      <div class="content-wrapper">
+        <div class="video-header">
+          <h2>Experience the <span class="highlight-text">Underwater Magic</span></h2>
+          <p class="video-subtitle">
+            Watch our divers explore the vibrant reefs and marine life of Rasdhoo Atoll
+          </p>
+        </div>
+        
+        <div class="videos-grid">
+          <div class="video-container">
+            <video 
+              autoplay
+              muted
+              loop
+              playsinline
+              poster="images/new/D1.jpg"
+              class="diving-video"
+              preload="metadata"
+            >
+              <source src="videos/IMG_4781.MOV" type="video/quicktime">
+              <source src="videos/IMG_4781.MOV" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <div class="video-container">
+            <video 
+              autoplay
+              muted
+              loop
+              playsinline
+              poster="images/new/D2.jpg"
+              class="diving-video"
+              preload="metadata"
+            >
+              <source src="videos/IMG_3257.MOV" type="video/quicktime">
+              <source src="videos/IMG_3257.MOV" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        
+        <div class="video-description">
+          <p>
+            Immerse yourself in the crystal-clear waters of Rasdhoo Atoll. 
+            Experience the thrill of diving with sharks, swimming with manta rays, 
+            and exploring vibrant coral reefs teeming with marine life.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="why-us-section">
       <div class="content-wrapper">
         <div class="why-us-container">
@@ -582,11 +676,11 @@
 
             <div class="why-us-image-container">
               <div class="image-card image-card-1">
-                <img src="images/pic 1.avif" alt="Diver with sun rays" />
+                <img src="images/pic-1.jpg" alt="Diver with sun rays" />
                 <div class="image-card-overlay"></div>
               </div>
               <div class="image-card image-card-2">
-                <img src="images/pic 2.avif" alt="Underwater scene" />
+                <img src="images/pic-2.jpg" alt="Underwater scene" />
                 <div class="image-card-overlay"></div>
               </div>
               <div class="bubble bubble-1"></div>
@@ -771,7 +865,7 @@
           <!-- Complete Bundle -->
           <div class="bundle-card featured">
             <div class="bundle-image">
-              <img src="images/new/dive-yai.jpg" alt="Complete Course Bundle" />
+              <img src="images/new/yai-dive.jpg" alt="Complete Course Bundle" />
               <div class="bundle-overlay"></div>
               <div class="bundle-tag">Most Popular</div>
             </div>
@@ -955,36 +1049,6 @@
               <a href="packages.html" class="view-details">View Details</a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Image Gallery -->
-    <section class="image-gallery">
-      <div class="gallery-container">
-        <div class="gallery-track">
-          <div class="gallery-slide">
-            <img src="images/new/G1.jpg" alt="Diving Experience" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="images/new/G2.jpg" alt="Underwater Adventure" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="images/new/G3.jpg" alt="Marine Life" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="images/new/G4.jpg" alt="Coral Reef" loading="lazy">
-          </div>
-          <div class="gallery-slide">
-            <img src="images/new/G5.jpg" alt="Ocean Discovery" loading="lazy">
-          </div>
-        </div>
-        <div class="gallery-pagination">
-          <button class="pagination-dot active" aria-label="Image 1"></button>
-          <button class="pagination-dot" aria-label="Image 2"></button>
-          <button class="pagination-dot" aria-label="Image 3"></button>
-          <button class="pagination-dot" aria-label="Image 4"></button>
-          <button class="pagination-dot" aria-label="Image 5"></button>
         </div>
       </div>
     </section>

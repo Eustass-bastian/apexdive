@@ -6,6 +6,7 @@
     <title>Dive Packages - APEX DIVE</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="custom.css" />
+    <link rel="icon" type="image/png" href="images/logo.png">
     <!-- Super simple radio buttons styled as a toggle -->
     <style>
       /* Simple Yes/No Radio Toggle */
@@ -1076,6 +1077,55 @@
             divingExperienceContainer.slideUp(300);
           }
         });
+
+        // --- BEGIN: Update summary fields logic ---
+        function updateSummary() {
+          // Number of Dives
+          const dives = $("#numDives").val();
+          $("#summaryDives").text(dives);
+          // Number of Divers
+          const people = $("#numPeople").val();
+          $("#summaryPeople").text(people);
+          // Planned Dates
+          const month = $("#travelMonth option:selected").text();
+          const year = $("#travelYear option:selected").text();
+          let dateSummary = "Not selected";
+          if (month !== "Select month" && year !== "Select year" && month && year) {
+            dateSummary = month + " " + year;
+          } else if (month !== "Select month" && month) {
+            dateSummary = month;
+          } else if (year !== "Select year" && year) {
+            dateSummary = year;
+          }
+          $("#summaryDate").text(dateSummary);
+          // Diver Status
+          let diverStatus = "Not certified";
+          if (diverYesRadio.is(":checked")) {
+            diverStatus = "Certified";
+          }
+          $("#summaryDiverStatus").text(diverStatus);
+          // Certification Level
+          let certLevel = $("#diverLevel option:selected").text();
+          if (!diverYesRadio.is(":checked")) {
+            certLevel = "-";
+          } else if (certLevel === "Select level") {
+            certLevel = "-";
+          }
+          $("#summaryCertification").text(certLevel);
+        }
+        // Update summary on input changes
+        $("#numDives, #numPeople, #travelMonth, #travelYear, #diverYes, #diverNo, #diverLevel").on("input change", updateSummary);
+        // Also update when navigating to Step 3
+        $(".next-step-btn").on("click", function() {
+          // If moving to step 3, update summary
+          const nextStep = $(this).closest('.form-step').data('step');
+          if (parseInt(nextStep) === 2) {
+            setTimeout(updateSummary, 300); // Wait for step to show
+          }
+        });
+        // Initial summary update
+        updateSummary();
+        // --- END: Update summary fields logic ---
       });
       
       // Smooth scrolling implementation using jQuery
